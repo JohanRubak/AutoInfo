@@ -7,7 +7,7 @@ using System.Windows.Input;
 
 namespace Journalfoeringssystem.Core
 {
-   class RelayCommand: ICommand
+   public class RelayCommand: ICommand
    {
       private Action<object> _execute;
       private Func<object, bool> _canExecute;
