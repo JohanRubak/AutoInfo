@@ -4,12 +4,101 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Journalfoeringssystem"
+        xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
         mc:Ignorable="d"
         Height="740" Width="1280" WindowStartupLocation="Centerscreen"
         WindowStyle="None" AllowsTransparency="True" Background="Transparent">
     <Grid>
       <Grid.ColumnDefinitions>
-
+         <ColumnDefinition Width="250"/>
+         <ColumnDefinition Width="*"/>
       </Grid.ColumnDefinitions>
+
+      <!--Left Section-->
+      <Border CornerRadius="10 0 0 10">
+         <Border.Background>
+            <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+               <GradientStop Color="#223266" Offset="0"/>
+               <GradientStop Color="#27396b" Offset="1"/>
+            </LinearGradientBrush>
+         </Border.Background>
+         
+         <StackPanel>
+            <!--Titel-->
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 35 0 0">
+               <Border CornerRadius="10" Width="40" Height="40">
+                  <Border.Background>
+                     <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                        <GradientStop Color="#7f7cf1" Offset="0"/>
+                        <GradientStop Color="#d3b7ff" Offset="1"/>
+                     </LinearGradientBrush>
+                  </Border.Background>
+
+                  <TextBlock Text="3D" Foreground="#ffffff" FontSize="22" FontWeight="SemiBold" TextAlignment="Center" VerticalAlignment="Center" Margin="3 0 0 2"/>
+               </Border>
+
+               <StackPanel Margin="10 0 0 0" VerticalAlignment="Center">
+                  <TextBlock Text="3D-Printcenteret" FontSize="15" Margin="0 0 0 5" Foreground="#c2cfff"/>
+                  <TextBlock Text="Beta 1.0" FontSize="11" Foreground="#7788bf"/>
+               </StackPanel>
+            </StackPanel>
+
+            <Separator Height="0.8" Margin="20 30" Background="#46558a"/>
+
+            <!--Menu Buttons-->
+            <Button Style="{StaticResource menuButtonActive}">
+               <StackPanel Orientation="Horizontal">
+                  <fa:IconImage Icon="Home" Style="{StaticResource menuButtonIcon}"/>
+                  <TextBlock Text="Home" Style="{StaticResource menuButtonText}"/>
+               </StackPanel>
+            </Button>
+
+            <Button Style="{StaticResource menuButton}">
+               <StackPanel Orientation="Horizontal">
+                  <fa:IconImage Icon="FileSignature" Style="{StaticResource menuButtonIcon}"/>
+                  <TextBlock Text="Generate PDF" Style="{StaticResource menuButtonText}"/>
+               </StackPanel>
+            </Button>
+
+            <Button Style="{StaticResource menuButton}">
+               <StackPanel Orientation="Horizontal">
+                  <fa:IconImage Icon="Question" Style="{StaticResource menuButtonIcon}"/>
+                  <TextBlock Text="Help" Style="{StaticResource menuButtonText}"/>
+               </StackPanel>
+            </Button>
+
+         </StackPanel>
+
+      </Border>
+
+      <!--Main Section-->
+      <Border Grid.Column="1" CornerRadius="0 10 10 0">
+         <Border.Background>
+            <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+               <GradientStop Color="#41518f" Offset="0"/>
+               <GradientStop Color="#2c386c" Offset="1"/>
+            </LinearGradientBrush>
+         </Border.Background>
+
+         <Grid>
+            <Grid.RowDefinitions>
+               <RowDefinition Height="75"/>
+               <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!--Top Menu-->
+            <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0 0 30 20">
+               <Button Content="Close" Style="{StaticResource topMenuButton}"/>
+            </StackPanel>
+
+            <!--Titel-->
+            <TextBlock Text="Journalføringssystem" FontSize="26" Foreground="#ccd7ff" HorizontalAlignment="Left" Margin="50 35 0 0"/>
+
+            <ContentControl Grid.Row="1" Grid.Column="1" Margin="10" />
+
+         </Grid>
+
+      </Border>
     </Grid>
+   
 </Window>

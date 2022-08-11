@@ -11,8 +11,11 @@
     <Folder Include="Images\" />
     <Folder Include="MVVM\Model\" />
     <Folder Include="MVVM\View\" />
-    <Folder Include="MVVM\ViewModel\" />
     <Folder Include="Theme\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FontAwesome.Sharp" Version="6.1.1" />
   </ItemGroup>
 
 </Project>
