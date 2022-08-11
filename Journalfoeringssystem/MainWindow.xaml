@@ -5,8 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Journalfoeringssystem"
         mc:Ignorable="d"
-        Height="450" Width="800">
+        Height="740" Width="1280" WindowStartupLocation="Centerscreen"
+        WindowStyle="None" AllowsTransparency="True" Background="Transparent">
     <Grid>
+      <Grid.ColumnDefinitions>
 
+      </Grid.ColumnDefinitions>
     </Grid>
 </Window>
