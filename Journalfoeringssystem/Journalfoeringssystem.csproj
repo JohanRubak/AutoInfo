@@ -7,15 +7,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="MVVM\View\IMG_8155.JPG" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Fonts\" />
     <Folder Include="Images\" />
     <Folder Include="MVVM\Model\" />
-    <Folder Include="MVVM\View\" />
-    <Folder Include="Theme\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="FontAwesome.Sharp" Version="6.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="MVVM\View\IMG_8155.JPG" />
   </ItemGroup>
 
 </Project>

@@ -13,21 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Journalfoeringssystem
+namespace Journalfoeringssystem.MVVM.View
 {
    /// <summary>
-   /// Interaction logic for MainWindow.xaml
+   /// Interaction logic for GeneratePDFView.xaml
    /// </summary>
-   public partial class MainWindow : Window
+   public partial class GeneratePDFView : UserControl
    {
-      public MainWindow()
+      public GeneratePDFView()
       {
          InitializeComponent();
-      }
-
-      private void Button_Click(object sender, RoutedEventArgs e)
-      {
-         this.Close();
       }
    }
 }

@@ -5,10 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Journalfoeringssystem"
         xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
+        xmlns:viewModel="clr-namespace:Journalfoeringssystem.MVVM.ViewModel"
         mc:Ignorable="d"
         Height="740" Width="1280" WindowStartupLocation="Centerscreen"
         WindowStyle="None" AllowsTransparency="True" Background="Transparent">
-    <Grid>
+
+   <Window.DataContext>
+      <viewModel:MainViewModel />
+   </Window.DataContext>
+
+
+   <Grid>
       <Grid.ColumnDefinitions>
          <ColumnDefinition Width="250"/>
          <ColumnDefinition Width="*"/>
@@ -46,14 +53,14 @@
             <Separator Height="0.8" Margin="20 30" Background="#46558a"/>
 
             <!--Menu Buttons-->
-            <Button Style="{StaticResource menuButtonActive}">
+            <Button Style="{StaticResource menuButton}" Command="{Binding HomeViewCommand}">
                <StackPanel Orientation="Horizontal">
                   <fa:IconImage Icon="Home" Style="{StaticResource menuButtonIcon}"/>
                   <TextBlock Text="Home" Style="{StaticResource menuButtonText}"/>
                </StackPanel>
             </Button>
 
-            <Button Style="{StaticResource menuButton}">
+            <Button Style="{StaticResource menuButton}" Command="{Binding GeneratePDFViewCommand}">
                <StackPanel Orientation="Horizontal">
                   <fa:IconImage Icon="FileSignature" Style="{StaticResource menuButtonIcon}"/>
                   <TextBlock Text="Generate PDF" Style="{StaticResource menuButtonText}"/>
@@ -88,13 +95,16 @@
 
             <!--Top Menu-->
             <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0 0 30 20">
-               <Button Content="Close" Style="{StaticResource topMenuButton}"/>
+               <Button Content="Close" Style="{StaticResource topMenuButton}" Click="Button_Click"/>
             </StackPanel>
 
             <!--Titel-->
             <TextBlock Text="Journalføringssystem" FontSize="26" Foreground="#ccd7ff" HorizontalAlignment="Left" Margin="50 35 0 0"/>
 
-            <ContentControl Grid.Row="1" Grid.Column="1" Margin="10" />
+            <ContentControl Grid.Row="1" 
+                            Grid.Column="1" 
+                            Margin="10"
+                            Content="{Binding CurrentView }"/>
 
          </Grid>
 
