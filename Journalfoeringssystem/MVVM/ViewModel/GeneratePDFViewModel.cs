@@ -44,32 +44,11 @@ namespace Journalfoeringssystem.MVVM.ViewModel
          }
       }
 
-      private string _workerName;
-
-      public string WorkerName
-      {
-         get
-         {
-            return _workerName;
-         }
-
-         set
-         {
-            _workerName = value;
-            OnPropertyChanged(nameof(WorkerName));
-         }
-      }
-
       public GeneratePDFViewModel()
       {
          SearchCommand = new RelayCommand(o =>
          {
             Name = CPRNumber;
-         });
-
-         AddCommand = new RelayCommand(o =>
-         {
-
          });
       }
 

@@ -61,10 +61,13 @@
       <Button x:Name="EditButton" Content="Edit" HorizontalAlignment="Left" Margin="327,235,0,0" VerticalAlignment="Top" Style="{StaticResource personsButton}"/>
       <Button x:Name="DeleteButton" Content="Delete" HorizontalAlignment="Left" Margin="380,235,0,0" VerticalAlignment="Top" Style="{StaticResource personsButton}"/>
       <ListView x:Name="PersonsListView" Margin="433,168,394,182" Height="101" VerticalAlignment="Top">
+         <ListView.DataContext>
+            <local:Worker />
+         </ListView.DataContext>
          <ListView.View>
             <GridView>
                <GridViewColumn Header="Name" Width="120" DisplayMemberBinding="{Binding WorkerName}"/>
-               <GridViewColumn Header="Job" Width="20"/>
+               <GridViewColumn Header="Job" Width="20" DisplayMemberBinding="{Binding WorkerJob}"/>
             </GridView>
          </ListView.View>
       </ListView>

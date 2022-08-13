@@ -28,12 +28,10 @@ namespace Journalfoeringssystem.MVVM.View
 
       private void AddButton_Click(object sender, RoutedEventArgs e)
       {
-         //List<Worker> items = new List<Worker>();
-         //items.Add(new Worker() { WorkerName = WorkerNameLocal });
-         //PersonsListView.ItemsSource = items;
-      }
+         Worker worker = new Worker() {WorkerName = NameWorker.Text, WorkerJob = WorkerTitel.Text};
 
-      public string WorkerNameLocal { get; set; }
+         PersonsListView.Items.Add(worker);
+      }
    }
 
    public class Worker
