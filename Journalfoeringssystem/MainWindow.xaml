@@ -99,7 +99,7 @@
             </StackPanel>
 
             <!--Titel-->
-            <TextBlock Text="Journalføringssystem" FontSize="26" Foreground="#ccd7ff" HorizontalAlignment="Left" Margin="50 35 0 0"/>
+            <TextBlock Text="Journalføringssystem" FontSize="26" Foreground="#ccd7ff" HorizontalAlignment="Left" Margin="35 35 0 0"/>
 
             <ContentControl Grid.Row="1" 
                             Grid.Column="1" 

@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Journalfoeringssystem.MVVM.View"
+             xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
              xmlns:ViewModel="clr-namespace:Journalfoeringssystem.MVVM.ViewModel" x:Class="Journalfoeringssystem.MVVM.View.GeneratePDFView"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="1010">
@@ -12,15 +13,17 @@
    </UserControl.DataContext>
 
    <Grid>
-      <Border BorderThickness="2" BorderBrush="#ccd7ff" CornerRadius="10"/>
+      <Border BorderThickness="2" BorderBrush="#ccd7ff" CornerRadius="10" Margin="0,20,0,20" HorizontalAlignment="Center" Width="970"/>
       <TextBox HorizontalAlignment="Left" Margin="306,207,0,0" Text="{Binding CPRNumber}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-      <Button Content="Search" HorizontalAlignment="Left" Margin="281,35,0,0" VerticalAlignment="Top" Style="{StaticResource standardButton}" Command="{Binding SearchCommand}"/>
+      <Button Content="Search" HorizontalAlignment="Left" Margin="321,53,0,0" VerticalAlignment="Top" Style="{StaticResource standardButton}" Command="{Binding SearchCommand}"/>
       <TextBox HorizontalAlignment="Left" Margin="306,248,0,0" Text="{Binding Name}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-      <TextBox HorizontalAlignment="Left" Margin="36,41,0,0" Text="Search for patient (XXXXXX-XXXX)" TextWrapping="Wrap" VerticalAlignment="Top" Width="231" Foreground="#FFC8C8C8" Background="#747999"/>
-      <Label Content="CPR-number" HorizontalAlignment="Left" Margin="36,75,0,0" VerticalAlignment="Top" Foreground="#ccd7ff"/>
-      <Label Content="#000000-0000" HorizontalAlignment="Left" Margin="36,101,0,0" VerticalAlignment="Top" Foreground="#FFE5EAFF" FontWeight="Bold"/>
-      <Label Content="Name" HorizontalAlignment="Left" Margin="176,75,0,0" VerticalAlignment="Top" Foreground="#ccd7ff"/>
-      <Label Content="#XXXXXX" HorizontalAlignment="Left" Margin="176,101,0,0" VerticalAlignment="Top" Foreground="#FFE5EAFF" FontWeight="Bold"/>
+      <TextBox HorizontalAlignment="Left" Margin="76,59,0,0" Text="Search for patient (XXXXXX-XXXX)" TextWrapping="Wrap" VerticalAlignment="Top" Width="231" Foreground="#FFC8C8C8" Background="#747999"/>
+      <Label Content="CPR-number" HorizontalAlignment="Left" Margin="51,90,0,0" VerticalAlignment="Top" Foreground="#ccd7ff"/>
+      <Label Content="#000000-0000" HorizontalAlignment="Left" Margin="51,116,0,0" VerticalAlignment="Top" Foreground="#FFE5EAFF" FontWeight="Bold"/>
+      <Label Content="Name" HorizontalAlignment="Left" Margin="191,90,0,0" VerticalAlignment="Top" Foreground="#ccd7ff"/>
+      <Label Content="#XXXXXXXXXXXXXXX" HorizontalAlignment="Left" Margin="191,116,0,0" VerticalAlignment="Top" Foreground="#FFE5EAFF" FontWeight="Bold"/>
+      <Label Content="Searchpath" HorizontalAlignment="Left" Margin="418,90,0,0" VerticalAlignment="Top" Foreground="#ccd7ff"/>
+      <Label Content="#/../../XXXX" HorizontalAlignment="Left" Margin="418,116,0,0" VerticalAlignment="Top" Foreground="#FFE5EAFF" FontWeight="Bold"/>
 
    </Grid>
 </UserControl>
