@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Journalfoeringssystem.MVVM.ViewModel;
 
 namespace Journalfoeringssystem.MVVM.View
 {
@@ -24,5 +25,20 @@ namespace Journalfoeringssystem.MVVM.View
       {
          InitializeComponent();
       }
+
+      private void AddButton_Click(object sender, RoutedEventArgs e)
+      {
+         //List<Worker> items = new List<Worker>();
+         //items.Add(new Worker() { WorkerName = WorkerNameLocal });
+         //PersonsListView.ItemsSource = items;
+      }
+
+      public string WorkerNameLocal { get; set; }
+   }
+
+   public class Worker
+   {
+      public string WorkerName { get; set; }
+      public string WorkerJob { get; set; }
    }
 }
