@@ -70,16 +70,6 @@ namespace Journalfoeringssystem.MVVM.ViewModel
                WorkersInput.AddWorker(new Worker() { WorkerName = WorkerInput.WorkerName, WorkerJob = WorkerInput.WorkerJob });
             }
 
-            else if (WorkerInput.WorkerName == null)
-            {
-               WorkersInput.AddWorker(new Worker() { WorkerName = "N/A", WorkerJob = WorkerInput.WorkerJob });
-            }
-
-            else if (WorkerInput.WorkerJob == null)
-            {
-               WorkersInput.AddWorker(new Worker() { WorkerName = WorkerInput.WorkerName, WorkerJob = "N/A" });
-            }
-
          });
 
          RemoveCommand = new RelayCommand(o =>
