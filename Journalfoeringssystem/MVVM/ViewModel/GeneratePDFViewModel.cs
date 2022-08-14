@@ -65,7 +65,21 @@ namespace Journalfoeringssystem.MVVM.ViewModel
 
          AddCommand = new RelayCommand(o =>
          {
-            WorkersInput.AddWorker(new Worker(){WorkerName = WorkerInput.WorkerName, WorkerJob = WorkerInput.WorkerJob});
+            if (WorkerInput.WorkerName != null && WorkerInput.WorkerJob != null)
+            {
+               WorkersInput.AddWorker(new Worker() { WorkerName = WorkerInput.WorkerName, WorkerJob = WorkerInput.WorkerJob });
+            }
+
+            else if (WorkerInput.WorkerName == null)
+            {
+               WorkersInput.AddWorker(new Worker() { WorkerName = "N/A", WorkerJob = WorkerInput.WorkerJob });
+            }
+
+            else if (WorkerInput.WorkerJob == null)
+            {
+               WorkersInput.AddWorker(new Worker() { WorkerName = WorkerInput.WorkerName, WorkerJob = "N/A" });
+            }
+
          });
 
          RemoveCommand = new RelayCommand(o =>
@@ -75,7 +89,20 @@ namespace Journalfoeringssystem.MVVM.ViewModel
 
          EditCommand = new RelayCommand(o =>
          {
-            WorkersInput.EditWorker(SelectedWorker, new Worker(){ WorkerName = WorkerInput.WorkerName, WorkerJob = WorkerInput.WorkerJob });
+            if (WorkerInput.WorkerName != "" && WorkerInput.WorkerJob != "")
+            {
+               WorkersInput.EditWorker(SelectedWorker, new Worker() { WorkerName = WorkerInput.WorkerName, WorkerJob = WorkerInput.WorkerJob });
+            }
+
+            else if (WorkerInput.WorkerName == "")
+            {
+               WorkersInput.EditWorker(SelectedWorker, new Worker() { WorkerName = "N/A", WorkerJob = WorkerInput.WorkerJob });
+            }
+
+            else if (WorkerInput.WorkerJob == "")
+            {
+               WorkersInput.EditWorker(SelectedWorker, new Worker() { WorkerName = WorkerInput.WorkerName, WorkerJob = "N/A" });
+            }
          });
       }
 
