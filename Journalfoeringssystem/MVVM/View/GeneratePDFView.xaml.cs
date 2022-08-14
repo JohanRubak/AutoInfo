@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Journalfoeringssystem.MVVM.Model;
 using Journalfoeringssystem.MVVM.ViewModel;
 
 namespace Journalfoeringssystem.MVVM.View
@@ -26,17 +27,16 @@ namespace Journalfoeringssystem.MVVM.View
          InitializeComponent();
       }
 
-      private void AddButton_Click(object sender, RoutedEventArgs e)
+      private void PersonsListView_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
       {
-         Worker worker = new Worker() {WorkerName = NameWorker.Text, WorkerJob = WorkerTitel.Text};
+         Worker workerInput = new Worker();
+         workerInput = (Worker)PersonsListView.SelectedItem;
 
-         PersonsListView.Items.Add(worker);
+         if (workerInput != null)
+         {
+            NameWorker.Text = workerInput.WorkerName;
+            WorkerTitel.Text = workerInput.WorkerJob;
+         }
       }
-   }
-
-   public class Worker
-   {
-      public string WorkerName { get; set; }
-      public string WorkerJob { get; set; }
    }
 }

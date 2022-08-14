@@ -55,19 +55,16 @@
 
       <Label Content="Name:" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#ccd7ff" Margin="268,164,0,0"/>
       <Label Content="Jobtitle:" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#ccd7ff" Margin="268,196,0,0"/>
-      <TextBox x:Name="NameWorker" HorizontalAlignment="Left" Margin="332,168,0,0" Text="..." TextWrapping="Wrap" VerticalAlignment="Top" Width="88" Foreground="#FFC8C8C8" Background="#747999"/>
-      <TextBox x:Name="WorkerTitel" HorizontalAlignment="Left" Margin="332,200,0,0" Text="..." TextWrapping="Wrap" VerticalAlignment="Top" Width="88" Foreground="#FFC8C8C8" Background="#747999"/>
-      <Button x:Name="AddButton" Content="Add" HorizontalAlignment="Left" Margin="274,235,0,0" VerticalAlignment="Top" Style="{StaticResource personsButton}" Click="AddButton_Click"/>
-      <Button x:Name="EditButton" Content="Edit" HorizontalAlignment="Left" Margin="327,235,0,0" VerticalAlignment="Top" Style="{StaticResource personsButton}"/>
-      <Button x:Name="DeleteButton" Content="Delete" HorizontalAlignment="Left" Margin="380,235,0,0" VerticalAlignment="Top" Style="{StaticResource personsButton}"/>
-      <ListView x:Name="PersonsListView" Margin="433,168,394,182" Height="101" VerticalAlignment="Top">
-         <ListView.DataContext>
-            <local:Worker />
-         </ListView.DataContext>
+      <TextBox x:Name="NameWorker" HorizontalAlignment="Left" Margin="332,168,0,0" Text="{Binding WorkerInput.WorkerName}" TextWrapping="Wrap" VerticalAlignment="Top" Width="88" Foreground="#FFC8C8C8" Background="#747999"/>
+      <TextBox x:Name="WorkerTitel" HorizontalAlignment="Left" Margin="332,200,0,0" Text="{Binding WorkerInput.WorkerJob}" TextWrapping="Wrap" VerticalAlignment="Top" Width="88" Foreground="#FFC8C8C8" Background="#747999"/>
+      <Button Command="{Binding AddCommand}" x:Name="AddButton" Content="Add" HorizontalAlignment="Left" Margin="274,235,0,0" VerticalAlignment="Top" Style="{StaticResource personsButton}"/>
+      <Button Command="{Binding EditCommand}" x:Name="EditButton" Content="Edit" HorizontalAlignment="Left" Margin="327,235,0,0" VerticalAlignment="Top" Style="{StaticResource personsButton}"/>
+      <Button Command="{Binding RemoveCommand}"  x:Name="DeleteButton" Content="Delete" HorizontalAlignment="Left" Margin="380,235,0,0" VerticalAlignment="Top" Style="{StaticResource personsButton}"/>
+      <ListView x:Name="PersonsListView" Margin="433,168,394,182" Height="101" VerticalAlignment="Top" ItemsSource="{Binding WorkersInput.WorkersList}" SelectedItem="{Binding Path=SelectedWorker}" SelectionChanged="PersonsListView_OnSelectionChanged">
          <ListView.View>
-            <GridView>
-               <GridViewColumn Header="Name" Width="120" DisplayMemberBinding="{Binding WorkerName}"/>
-               <GridViewColumn Header="Job" Width="20" DisplayMemberBinding="{Binding WorkerJob}"/>
+            <GridView >
+               <GridViewColumn Header="Name" Width="120" DisplayMemberBinding="{Binding Path=WorkerName}"/>
+               <GridViewColumn Header="Job" Width="57" DisplayMemberBinding="{Binding Path=WorkerJob}"/>
             </GridView>
          </ListView.View>
       </ListView>
