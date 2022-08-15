@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,9 +19,13 @@ namespace Journalfoeringssystem.MVVM.ViewModel
 
       public RelayCommand EditCommand { get; set; }
 
-      public Worker WorkerInput { get; set; } = new Worker();
-      public Worker SelectedWorker { get; set; } = new Worker();
-      public Workers WorkersInput { get; set; } = new Workers();
+      public RelayCommand LoadImages { get; set; }
+
+      public Worker WorkerInput { get; set; }
+      public Worker SelectedWorker { get; set; }
+      public Workers WorkersInput { get; set; }
+
+      public FileReader FileReader { get; set; }
 
       private string _CPRnumber;
 
@@ -37,19 +42,34 @@ namespace Journalfoeringssystem.MVVM.ViewModel
          }
       }
 
-      private string _name;
+      private string _patientName;
 
-      public string Name
+      public string PatientName
       {
          get
          {
-            return _name;
+            return _patientName;
+         }
+         set
+         {
+            _patientName = value;
+            OnPropertyChanged(nameof(PatientName));
+         }
+      }
+
+      private string _searchPath;
+
+      public string SearchPath
+      {
+         get
+         {
+            return _searchPath;
          }
 
          set
          {
-            _name = value;
-            OnPropertyChanged(nameof(Name));
+            _searchPath = value;
+            OnPropertyChanged(nameof(SearchPath));
          }
       }
 
@@ -57,15 +77,11 @@ namespace Journalfoeringssystem.MVVM.ViewModel
       {
          WorkerInput = new Worker();
          WorkersInput = new Workers();
-
-         SearchCommand = new RelayCommand(o =>
-         {
-            Name = CPRNumber;
-         });
+         FileReader = new FileReader();
 
          AddCommand = new RelayCommand(o =>
          {
-            if (WorkerInput.WorkerName != null && WorkerInput.WorkerJob != null)
+            if (WorkerInput.WorkerName != null && WorkerInput.WorkerJob != null && WorkerInput.WorkerName != "" && WorkerInput.WorkerJob != "")
             {
                WorkersInput.AddWorker(new Worker() { WorkerName = WorkerInput.WorkerName, WorkerJob = WorkerInput.WorkerJob });
             }
@@ -79,21 +95,23 @@ namespace Journalfoeringssystem.MVVM.ViewModel
 
          EditCommand = new RelayCommand(o =>
          {
-            if (WorkerInput.WorkerName != "" && WorkerInput.WorkerJob != "")
-            {
-               WorkersInput.EditWorker(SelectedWorker, new Worker() { WorkerName = WorkerInput.WorkerName, WorkerJob = WorkerInput.WorkerJob });
-            }
+            WorkersInput.EditWorker(SelectedWorker, new Worker() { WorkerName = WorkerInput.WorkerName, WorkerJob = WorkerInput.WorkerJob });
 
-            else if (WorkerInput.WorkerName == "")
-            {
-               WorkersInput.EditWorker(SelectedWorker, new Worker() { WorkerName = "N/A", WorkerJob = WorkerInput.WorkerJob });
-            }
-
-            else if (WorkerInput.WorkerJob == "")
-            {
-               WorkersInput.EditWorker(SelectedWorker, new Worker() { WorkerName = WorkerInput.WorkerName, WorkerJob = "N/A" });
-            }
          });
+
+         SearchCommand = new RelayCommand(o =>
+         {
+            string[] path = FileReader.SearchForFiles(CPRNumber);
+
+            SearchPath = path[0];
+            PatientName = path[1];
+         });
+
+         LoadImages = new RelayCommand(o =>
+         {
+            
+         });
+
       }
 
       
