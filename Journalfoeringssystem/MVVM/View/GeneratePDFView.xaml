@@ -66,7 +66,7 @@
 
       <fa:IconImage Icon="Search" Foreground="#FFC8C8C8" Margin="36,41,961,0" RenderTransformOrigin="0.5,0.479" VerticalAlignment="Top"/>
       <Button Content="Search" HorizontalAlignment="Left" Margin="301,32,0,0" VerticalAlignment="Top" Style="{StaticResource standardButton}" Command="{Binding SearchCommand}"/>
-      <TextBox x:Name="SearchbarTextBox" HorizontalAlignment="Left" Margin="57,38,0,0" Text="{Binding CPRNumber, TargetNullValue='Search for patient (XXXXXXXXX)'}" TextWrapping="Wrap" VerticalAlignment="Top" Width="231" Foreground="#FFC8C8C8" Background="#747999"/>
+      <TextBox x:Name="SearchbarTextBox" HorizontalAlignment="Left" Margin="57,38,0,0" Text="{Binding SearchNumber, TargetNullValue='Search for patient (XXXXXXXXX)'}" TextWrapping="Wrap" VerticalAlignment="Top" Width="231" Foreground="#FFC8C8C8" Background="#747999" MouseDoubleClick="SearchbarTextBox_OnMouseDoubleClick"/>
 
       <Label Content="CPR-number" HorizontalAlignment="Left" Margin="31,69,0,0" VerticalAlignment="Top" Foreground="#ccd7ff"/>
       <Label Content="{Binding CPRNumber, TargetNullValue='#XXXXXXXX'}" HorizontalAlignment="Left" Margin="31,95,0,0" VerticalAlignment="Top" Foreground="#FFE5EAFF" FontWeight="Bold"/>
@@ -94,8 +94,8 @@
 
       <Label Content="Name:" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#ccd7ff" Margin="31,292,0,0"/>
       <Label Content="Jobtitle:" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#ccd7ff" Margin="31,321,0,0"/>
-      <TextBox x:Name="NameWorker" HorizontalAlignment="Left" Margin="96,296,0,0" Text="{Binding WorkerInput.WorkerName}" TextWrapping="Wrap" VerticalAlignment="Top" Width="144" Foreground="#FFC8C8C8" Background="#747999"/>
-      <TextBox x:Name="WorkerTitel" HorizontalAlignment="Left" Margin="96,325,0,0" Text="{Binding WorkerInput.WorkerJob}" TextWrapping="Wrap" VerticalAlignment="Top" Width="144" Foreground="#FFC8C8C8" Background="#747999"/>
+      <TextBox x:Name="NameWorker" HorizontalAlignment="Left" Margin="96,296,0,0" Text="{Binding WorkerInput.WorkerName, TargetNullValue='XXXX'}" TextWrapping="Wrap" VerticalAlignment="Top" Width="144" Foreground="#FFC8C8C8" Background="#747999" MouseDoubleClick="NameWorker_MouseDoubleClick"/>
+      <TextBox x:Name="WorkerTitel" HorizontalAlignment="Left" Margin="96,325,0,0" Text="{Binding WorkerInput.WorkerJob, TargetNullValue='XXXX'}" TextWrapping="Wrap" VerticalAlignment="Top" Width="144" Foreground="#FFC8C8C8" Background="#747999" MouseDoubleClick="WorkerTitel_MouseDoubleClick"/>
       <Button Command="{Binding AddCommand}" x:Name="AddButton" Content="Add" HorizontalAlignment="Left" Margin="96,366,0,0" VerticalAlignment="Top" Style="{StaticResource personsButton}"/>
       <Button Command="{Binding EditCommand}" x:Name="EditButton" Content="Edit" HorizontalAlignment="Left" Margin="148,366,0,0" VerticalAlignment="Top" Style="{StaticResource personsButton}"/>
       <Button Command="{Binding RemoveCommand}"  x:Name="DeleteButton" Content="Delete" HorizontalAlignment="Left" Margin="199,366,0,0" VerticalAlignment="Top" Style="{StaticResource personsButton}"/>

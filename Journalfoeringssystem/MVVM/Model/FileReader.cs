@@ -18,10 +18,8 @@ namespace Journalfoeringssystem.MVVM.Model
 
          string[] patient = new DirectoryInfo(filePath[0]).Name.Split(',');
 
-         string patientName = patient[0];
-
          Information[0] = filePath[0];
-         Information[1] = patientName;
+         Information[1] = patient[0];
 
          return Information;
       }

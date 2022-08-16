@@ -43,6 +43,21 @@ namespace Journalfoeringssystem.MVVM.ViewModel
          }
       }
 
+      private string _searchNumber;
+
+      public string SearchNumber
+      {
+         get
+         {
+            return _searchNumber;
+         }
+         set
+         {
+            _searchNumber = value;
+            OnPropertyChanged(nameof(SearchNumber));
+         }
+      }
+
 
       private string _CPRnumber;
 
@@ -118,10 +133,12 @@ namespace Journalfoeringssystem.MVVM.ViewModel
 
          SearchCommand = new RelayCommand(o =>
          {
-            string[] path = FileReader.SearchForFiles(CPRNumber);
+            string[] path = FileReader.SearchForFiles(SearchNumber);
 
             SearchPath = path[0];
             PatientName = path[1];
+            CPRNumber = SearchNumber;
+
          });
 
          LoadImages = new RelayCommand(o =>

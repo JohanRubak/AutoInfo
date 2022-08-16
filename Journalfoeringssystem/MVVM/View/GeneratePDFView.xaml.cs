@@ -27,7 +27,6 @@ namespace Journalfoeringssystem.MVVM.View
       public GeneratePDFView()
       {
          InitializeComponent();
-
       }
 
       private void PersonsListView_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -40,6 +39,21 @@ namespace Journalfoeringssystem.MVVM.View
             NameWorker.Text = workerInput.WorkerName;
             WorkerTitel.Text = workerInput.WorkerJob;
          }
+      }
+
+      private void SearchbarTextBox_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
+      {
+         SearchbarTextBox.SelectAll();
+      }
+
+      private void NameWorker_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+      {
+         NameWorker.SelectAll();
+      }
+
+      private void WorkerTitel_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+      {
+         WorkerTitel.SelectAll();
       }
    }
 }
