@@ -47,7 +47,7 @@
                Height="8"
                Width="210"
                HorizontalAlignment="Left"
-               Value="{Binding UploadProgress, ElementName=this}"/>
+               Value="{Binding UploadProgress, ElementName=this}" Foreground="#FF5EABE2"/>
 
          
 

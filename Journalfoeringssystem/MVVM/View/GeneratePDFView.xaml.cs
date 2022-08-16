@@ -41,25 +41,5 @@ namespace Journalfoeringssystem.MVVM.View
             WorkerTitel.Text = workerInput.WorkerJob;
          }
       }
-
-      private void LoadPicturesButton_Click(object sender, RoutedEventArgs e)
-      {
-         string path = "C:\\Patienter\\Johan Rubak, 0208990179";
-
-         var files = Directory.GetFiles(path,"*.*", SearchOption.AllDirectories);
-
-         for (int i = 0; i < files.Length; i++)
-         {
-            string filename = System.IO.Path.GetFileName(files[i]);
-            FileInfo fileInfo = new FileInfo(files[i]);
-            UploadingFilesList.Items.Add(new FileUpload()
-            {
-               FileName = filename,
-
-               FileSize = string.Format("{0} {1}", (fileInfo.Length/1.049e+6).ToString("0.0"), "Mb"),
-               UploadProgress = 100
-            });
-         }
-      }
    }
 }

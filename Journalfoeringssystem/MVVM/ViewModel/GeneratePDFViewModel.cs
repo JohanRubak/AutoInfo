@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Journalfoeringssystem.Core;
 using Journalfoeringssystem.MVVM.Model;
+using Journalfoeringssystem.MVVM.View;
 
 namespace Journalfoeringssystem.MVVM.ViewModel
 {
@@ -24,8 +25,24 @@ namespace Journalfoeringssystem.MVVM.ViewModel
       public Worker WorkerInput { get; set; }
       public Worker SelectedWorker { get; set; }
       public Workers WorkersInput { get; set; }
-
       public FileReader FileReader { get; set; }
+
+      private List<FileUpload> _filesForUpload;
+
+      public List<FileUpload> FilesForUpload
+      {
+         get
+         {
+            return _filesForUpload;
+         }
+
+         set
+         {
+            _filesForUpload = value;
+            OnPropertyChanged(nameof(FilesForUpload));
+         }
+      }
+
 
       private string _CPRnumber;
 
@@ -109,7 +126,7 @@ namespace Journalfoeringssystem.MVVM.ViewModel
 
          LoadImages = new RelayCommand(o =>
          {
-            
+            FilesForUpload = FileReader.LoadPictures(SearchPath);
          });
 
       }
