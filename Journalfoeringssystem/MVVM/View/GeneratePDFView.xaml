@@ -88,9 +88,9 @@
             </LinearGradientBrush>
          </Border.Background>
       </Border>
-      <DatePicker Name="DateForPlanningDP" SelectedDate="{Binding DateForPlanning}" HorizontalAlignment="Left" Margin="145,168,0,0" VerticalAlignment="Top"/>
+      <DatePicker Name="DateForPlanningDP" SelectedDate="{Binding DateForPlanning}" HorizontalAlignment="Left" Margin="145,168,0,0" VerticalAlignment="Top" Width="105"/>
       <Label Content="Date for planning:" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#ccd7ff" Margin="31,164,0,0"/>
-      <DatePicker Name="DateForOperationDP" SelectedDate="{Binding DateForOperation}" HorizontalAlignment="Left" Margin="145,203,0,0" VerticalAlignment="Top"/>
+      <DatePicker Name="DateForOperationDP" SelectedDate="{Binding DateForOperation}" HorizontalAlignment="Left" Margin="145,203,0,0" VerticalAlignment="Top" Width="105"/>
       <Label Content="Date for operation:" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#ccd7ff" Margin="31,199,0,0"/>
 
 
@@ -112,13 +112,13 @@
       <Label Content="Virtual planning made by:" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#ccd7ff" Margin="31,260,0,0" FontWeight="Bold" RenderTransformOrigin="0.615,0.591"/>
       <Label Content="Date of scanning:" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#ccd7ff" Margin="255,164,0,0"/>
       <TextBox x:Name="Noname" HorizontalAlignment="Left" Margin="373,205,0,0" Text="{Binding TypeOfScanning, TargetNullValue='XXXX', FallbackValue='XXXX'}" TextWrapping="Wrap" VerticalAlignment="Top" Width="102" Foreground="#FFC8C8C8" Background="#747999"/>
-      <DatePicker Name="DateOfScanningDP" SelectedDate="{Binding DateForScanning}" HorizontalAlignment="Left" Margin="373,168,0,0" VerticalAlignment="Top"/>
+      <DatePicker Name="DateOfScanningDP" SelectedDate="{Binding DateForScanning}" HorizontalAlignment="Left" Margin="373,168,0,0" VerticalAlignment="Top" Width="102"/>
       <Label Content="Type of scanning:" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#ccd7ff" Margin="255,199,0,0"/>
       <Label Content="Remarks:" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#ccd7ff" Margin="253,430,0,0"/>
       <TextBox HorizontalAlignment="Left" Margin="258,460,0,0" Text="{Binding Remarks, FallbackValue='XXXX'}" TextWrapping="Wrap" VerticalAlignment="Top" Width="202" Height="142"/>
       <Label Content="Cuttingguide:" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#ccd7ff" Margin="31,430,0,0"/>
       <TextBox HorizontalAlignment="Left" Margin="36,460,0,0" Text="{Binding CuttingGuide, FallbackValue='XXXX'}" TextWrapping="Wrap" VerticalAlignment="Top" Width="204" Height="142"/>
-      <Button Content="Generate PDF" HorizontalAlignment="Left" Margin="493,565,0,0" VerticalAlignment="Top" Style="{StaticResource standardButton}" Height="37" Width="111"/>
+      <Button Command="{Binding GeneratePDFCommand}" Content="Generate PDF" HorizontalAlignment="Left" Margin="493,565,0,0" VerticalAlignment="Top" Style="{StaticResource standardButton}" Height="37" Width="111"/>
       <Label Content="Type of protocol:" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#ccd7ff" Margin="482,430,0,0"/>
       <RadioButton Content="Kranial" Command="{Binding SelectedRadioButton}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}" HorizontalAlignment="Left" Margin="505,467,0,0" VerticalAlignment="Top" Foreground="#ccd7ff"/>
       <RadioButton Content="Mandibel" Command="{Binding SelectedRadioButton}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}" HorizontalAlignment="Left" Margin="505,487,0,0" VerticalAlignment="Top" Foreground="#ccd7ff"/>

@@ -25,10 +25,13 @@ namespace Journalfoeringssystem.MVVM.ViewModel
 
       public RelayCommand SelectedRadioButton { get; set; }
 
+      public RelayCommand GeneratePDFCommand { get; set; }
+
       public Worker WorkerInput { get; set; }
       public Worker SelectedWorker { get; set; }
       public Workers WorkersInput { get; set; }
       public FileReader FileReader { get; set; }
+      public PDFGenerator PdfGenerator { get; set; }
 
       private List<FileUpload> _filesForUpload;
 
@@ -241,6 +244,7 @@ namespace Journalfoeringssystem.MVVM.ViewModel
          WorkerInput = new Worker();
          WorkersInput = new Workers();
          FileReader = new FileReader();
+         PdfGenerator = new PDFGenerator();
 
          AddCommand = new RelayCommand(o =>
          {
@@ -280,6 +284,14 @@ namespace Journalfoeringssystem.MVVM.ViewModel
          SelectedRadioButton = new RelayCommand(o =>
          {
             Protocol = (string)o;
+         });
+
+         GeneratePDFCommand = new RelayCommand(o =>
+         {
+            if (Protocol != null && !string.IsNullOrEmpty(SearchPath))
+            {
+               PdfGenerator.GeneratePDF(SearchPath, PatientName, CPRNumber, WorkersInput, DateForPlanning, DateForOperation, DateForScanning, TypeOfScanning, SerieOfScanning, CuttingGuide, Remarks, Protocol);
+            }
          });
 
       }
