@@ -27,6 +27,9 @@ namespace Journalfoeringssystem.MVVM.View
       public GeneratePDFView()
       {
          InitializeComponent();
+         DateForPlanningDP.DisplayDate = DateTime.Today;
+         DateForOperationDP.DisplayDate = DateTime.Today;
+         DateOfScanningDP.DisplayDate = DateTime.Today;
       }
 
       private void PersonsListView_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
