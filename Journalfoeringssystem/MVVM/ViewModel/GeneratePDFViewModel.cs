@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -21,6 +22,8 @@ namespace Journalfoeringssystem.MVVM.ViewModel
       public RelayCommand EditCommand { get; set; }
 
       public RelayCommand LoadImages { get; set; }
+
+      public RelayCommand SelectedRadioButton { get; set; }
 
       public Worker WorkerInput { get; set; }
       public Worker SelectedWorker { get; set; }
@@ -105,6 +108,134 @@ namespace Journalfoeringssystem.MVVM.ViewModel
          }
       }
 
+      private DateTime _dateForPlanning;
+
+      public DateTime DateForPlanning
+      {
+         get
+         {
+            return _dateForPlanning;
+         }
+
+         set
+         {
+            _dateForPlanning = value;
+            OnPropertyChanged(nameof(DateForPlanning));
+         }
+      }
+
+      private DateTime _dateForOperation;
+
+      public DateTime DateForOperation
+      {
+         get
+         {
+            return _dateForOperation;
+         }
+
+         set
+         {
+            _dateForOperation = value;
+            OnPropertyChanged(nameof(DateForOperation));
+         }
+      }
+
+      private DateTime _dateForScanning;
+
+      public DateTime DateForScanning
+      {
+         get
+         {
+            return _dateForScanning;
+         }
+
+         set
+         {
+            _dateForScanning = value;
+            OnPropertyChanged(nameof(DateForScanning));
+         }
+      }
+
+      private string _typeOfScanning;
+
+      public string TypeOfScanning
+      {
+         get
+         {
+            return _typeOfScanning;
+         }
+
+         set
+         {
+            _typeOfScanning = value;
+            OnPropertyChanged(nameof(TypeOfScanning));
+         }
+      }
+
+      private string _serieOfScanning;
+
+      public string SerieOfScanning
+      {
+         get
+         {
+            return _serieOfScanning;
+         }
+
+         set
+         {
+            _serieOfScanning = value;
+            OnPropertyChanged(nameof(SerieOfScanning));
+         }
+      }
+
+      private string _cuttingGuide;
+
+      public string CuttingGuide
+      {
+         get
+         {
+            return _cuttingGuide;
+         }
+
+         set
+         {
+            _cuttingGuide = value;
+            OnPropertyChanged(nameof(CuttingGuide));
+         }
+      }
+
+      private string _remarks;
+
+      public string Remarks
+      {
+         get
+         {
+            return _remarks;
+         }
+
+         set
+         {
+            _remarks = value;
+            OnPropertyChanged(nameof(Remarks));
+         }
+      }
+
+      private string _protocol;
+
+      public string Protocol
+      {
+         get
+         {
+            return _protocol;
+         }
+
+         set
+         {
+            _protocol = value;
+            OnPropertyChanged(nameof(Protocol));
+         }
+      }
+
       public GeneratePDFViewModel()
       {
          WorkerInput = new Worker();
@@ -144,6 +275,11 @@ namespace Journalfoeringssystem.MVVM.ViewModel
          LoadImages = new RelayCommand(o =>
          {
             FilesForUpload = FileReader.LoadPictures(SearchPath);
+         });
+
+         SelectedRadioButton = new RelayCommand(o =>
+         {
+            Protocol = (string)o;
          });
 
       }

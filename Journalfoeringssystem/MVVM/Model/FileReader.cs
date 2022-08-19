@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Runtime.InteropServices.ComTypes;
 using System.Windows.Documents;
@@ -16,10 +17,23 @@ namespace Journalfoeringssystem.MVVM.Model
       {
          var filePath = Directory.GetDirectories(RootPath, "*" + patientCPR + "*", SearchOption.AllDirectories);
 
-         string[] patient = new DirectoryInfo(filePath[0]).Name.Split(',');
+         string patientName = string.Empty;
+
+         string patient = new DirectoryInfo(filePath[0]).Name;
+
+         for (int i = 0; i < patient.Length; i++)
+         {
+            if (Char.IsDigit(patient[i]))
+            {
+               break;
+            }
+
+            patientName += patient[i];
+         }
+
 
          Information[0] = filePath[0];
-         Information[1] = patient[0];
+         Information[1] = patientName;
 
          return Information;
       }

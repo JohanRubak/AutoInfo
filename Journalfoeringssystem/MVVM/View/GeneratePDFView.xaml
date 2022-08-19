@@ -5,7 +5,9 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Journalfoeringssystem.MVVM.View"
              xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
-             xmlns:ViewModel="clr-namespace:Journalfoeringssystem.MVVM.ViewModel" x:Class="Journalfoeringssystem.MVVM.View.GeneratePDFView"
+             xmlns:ViewModel="clr-namespace:Journalfoeringssystem.MVVM.ViewModel"
+             xmlns:System="clr-namespace:System;assembly=System.Runtime"
+             x:Class="Journalfoeringssystem.MVVM.View.GeneratePDFView"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="1010">
    <UserControl.DataContext>
@@ -70,7 +72,7 @@
 
       <Label Content="CPR-number" HorizontalAlignment="Left" Margin="31,69,0,0" VerticalAlignment="Top" Foreground="#ccd7ff"/>
       <Label Content="{Binding CPRNumber, TargetNullValue='#XXXXXXXX'}" HorizontalAlignment="Left" Margin="31,95,0,0" VerticalAlignment="Top" Foreground="#FFE5EAFF" FontWeight="Bold"/>
-      <Label Content="Name" HorizontalAlignment="Left" Margin="171,69,0,0" VerticalAlignment="Top" Foreground="#ccd7ff"/>
+      <Label Content="Name of Case" HorizontalAlignment="Left" Margin="171,69,0,0" VerticalAlignment="Top" Foreground="#ccd7ff"/>
       <Label Content="{Binding PatientName, TargetNullValue='#XXXXXXXXXX'}" HorizontalAlignment="Left" Margin="171,95,0,0" VerticalAlignment="Top" Foreground="#FFE5EAFF" FontWeight="Bold"/>
       <Label Content="Searchpath" HorizontalAlignment="Left" Margin="398,69,0,0" VerticalAlignment="Top" Foreground="#ccd7ff"/>
       <Label x:Name="SearchpathLabel" Content="{Binding SearchPath, TargetNullValue='C:/XXXX'}" HorizontalAlignment="Left" Margin="398,95,0,0" VerticalAlignment="Top" Foreground="#FFE5EAFF" FontWeight="Bold" />
@@ -86,9 +88,9 @@
             </LinearGradientBrush>
          </Border.Background>
       </Border>
-      <DatePicker HorizontalAlignment="Left" Margin="145,168,0,0" VerticalAlignment="Top"/>
+      <DatePicker DisplayDateStart="{x:Static System:DateTime.Now}" SelectedDate="{Binding DateForPlanning}" HorizontalAlignment="Left" Margin="145,168,0,0" VerticalAlignment="Top"/>
       <Label Content="Date for planning:" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#ccd7ff" Margin="31,164,0,0"/>
-      <DatePicker HorizontalAlignment="Left" Margin="145,203,0,0" VerticalAlignment="Top"/>
+      <DatePicker DisplayDateStart="{x:Static System:DateTime.Now}" SelectedDate="{Binding DateForOperation}" HorizontalAlignment="Left" Margin="145,203,0,0" VerticalAlignment="Top"/>
       <Label Content="Date for operation:" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#ccd7ff" Margin="31,199,0,0"/>
 
 
@@ -109,18 +111,18 @@
       </ListView>
       <Label Content="Virtual planning made by:" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#ccd7ff" Margin="31,260,0,0" FontWeight="Bold" RenderTransformOrigin="0.615,0.591"/>
       <Label Content="Date of scanning:" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#ccd7ff" Margin="255,164,0,0"/>
-      <TextBox x:Name="Noname" HorizontalAlignment="Left" Margin="373,205,0,0" Text="..." TextWrapping="Wrap" VerticalAlignment="Top" Width="102" Foreground="#FFC8C8C8" Background="#747999"/>
-      <DatePicker HorizontalAlignment="Left" Margin="373,168,0,0" VerticalAlignment="Top"/>
+      <TextBox x:Name="Noname" HorizontalAlignment="Left" Margin="373,205,0,0" Text="{Binding TypeOfScanning, TargetNullValue='XXXX', FallbackValue='XXXX'}" TextWrapping="Wrap" VerticalAlignment="Top" Width="102" Foreground="#FFC8C8C8" Background="#747999"/>
+      <DatePicker DisplayDateStart="{x:Static System:DateTime.Today}" SelectedDate="{Binding DateForScanning}" HorizontalAlignment="Left" Margin="373,168,0,0" VerticalAlignment="Top"/>
       <Label Content="Type of scanning:" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#ccd7ff" Margin="255,199,0,0"/>
       <Label Content="Remarks:" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#ccd7ff" Margin="253,430,0,0"/>
-      <TextBox HorizontalAlignment="Left" Margin="258,460,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="202" Height="142"/>
+      <TextBox HorizontalAlignment="Left" Margin="258,460,0,0" Text="{Binding Remarks, FallbackValue='XXXX'}" TextWrapping="Wrap" VerticalAlignment="Top" Width="202" Height="142"/>
       <Label Content="Cuttingguide:" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#ccd7ff" Margin="31,430,0,0"/>
-      <TextBox HorizontalAlignment="Left" Margin="36,460,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="204" Height="142"/>
+      <TextBox HorizontalAlignment="Left" Margin="36,460,0,0" Text="{Binding CuttingGuide, FallbackValue='XXXX'}" TextWrapping="Wrap" VerticalAlignment="Top" Width="204" Height="142"/>
       <Button Content="Generate PDF" HorizontalAlignment="Left" Margin="493,565,0,0" VerticalAlignment="Top" Style="{StaticResource standardButton}" Height="37" Width="111"/>
       <Label Content="Type of protocol:" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#ccd7ff" Margin="482,430,0,0"/>
-      <RadioButton Content="Kranial" HorizontalAlignment="Left" Margin="505,467,0,0" VerticalAlignment="Top" Foreground="#ccd7ff"/>
-      <RadioButton Content="Mandibel" HorizontalAlignment="Left" Margin="505,487,0,0" VerticalAlignment="Top" Foreground="#ccd7ff"/>
-      <RadioButton Content="..." HorizontalAlignment="Left" Margin="505,507,0,0" VerticalAlignment="Top" Foreground="#ccd7ff"/>
+      <RadioButton Content="Kranial" Command="{Binding SelectedRadioButton}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}" HorizontalAlignment="Left" Margin="505,467,0,0" VerticalAlignment="Top" Foreground="#ccd7ff"/>
+      <RadioButton Content="Mandibel" Command="{Binding SelectedRadioButton}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}" HorizontalAlignment="Left" Margin="505,487,0,0" VerticalAlignment="Top" Foreground="#ccd7ff"/>
+      <RadioButton Content="..." Command="{Binding SelectedRadioButton}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}" HorizontalAlignment="Left" Margin="505,507,0,0" VerticalAlignment="Top" Foreground="#ccd7ff"/>
       <Border Margin="650,152,20,0" CornerRadius="10" VerticalAlignment="Top" Height="468">
          <Border.Background>
             <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
@@ -181,7 +183,7 @@
             </StackPanel>
          </Grid>
       </ScrollViewer>
-      <TextBox x:Name="Noname_Copy" HorizontalAlignment="Left" Margin="596,170,0,0" Text="..." TextWrapping="Wrap" VerticalAlignment="Top" Width="21" Foreground="#FFC8C8C8" Background="#747999"/>
+      <TextBox x:Name="Noname_Copy" HorizontalAlignment="Left" Margin="596,170,0,0" Text="{Binding SerieOfScanning, FallbackValue='#X'}" TextWrapping="Wrap" VerticalAlignment="Top" Width="21" Foreground="#FFC8C8C8" Background="#747999"/>
       <Label Content="Serie of scanning:" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#ccd7ff" Margin="484,164,0,0"/>
 
 
