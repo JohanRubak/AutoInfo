@@ -68,7 +68,7 @@
 
       <fa:IconImage Icon="Search" Foreground="#FFC8C8C8" Margin="36,41,961,0" RenderTransformOrigin="0.5,0.479" VerticalAlignment="Top"/>
       <Button Content="Search" HorizontalAlignment="Left" Margin="301,32,0,0" VerticalAlignment="Top" Style="{StaticResource standardButton}" Command="{Binding SearchCommand}"/>
-      <TextBox x:Name="SearchbarTextBox" HorizontalAlignment="Left" Margin="57,38,0,0" Text="{Binding SearchNumber, TargetNullValue='Search for patient (XXXXXXXXX)'}" TextWrapping="Wrap" VerticalAlignment="Top" Width="231" Foreground="#FFC8C8C8" Background="#747999" MouseDoubleClick="SearchbarTextBox_OnMouseDoubleClick"/>
+      <TextBox TabIndex="0" x:Name="SearchbarTextBox" HorizontalAlignment="Left" Margin="57,38,0,0" Text="{Binding SearchNumber, TargetNullValue='Search for patient (XXXXXXXXX)'}" TextWrapping="Wrap" VerticalAlignment="Top" Width="231" Foreground="#FFC8C8C8" Background="#747999" MouseDoubleClick="SearchbarTextBox_OnMouseDoubleClick" GotKeyboardFocus="SearchbarTextBox_GotKeyboardFocus"/>
 
       <Label Content="CPR-number" HorizontalAlignment="Left" Margin="31,69,0,0" VerticalAlignment="Top" Foreground="#ccd7ff"/>
       <Label Content="{Binding CPRNumber, TargetNullValue='#XXXXXXXX'}" HorizontalAlignment="Left" Margin="31,95,0,0" VerticalAlignment="Top" Foreground="#FFE5EAFF" FontWeight="Bold"/>
@@ -88,16 +88,16 @@
             </LinearGradientBrush>
          </Border.Background>
       </Border>
-      <DatePicker Name="DateForPlanningDP" SelectedDate="{Binding DateForPlanning}" HorizontalAlignment="Left" Margin="145,168,0,0" VerticalAlignment="Top" Width="105"/>
+      <DatePicker TabIndex="1" Name="DateForPlanningDP" SelectedDate="{Binding DateForPlanning}" HorizontalAlignment="Left" Margin="145,168,0,0" VerticalAlignment="Top" Width="105"/>
       <Label Content="Date for planning:" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#ccd7ff" Margin="31,164,0,0"/>
-      <DatePicker Name="DateForOperationDP" SelectedDate="{Binding DateForOperation}" HorizontalAlignment="Left" Margin="145,203,0,0" VerticalAlignment="Top" Width="105"/>
+      <DatePicker TabIndex="2" Name="DateForOperationDP" SelectedDate="{Binding DateForOperation}" HorizontalAlignment="Left" Margin="145,203,0,0" VerticalAlignment="Top" Width="105"/>
       <Label Content="Date for operation:" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#ccd7ff" Margin="31,199,0,0"/>
 
 
       <Label Content="Name:" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#ccd7ff" Margin="31,292,0,0"/>
       <Label Content="Jobtitle:" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#ccd7ff" Margin="31,321,0,0"/>
-      <TextBox x:Name="NameWorker" HorizontalAlignment="Left" Margin="96,296,0,0" Text="{Binding WorkerInput.WorkerName, TargetNullValue='XXXX'}" TextWrapping="Wrap" VerticalAlignment="Top" Width="144" Foreground="#FFC8C8C8" Background="#747999" MouseDoubleClick="NameWorker_MouseDoubleClick"/>
-      <TextBox x:Name="WorkerTitel" HorizontalAlignment="Left" Margin="96,325,0,0" Text="{Binding WorkerInput.WorkerJob, TargetNullValue='XXXX'}" TextWrapping="Wrap" VerticalAlignment="Top" Width="144" Foreground="#FFC8C8C8" Background="#747999" MouseDoubleClick="WorkerTitel_MouseDoubleClick"/>
+      <TextBox TabIndex="6" x:Name="NameWorker" HorizontalAlignment="Left" Margin="96,296,0,0" Text="{Binding WorkerInput.WorkerName, TargetNullValue='XXXX'}" TextWrapping="Wrap" VerticalAlignment="Top" Width="144" Foreground="#FFC8C8C8" Background="#747999" MouseDoubleClick="NameWorker_MouseDoubleClick" GotKeyboardFocus="NameWorker_GotKeyboardFocus"/>
+      <TextBox TabIndex="7" x:Name="WorkerTitel" HorizontalAlignment="Left" Margin="96,325,0,0" Text="{Binding WorkerInput.WorkerJob, TargetNullValue='XXXX'}" TextWrapping="Wrap" VerticalAlignment="Top" Width="144" Foreground="#FFC8C8C8" Background="#747999" MouseDoubleClick="WorkerTitel_MouseDoubleClick" GotKeyboardFocus="WorkerTitel_GotKeyboardFocus"/>
       <Button Command="{Binding AddCommand}" x:Name="AddButton" Content="Add" HorizontalAlignment="Left" Margin="96,366,0,0" VerticalAlignment="Top" Style="{StaticResource personsButton}"/>
       <Button Command="{Binding EditCommand}" x:Name="EditButton" Content="Edit" HorizontalAlignment="Left" Margin="148,366,0,0" VerticalAlignment="Top" Style="{StaticResource personsButton}"/>
       <Button Command="{Binding RemoveCommand}"  x:Name="DeleteButton" Content="Delete" HorizontalAlignment="Left" Margin="199,366,0,0" VerticalAlignment="Top" Style="{StaticResource personsButton}"/>
@@ -111,13 +111,13 @@
       </ListView>
       <Label Content="Virtual planning made by:" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#ccd7ff" Margin="31,260,0,0" FontWeight="Bold" RenderTransformOrigin="0.615,0.591"/>
       <Label Content="Date of scanning:" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#ccd7ff" Margin="255,164,0,0"/>
-      <TextBox x:Name="Noname" HorizontalAlignment="Left" Margin="373,205,0,0" Text="{Binding TypeOfScanning, TargetNullValue='XXXX', FallbackValue='XXXX'}" TextWrapping="Wrap" VerticalAlignment="Top" Width="102" Foreground="#FFC8C8C8" Background="#747999"/>
-      <DatePicker Name="DateOfScanningDP" SelectedDate="{Binding DateForScanning}" HorizontalAlignment="Left" Margin="373,168,0,0" VerticalAlignment="Top" Width="102"/>
+      <TextBox TabIndex="4" x:Name="TypeOfScanningTextbox" HorizontalAlignment="Left" Margin="373,205,0,0" Text="{Binding TypeOfScanning, TargetNullValue='XXXX', FallbackValue='XXXX'}" TextWrapping="Wrap" VerticalAlignment="Top" Width="102" Foreground="#FFC8C8C8" Background="#747999" GotKeyboardFocus="TypeOfScanningTextbox_GotKeyboardFocus"/>
+      <DatePicker TabIndex="3" Name="DateOfScanningDP" SelectedDate="{Binding DateForScanning}" HorizontalAlignment="Left" Margin="373,168,0,0" VerticalAlignment="Top" Width="102"/>
       <Label Content="Type of scanning:" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#ccd7ff" Margin="255,199,0,0"/>
       <Label Content="Remarks:" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#ccd7ff" Margin="253,430,0,0"/>
-      <TextBox HorizontalAlignment="Left" Margin="258,460,0,0" Text="{Binding Remarks, FallbackValue='XXXX'}" TextWrapping="Wrap" VerticalAlignment="Top" Width="202" Height="142" AcceptsReturn="True"/>
+      <TextBox x:Name="RemarksTextbox" TabIndex="8" HorizontalAlignment="Left" Margin="258,460,0,0" Text="{Binding Remarks, FallbackValue='XXXX', TargetNullValue='XXXX'}" TextWrapping="Wrap" VerticalAlignment="Top" Width="202" Height="142" AcceptsReturn="True" GotKeyboardFocus="RemarksTextbox_GotKeyboardFocus"/>
       <Label Content="Cuttingguide:" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#ccd7ff" Margin="31,430,0,0"/>
-      <TextBox HorizontalAlignment="Left" Margin="36,460,0,0" Text="{Binding CuttingGuide, FallbackValue='XXXX'}" TextWrapping="Wrap" VerticalAlignment="Top" Width="204" Height="142" AcceptsReturn="True"/>
+      <TextBox x:Name="CuttingGuideTextbox" TabIndex="7" HorizontalAlignment="Left" Margin="36,460,0,0" Text="{Binding CuttingGuide, FallbackValue='XXXX', TargetNullValue='XXXX'}" TextWrapping="Wrap" VerticalAlignment="Top" Width="204" Height="142" AcceptsReturn="True" GotKeyboardFocus="CuttingGuideTextbox_GotKeyboardFocus"/>
       <Button Command="{Binding GeneratePDFCommand}" Content="Generate PDF" HorizontalAlignment="Left" Margin="493,565,0,0" VerticalAlignment="Top" Style="{StaticResource standardButton}" Height="37" Width="111"/>
       <Label Content="Type of protocol:" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#ccd7ff" Margin="482,430,0,0"/>
       <RadioButton Content="Kranial" Command="{Binding SelectedRadioButton}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}" HorizontalAlignment="Left" Margin="505,467,0,0" VerticalAlignment="Top" Foreground="#ccd7ff"/>
@@ -183,7 +183,7 @@
             </StackPanel>
          </Grid>
       </ScrollViewer>
-      <TextBox x:Name="Noname_Copy" HorizontalAlignment="Left" Margin="596,170,0,0" Text="{Binding SerieOfScanning, FallbackValue='#X'}" TextWrapping="Wrap" VerticalAlignment="Top" Width="21" Foreground="#FFC8C8C8" Background="#747999"/>
+      <TextBox TabIndex="5" x:Name="SerieTextbox" HorizontalAlignment="Left" Margin="596,170,0,0" Text="{Binding SerieOfScanning, FallbackValue='#X', TargetNullValue='#X'}" TextWrapping="Wrap" VerticalAlignment="Top" Width="21" Foreground="#FFC8C8C8" Background="#747999" GotKeyboardFocus="SerieTextbox_GotKeyboardFocus"/>
       <Label Content="Serie of scanning:" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#ccd7ff" Margin="484,164,0,0"/>
 
 

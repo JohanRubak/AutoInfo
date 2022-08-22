@@ -15,27 +15,36 @@ namespace Journalfoeringssystem.MVVM.Model
 
       public string[] SearchForFiles(string patientCPR)
       {
-         var filePath = Directory.GetDirectories(RootPath, "*" + patientCPR + "*", SearchOption.AllDirectories);
-
-         string patientName = string.Empty;
-
-         string patient = new DirectoryInfo(filePath[0]).Name;
-
-         for (int i = 0; i < patient.Length; i++)
+         if (patientCPR.Length <= 10)
          {
-            if (Char.IsDigit(patient[i]))
+            var filePath = Directory.GetDirectories(RootPath, "*" + patientCPR + "*", SearchOption.AllDirectories);
+
+            string patientName = string.Empty;
+
+            string patient = new DirectoryInfo(filePath[0]).Name;
+
+            for (int i = 0; i < patient.Length; i++)
             {
-               break;
+               if (Char.IsDigit(patient[i]))
+               {
+                  break;
+               }
+
+               patientName += patient[i];
             }
 
-            patientName += patient[i];
+
+            Information[0] = filePath[0];
+            Information[1] = patientName;
+
+            return Information;
          }
 
+         else
+         {
+            return Information;
+         }
 
-         Information[0] = filePath[0];
-         Information[1] = patientName;
-
-         return Information;
       }
 
       public List<FileUpload> LoadPictures(string path)

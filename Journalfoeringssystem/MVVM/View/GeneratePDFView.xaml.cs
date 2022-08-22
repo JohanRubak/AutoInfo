@@ -58,5 +58,40 @@ namespace Journalfoeringssystem.MVVM.View
       {
          WorkerTitel.SelectAll();
       }
+
+      private void SearchbarTextBox_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+      {
+          SearchbarTextBox.SelectAll();
+      }
+
+      private void NameWorker_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+      {
+         NameWorker.SelectAll();
+      }
+
+      private void WorkerTitel_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+      {
+         WorkerTitel.SelectAll();
+      }
+
+      private void TypeOfScanningTextbox_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+      {
+         TypeOfScanningTextbox.SelectAll();
+      }
+
+      private void SerieTextbox_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+      {
+         SerieTextbox.SelectAll();
+      }
+
+      private void CuttingGuideTextbox_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+      {
+         CuttingGuideTextbox.SelectAll();
+      }
+
+      private void RemarksTextbox_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+      {
+         RemarksTextbox.SelectAll();
+      }
    }
 }
