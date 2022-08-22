@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <None Remove="MVVM\View\IMG_8155.JPG" />
-    <None Remove="MVVM\View\Loading.gif" />
   </ItemGroup>
 
   <ItemGroup>
@@ -25,17 +24,14 @@
 
   <ItemGroup>
     <Folder Include="Fonts\" />
-    <Folder Include="Images\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="FontAwesome.Sharp" Version="6.1.1" />
-    <PackageReference Include="WpfAnimatedGif" Version="2.0.2" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="MVVM\View\IMG_8155.JPG" />
-    <Resource Include="MVVM\View\Loading.gif" />
   </ItemGroup>
 
   <ItemGroup>

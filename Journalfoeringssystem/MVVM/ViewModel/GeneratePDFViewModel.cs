@@ -4,7 +4,9 @@ using System.IO;
 using System.Linq;
 using System.Reflection.Metadata;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 using Journalfoeringssystem.Core;
 using Journalfoeringssystem.MVVM.Model;
@@ -239,8 +241,41 @@ namespace Journalfoeringssystem.MVVM.ViewModel
          }
       }
 
+      private string _buttonText;
+
+      public string ButtonText
+      {
+         get
+         {
+            return _buttonText;
+         }
+
+         set
+         {
+            _buttonText = value;
+            OnPropertyChanged(nameof(ButtonText));
+         }
+      }
+
+      private Visibility _loading;
+
+      public Visibility Loading
+      {
+         get
+         {
+            return _loading;
+         }
+
+         set
+         {
+            _loading = value;
+            OnPropertyChanged(nameof(Loading));
+         }
+      }
+
       public GeneratePDFViewModel()
       {
+         Loading = Visibility.Hidden;
          WorkerInput = new Worker();
          WorkersInput = new Workers();
          FileReader = new FileReader();
@@ -290,7 +325,13 @@ namespace Journalfoeringssystem.MVVM.ViewModel
          {
             if (Protocol != null && !string.IsNullOrEmpty(SearchPath))
             {
+               Loading = Visibility.Visible;
+               ButtonText = "";
+
                PdfGenerator.GeneratePDF(SearchPath, PatientName, CPRNumber, WorkersInput, DateForPlanning, DateForOperation, DateForScanning, TypeOfScanning, SerieOfScanning, CuttingGuide, Remarks, Protocol);
+               Loading = Visibility.Hidden;
+               ButtonText = "Generate PDF";
+
             }
          });
 

@@ -7,6 +7,7 @@
              xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
              xmlns:ViewModel="clr-namespace:Journalfoeringssystem.MVVM.ViewModel"
              xmlns:System="clr-namespace:System;assembly=System.Runtime"
+             xmlns:gif="http://wpfanimatedgif.codeplex.com"
              x:Class="Journalfoeringssystem.MVVM.View.GeneratePDFView"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="1010">
@@ -118,7 +119,7 @@
       <TextBox x:Name="RemarksTextbox" TabIndex="8" HorizontalAlignment="Left" Margin="258,460,0,0" Text="{Binding Remarks, FallbackValue='XXXX', TargetNullValue='XXXX'}" TextWrapping="Wrap" VerticalAlignment="Top" Width="202" Height="142" AcceptsReturn="True" GotKeyboardFocus="RemarksTextbox_GotKeyboardFocus"/>
       <Label Content="Cuttingguide:" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#ccd7ff" Margin="31,430,0,0"/>
       <TextBox x:Name="CuttingGuideTextbox" TabIndex="7" HorizontalAlignment="Left" Margin="36,460,0,0" Text="{Binding CuttingGuide, FallbackValue='XXXX', TargetNullValue='XXXX'}" TextWrapping="Wrap" VerticalAlignment="Top" Width="204" Height="142" AcceptsReturn="True" GotKeyboardFocus="CuttingGuideTextbox_GotKeyboardFocus"/>
-      <Button Command="{Binding GeneratePDFCommand}" Content="Generate PDF" HorizontalAlignment="Left" Margin="493,565,0,0" VerticalAlignment="Top" Style="{StaticResource standardButton}" Height="37" Width="111"/>
+      <Button x:Name="GeneratePDFButton" Command="{Binding GeneratePDFCommand}" Content="{Binding ButtonText, FallbackValue='Generate PDF', TargetNullValue='Generate PDF'}" HorizontalAlignment="Left" Margin="493,565,0,0" VerticalAlignment="Top" Style="{StaticResource standardButton}" Height="37" Width="111"/>
       <Label Content="Type of protocol:" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#ccd7ff" Margin="482,430,0,0"/>
       <RadioButton Content="Kranial" Command="{Binding SelectedRadioButton}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}" HorizontalAlignment="Left" Margin="505,467,0,0" VerticalAlignment="Top" Foreground="#ccd7ff"/>
       <RadioButton Content="Mandibel" Command="{Binding SelectedRadioButton}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}" HorizontalAlignment="Left" Margin="505,487,0,0" VerticalAlignment="Top" Foreground="#ccd7ff"/>
@@ -185,6 +186,7 @@
       </ScrollViewer>
       <TextBox TabIndex="5" x:Name="SerieTextbox" HorizontalAlignment="Left" Margin="596,170,0,0" Text="{Binding SerieOfScanning, FallbackValue='#X', TargetNullValue='#X'}" TextWrapping="Wrap" VerticalAlignment="Top" Width="21" Foreground="#FFC8C8C8" Background="#747999" GotKeyboardFocus="SerieTextbox_GotKeyboardFocus"/>
       <Label Content="Serie of scanning:" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#ccd7ff" Margin="484,164,0,0"/>
+      <Image x:Name="LoadingGif" gif:ImageBehavior.RepeatBehavior="Forever" gif:ImageBehavior.AnimatedSource="Loading.gif" HorizontalAlignment="Left" Height="43" Margin="527,562,0,0" VerticalAlignment="Top" Width="43" Source="/MVVM/View/Loading.gif" Visibility="{Binding Loading}"/>
 
 
 
