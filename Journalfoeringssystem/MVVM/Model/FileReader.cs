@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Runtime.InteropServices.ComTypes;
 using System.Windows.Documents;
 using Journalfoeringssystem.MVVM.View;
@@ -75,6 +76,32 @@ namespace Journalfoeringssystem.MVVM.Model
          {
             return filesForUpload;
          }
+      }
+
+      public int[] LoadNumbers()
+      {
+         int[] Numbers = new int[2];
+
+         string departmentpath = @"C:\Patienter\";
+
+         int numberOfDepartment = 0;
+
+         int numberOfPatients = 0;
+
+         numberOfDepartment = Directory.GetDirectories(departmentpath, "*", SearchOption.TopDirectoryOnly).Length;
+
+         var searchForPatients = Directory.GetDirectories(departmentpath, "*", SearchOption.TopDirectoryOnly);
+
+         for (int i = 0; i < searchForPatients.Length; i++)
+         {
+            numberOfPatients += Directory.GetDirectories(searchForPatients[i] + @"\2021", "*", SearchOption.TopDirectoryOnly).Length;
+            numberOfPatients += Directory.GetDirectories(searchForPatients[i] + @"\2022", "*", SearchOption.TopDirectoryOnly).Length;
+         }
+
+         Numbers[0] = numberOfDepartment;
+         Numbers[1] = numberOfPatients;
+
+         return Numbers;
       }
    }
 }

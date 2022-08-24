@@ -273,9 +273,26 @@ namespace Journalfoeringssystem.MVVM.ViewModel
          }
       }
 
+      private bool _buttonEnabled;
+
+      public bool ButtonEnabled
+      {
+         get
+         {
+            return _buttonEnabled;
+         }
+
+         set
+         {
+            _buttonEnabled = value;
+            OnPropertyChanged(nameof(ButtonEnabled));
+         }
+      }
+
       public GeneratePDFViewModel()
       {
          Loading = Visibility.Hidden;
+         ButtonEnabled = true;
          WorkerInput = new Worker();
          WorkersInput = new Workers();
          FileReader = new FileReader();
@@ -325,16 +342,32 @@ namespace Journalfoeringssystem.MVVM.ViewModel
          {
             if (Protocol != null && !string.IsNullOrEmpty(SearchPath))
             {
-               Loading = Visibility.Visible;
-               ButtonText = "";
+               Thread thread1 = new Thread(StartLoading);
+               thread1.Start();
 
-               PdfGenerator.GeneratePDF(SearchPath, PatientName, CPRNumber, WorkersInput, DateForPlanning, DateForOperation, DateForScanning, TypeOfScanning, SerieOfScanning, CuttingGuide, Remarks, Protocol);
-               Loading = Visibility.Hidden;
-               ButtonText = "Generate PDF";
+               Thread thread2 = new Thread(StartGenerating);
+               thread2.Start();
 
             }
          });
 
+      }
+
+      public void StartLoading()
+      {
+         Loading = Visibility.Visible;
+         ButtonText = "";
+         ButtonEnabled = false;
+
+      }
+
+      public void StartGenerating()
+      {
+         PdfGenerator.GeneratePDF(SearchPath, PatientName, CPRNumber, WorkersInput, DateForPlanning, DateForOperation,
+            DateForScanning, TypeOfScanning, SerieOfScanning, CuttingGuide, Remarks, Protocol);
+         Loading = Visibility.Hidden;
+         ButtonText = "Generate PDF";
+         ButtonEnabled = true;
       }
 
       

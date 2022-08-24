@@ -7,8 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="MVVM\View\IMG_8155.JPG" />
+    <None Remove="MVVM\View\Departments.png" />
     <None Remove="MVVM\View\Loading.gif" />
+    <None Remove="MVVM\View\Patients.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -25,7 +26,6 @@
 
   <ItemGroup>
     <Folder Include="Fonts\" />
-    <Folder Include="Images\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -34,8 +34,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="MVVM\View\IMG_8155.JPG" />
+    <Resource Include="MVVM\View\Departments.png" />
     <Resource Include="MVVM\View\Loading.gif" />
+    <Resource Include="MVVM\View\Patients.png" />
   </ItemGroup>
 
   <ItemGroup>

@@ -3,11 +3,24 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
              xmlns:local="clr-namespace:Journalfoeringssystem.MVVM.View"
+             xmlns:ViewModel="clr-namespace:Journalfoeringssystem.MVVM.ViewModel"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800" Background="Beige">
-    <Grid>
-      <Image HorizontalAlignment="Left" Height="100" Margin="255,201,0,0" VerticalAlignment="Top" Width="100" Source="/MVVM/View/IMG_8155.JPG"/>
-
+             d:DesignHeight="620" d:DesignWidth="986">
+   <UserControl.DataContext>
+      <ViewModel:HomeViewModel />
+   </UserControl.DataContext>
+   <Grid Margin="0,0,-16,-20">
+      <Border Visibility="Collapsed" BorderThickness="2" BorderBrush="#ccd7ff" CornerRadius="10" HorizontalAlignment="Left" Width="970" VerticalAlignment="Top" Height="603" Margin="18,20,0,0" Grid.ColumnSpan="2"/>
+      <Border Margin="20,20,456,415" BorderThickness="2" CornerRadius="10" Background="#FF223266"/>
+      <Border Margin="20,292,456,144" BorderThickness="2" CornerRadius="10" Background="#FF223266"/>
+      <Label Content="Cooperating departments:" Foreground="#FFCCD7FF" Margin="261,76,479,518" FontSize="20" FontWeight="Bold"/>
+      <Label Content="Patients:" Foreground="#FFCCD7FF" Margin="261,352,644,242" FontSize="20" FontWeight="Bold"/>
+      <Label Content="{Binding NumberOfDepartments, FallbackValue='XX'}" Foreground="#FFCCD7FF" Margin="261,100,663,466" FontSize="48" FontWeight="Bold"/>
+      <Label Content="{Binding NumberOfPatients, FallbackValue='XX'}" Foreground="#FFCCD7FF" Margin="261,376,662,194" FontSize="48" FontWeight="Bold"/>
+      <Image Margin="43,48,809,442" Stretch="Fill" Source="/MVVM/View/Departments.png"/>
+      <Image Margin="43,319,809,171" Stretch="Fill" Source="/MVVM/View/Patients.png"/>
    </Grid>
+
 </UserControl>
