@@ -43,9 +43,6 @@ namespace Journalfoeringssystem.MVVM.ViewModel
       public HomeViewModel()
       {
          FileReader fileReader = new FileReader();
-         NumberOfDepartments = fileReader.LoadNumbers()[0];
-         NumberOfPatients = fileReader.LoadNumbers()[1];
-
       }
    }
 }

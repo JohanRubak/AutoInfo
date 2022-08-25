@@ -13,11 +13,11 @@ namespace Journalfoeringssystem.MVVM.Model
       public string RootPath { get; set; } = @"C:\Patienter";
       public string[] Information { get; set; } = new string[2];
 
-      public string[] SearchForFiles(string patientCPR)
+      public string[] SearchForFiles(string patientCPR, string rootPath)
       {
          if (patientCPR.Length <= 10)
          {
-            var filePath = Directory.GetDirectories(RootPath, "*" + patientCPR + "*", SearchOption.AllDirectories);
+            var filePath = Directory.GetDirectories(rootPath, "*" + patientCPR + "*", SearchOption.AllDirectories);
 
             string patientName = string.Empty;
 
@@ -34,7 +34,7 @@ namespace Journalfoeringssystem.MVVM.Model
             }
 
 
-            Information[0] = filePath[0];
+            Information[0] = filePath[0] + @"\Billeder";
             Information[1] = patientName;
 
             return Information;
@@ -77,7 +77,7 @@ namespace Journalfoeringssystem.MVVM.Model
          }
       }
 
-      public int[] LoadNumbers()
+      public int[] LoadNumbers(string rootPath)
       {
          int[] Numbers = new int[2];
 
@@ -87,7 +87,7 @@ namespace Journalfoeringssystem.MVVM.Model
 
          int numberOfPatients = 0;
 
-         numberOfDepartment = Directory.GetDirectories(departmentpath, "*", SearchOption.TopDirectoryOnly).Length;
+         numberOfDepartment = Directory.GetDirectories(rootPath, "*", SearchOption.TopDirectoryOnly).Length;
 
          //var searchForPatients = Directory.GetDirectories(departmentpath, "*", SearchOption.TopDirectoryOnly);
 

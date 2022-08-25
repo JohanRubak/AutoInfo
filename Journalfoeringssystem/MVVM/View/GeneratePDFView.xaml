@@ -67,9 +67,9 @@
       </Border>
       <Border Visibility="Collapsed" BorderThickness="2" BorderBrush="#ccd7ff" CornerRadius="10" HorizontalAlignment="Center" Width="970" VerticalAlignment="Top" Height="603" Margin="0,20,0,0"/>
 
-      <fa:IconImage Icon="Search" Foreground="#FFC8C8C8" Margin="36,41,961,0" RenderTransformOrigin="0.5,0.479" VerticalAlignment="Top"/>
-      <Button Content="Search" HorizontalAlignment="Left" Margin="301,32,0,0" VerticalAlignment="Top" Style="{StaticResource standardButton}" Command="{Binding SearchCommand}"/>
-      <TextBox TabIndex="0" x:Name="SearchbarTextBox" HorizontalAlignment="Left" Margin="57,38,0,0" Text="{Binding SearchNumber, TargetNullValue='Search for patient (XXXXXXXXX)'}" TextWrapping="Wrap" VerticalAlignment="Top" Width="231" Foreground="#FFC8C8C8" Background="#747999" MouseDoubleClick="SearchbarTextBox_OnMouseDoubleClick" GotKeyboardFocus="SearchbarTextBox_GotKeyboardFocus"/>
+      <fa:IconImage Icon="Search" Foreground="#FFC8C8C8" Margin="177,41,820,0" RenderTransformOrigin="0.5,0.479" VerticalAlignment="Top"/>
+      <Button Content="Search" HorizontalAlignment="Left" Margin="442,32,0,0" VerticalAlignment="Top" Style="{StaticResource standardButton}" Command="{Binding SearchCommand}"/>
+      <TextBox TabIndex="0" x:Name="SearchbarTextBox" HorizontalAlignment="Left" Margin="198,38,0,0" Text="{Binding SearchNumber, TargetNullValue='Search for patient (XXXXXXXXX)'}" TextWrapping="Wrap" VerticalAlignment="Top" Width="231" Foreground="#FFC8C8C8" Background="#747999" MouseDoubleClick="SearchbarTextBox_OnMouseDoubleClick" GotKeyboardFocus="SearchbarTextBox_GotKeyboardFocus"/>
 
       <Label Content="CPR-number" HorizontalAlignment="Left" Margin="31,69,0,0" VerticalAlignment="Top" Foreground="#ccd7ff"/>
       <Label Content="{Binding CPRNumber, TargetNullValue='#XXXXXXXX'}" HorizontalAlignment="Left" Margin="31,95,0,0" VerticalAlignment="Top" Foreground="#FFE5EAFF" FontWeight="Bold"/>
@@ -121,7 +121,7 @@
       <TextBox x:Name="CuttingGuideTextbox" TabIndex="7" HorizontalAlignment="Left" Margin="36,460,0,0" Text="{Binding CuttingGuide, FallbackValue='XXXX', TargetNullValue='XXXX'}" TextWrapping="Wrap" VerticalAlignment="Top" Width="204" Height="142" AcceptsReturn="True" GotKeyboardFocus="CuttingGuideTextbox_GotKeyboardFocus"/>
       <Button x:Name="GeneratePDFButton" Command="{Binding GeneratePDFCommand}" Content="{Binding ButtonText, FallbackValue='Generate PDF', TargetNullValue='Generate PDF'}" IsEnabled="{Binding ButtonEnabled}" HorizontalAlignment="Left" Margin="493,565,0,0" VerticalAlignment="Top" Style="{StaticResource standardButton}" Height="37" Width="111"/>
       <Label Content="Type of protocol:" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#ccd7ff" Margin="482,430,0,0"/>
-      <RadioButton Content="Kranial" Command="{Binding SelectedRadioButton}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}" HorizontalAlignment="Left" Margin="505,467,0,0" VerticalAlignment="Top" Foreground="#ccd7ff"/>
+      <RadioButton Content="Kraniofacial" Command="{Binding SelectedRadioButton}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}" HorizontalAlignment="Left" Margin="505,467,0,0" VerticalAlignment="Top" Foreground="#ccd7ff"/>
       <RadioButton Content="Mandibel" Command="{Binding SelectedRadioButton}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}" HorizontalAlignment="Left" Margin="505,487,0,0" VerticalAlignment="Top" Foreground="#ccd7ff"/>
       <RadioButton Content="..." Command="{Binding SelectedRadioButton}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}" HorizontalAlignment="Left" Margin="505,507,0,0" VerticalAlignment="Top" Foreground="#ccd7ff"/>
       <Border Margin="650,152,20,0" CornerRadius="10" VerticalAlignment="Top" Height="468">
@@ -187,6 +187,12 @@
       <TextBox TabIndex="5" x:Name="SerieTextbox" HorizontalAlignment="Left" Margin="596,170,0,0" Text="{Binding SerieOfScanning, FallbackValue='#X', TargetNullValue='#X'}" TextWrapping="Wrap" VerticalAlignment="Top" Width="21" Foreground="#FFC8C8C8" Background="#747999" GotKeyboardFocus="SerieTextbox_GotKeyboardFocus"/>
       <Label Content="Serie of scanning:" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#ccd7ff" Margin="484,164,0,0"/>
       <Image x:Name="LoadingGif" gif:ImageBehavior.RepeatBehavior="Forever" gif:ImageBehavior.AnimatedSource="Loading.gif" HorizontalAlignment="Left" Height="33" Margin="532,567,0,0" VerticalAlignment="Top" Width="33" Source="/MVVM/View/Loading.gif" Visibility="{Binding Loading}"/>
+      <Button HorizontalAlignment="Left" Margin="36,33,0,0" VerticalAlignment="Top" Style="{StaticResource directoryButton}" Command="{Binding FindDirectory}" Width="103" Height="28">
+         <StackPanel Orientation="Horizontal">
+            <fa:IconImage Icon="FolderOpen" Height="18" Width="23" Foreground="#ccd7ff" />
+            <TextBlock Text="Choose folder" Foreground="#ccd7ff" Margin="5 0 0 0"/>
+         </StackPanel>
+      </Button>
 
 
 

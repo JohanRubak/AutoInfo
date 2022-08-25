@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Forms;
 using System.Windows.Input;
 using Journalfoeringssystem.Core;
 using Journalfoeringssystem.MVVM.Model;
@@ -23,11 +24,13 @@ namespace Journalfoeringssystem.MVVM.ViewModel
       public RelayCommand LoadImages { get; set; }
       public RelayCommand SelectedRadioButton { get; set; }
       public RelayCommand GeneratePDFCommand { get; set; }
+      public RelayCommand FindDirectory { get; set; }
       public Worker WorkerInput { get; set; }
       public Worker SelectedWorker { get; set; }
       public Workers WorkersInput { get; set; }
       public FileReader FileReader { get; set; }
       public PDFGenerator PdfGenerator { get; set; }
+      public string DriveForSearch { get; set; }
 
       private List<FileUpload> _filesForUpload;
 
@@ -314,7 +317,7 @@ namespace Journalfoeringssystem.MVVM.ViewModel
 
          SearchCommand = new RelayCommand(o =>
          {
-            string[] path = FileReader.SearchForFiles(SearchNumber);
+            string[] path = FileReader.SearchForFiles(SearchNumber, DriveForSearch);
 
             SearchPath = path[0];
             PatientName = path[1];
@@ -342,6 +345,14 @@ namespace Journalfoeringssystem.MVVM.ViewModel
                Thread thread2 = new Thread(StartGenerating);
                thread2.Start();
             }
+         });
+
+         FindDirectory = new RelayCommand(o =>
+         {
+            var dialog = new FolderBrowserDialog();
+            dialog.ShowDialog();
+            DriveForSearch = dialog.SelectedPath;
+            SearchPath = DriveForSearch;
          });
       }
 

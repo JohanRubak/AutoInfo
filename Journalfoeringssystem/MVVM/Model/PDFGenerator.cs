@@ -46,7 +46,7 @@ namespace Journalfoeringssystem.MVVM.Model
 
          switch (TypeOfProtocol)
          {
-            case "Kranial":
+            case "Kraniofacial":
                PdfDocument = new KranialTemplate();
                PdfDocument.GeneratePDFDocument(patientName, patientCPR, workers, dateForPlanning, dateForOperation, dateofScanning, typeOfScanning, serieOfScanning, cuttingGuide, remarks, FilesPathSorted);
                break;
