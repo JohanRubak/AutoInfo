@@ -11,7 +11,6 @@ namespace Journalfoeringssystem.MVVM.Model
    public class FileReader
    {
       public string RootPath { get; set; } = @"C:\Patienter";
-
       public string[] Information { get; set; } = new string[2];
 
       public string[] SearchForFiles(string patientCPR)
@@ -90,13 +89,13 @@ namespace Journalfoeringssystem.MVVM.Model
 
          numberOfDepartment = Directory.GetDirectories(departmentpath, "*", SearchOption.TopDirectoryOnly).Length;
 
-         var searchForPatients = Directory.GetDirectories(departmentpath, "*", SearchOption.TopDirectoryOnly);
+         //var searchForPatients = Directory.GetDirectories(departmentpath, "*", SearchOption.TopDirectoryOnly);
 
-         for (int i = 0; i < searchForPatients.Length; i++)
-         {
-            numberOfPatients += Directory.GetDirectories(searchForPatients[i] + @"\2021", "*", SearchOption.TopDirectoryOnly).Length;
-            numberOfPatients += Directory.GetDirectories(searchForPatients[i] + @"\2022", "*", SearchOption.TopDirectoryOnly).Length;
-         }
+         //for (int i = 0; i < searchForPatients.Length; i++)
+         //{
+         //   numberOfPatients += Directory.GetDirectories(searchForPatients[i] + @"\2021", "*", SearchOption.TopDirectoryOnly).Length;
+         //   numberOfPatients += Directory.GetDirectories(searchForPatients[i] + @"\2022", "*", SearchOption.TopDirectoryOnly).Length;
+         //}
 
          Numbers[0] = numberOfDepartment;
          Numbers[1] = numberOfPatients;

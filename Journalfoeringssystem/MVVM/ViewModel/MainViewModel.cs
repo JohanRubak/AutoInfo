@@ -10,9 +10,7 @@ namespace Journalfoeringssystem.MVVM.ViewModel
    class MainViewModel: ObservableObject
    {
       public HomeViewModel HomeVM { get; set; }
-
       public GeneratePDFViewModel GeneratePDFVM { get; set; }
-
       public RelayCommand HomeViewCommand { get; set; }
       public RelayCommand GeneratePDFViewCommand { get; set; }
       

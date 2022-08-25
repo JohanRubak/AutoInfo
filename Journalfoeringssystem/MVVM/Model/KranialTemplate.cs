@@ -12,14 +12,14 @@ namespace Journalfoeringssystem.MVVM.Model
       public Microsoft.Office.Interop.Word.Application app = new Microsoft.Office.Interop.Word.Application();
 
       float height = 0;
-      float constantHeightFrontImage = 280;
-      float constantHeightDI12 = 270;
-      float constantHeightDI23 = 110;
-      float constantHeightPOS15 = 200;
-      float constantHeightO18 = 200;
-      float constantHeightPO18 = 200;
-      float constantHeightCG12 = 280;
-      float constantHeightRG12 = 280;
+      float constantHeightFrontImage = 250;
+      float constantHeightDI12 = 250;
+      float constantHeightDI23 = 100;
+      float constantHeightPOS15 = 180;
+      float constantHeightO18 = 180;
+      float constantHeightPO18 = 180;
+      float constantHeightCG12 = 270;
+      float constantHeightRG12 = 270;
       float constantHeightSP12 = 300;
       float scale = 0;
       InlineShape newImage = null;
@@ -170,7 +170,32 @@ namespace Journalfoeringssystem.MVVM.Model
 
                case "DeliveredInstruments5":
 
-                  if (filesPathSorted[1].Count() == 5)
+                  if (filesPathSorted[1].Count() >= 5)
+                  {
+                     newImage = contentControl.Range.InlineShapes.AddPicture(
+                        filesPathSorted[1].ElementAt(4));
+
+                     newImage.ScaleWidth = 100;
+                     newImage.ScaleHeight = 100;
+
+                     height = newImage.Height;
+
+                     scale = constantHeightDI23 / height * 100;
+
+                     newImage.ScaleHeight = scale;
+                     newImage.ScaleWidth = scale;
+                  }
+
+                  else
+                  {
+                     contentControl.Delete();
+                  } 
+                  
+                  break;
+
+               case "DeliveredInstruments6":
+
+                  if (filesPathSorted[1].Count() >= 6)
                   {
                      newImage = contentControl.Range.InlineShapes.AddPicture(
                         filesPathSorted[1].ElementAt(4));
@@ -257,18 +282,28 @@ namespace Journalfoeringssystem.MVVM.Model
                   break;
 
                case "PreOperativeSituation5":
-                  newImage = contentControl.Range.InlineShapes.AddPicture(
-                     filesPathSorted[2].ElementAt(4));
 
-                  newImage.ScaleWidth = 100;
-                  newImage.ScaleHeight = 100;
+                  if (filesPathSorted[2].Count() >= 5)
+                  {
+                     newImage = contentControl.Range.InlineShapes.AddPicture(
+                        filesPathSorted[2].ElementAt(4));
 
-                  height = newImage.Height;
+                     newImage.ScaleWidth = 100;
+                     newImage.ScaleHeight = 100;
 
-                  scale = constantHeightPOS15 / height * 100;
+                     height = newImage.Height;
 
-                  newImage.ScaleHeight = scale;
-                  newImage.ScaleWidth = scale;
+                     scale = constantHeightPOS15 / height * 100;
+
+                     newImage.ScaleHeight = scale;
+                     newImage.ScaleWidth = scale;
+                  }
+
+                  else
+                  {
+                     contentControl.Delete();
+                  }
+                  
 
                   break;
 
@@ -353,18 +388,27 @@ namespace Journalfoeringssystem.MVVM.Model
                   break;
 
                case "Osteotomy6":
-                  newImage = contentControl.Range.InlineShapes.AddPicture(
-                     filesPathSorted[3].ElementAt(5));
 
-                  newImage.ScaleWidth = 100;
-                  newImage.ScaleHeight = 100;
+                  if (filesPathSorted[3].Count() >= 6)
+                  {
+                     newImage = contentControl.Range.InlineShapes.AddPicture(
+                        filesPathSorted[3].ElementAt(5));
 
-                  height = newImage.Height;
+                     newImage.ScaleWidth = 100;
+                     newImage.ScaleHeight = 100;
 
-                  scale = constantHeightPOS15 / height * 100;
+                     height = newImage.Height;
 
-                  newImage.ScaleHeight = scale;
-                  newImage.ScaleWidth = scale;
+                     scale = constantHeightPOS15 / height * 100;
+
+                     newImage.ScaleHeight = scale;
+                     newImage.ScaleWidth = scale;
+                  }
+
+                  else
+                  {
+                     contentControl.Delete();
+                  }
 
                   break;
 
@@ -433,34 +477,52 @@ namespace Journalfoeringssystem.MVVM.Model
                   break;
 
                case "PlannedOutcome5":
-                  newImage = contentControl.Range.InlineShapes.AddPicture(
-                     filesPathSorted[4].ElementAt(4));
 
-                  newImage.ScaleWidth = 100;
-                  newImage.ScaleHeight = 100;
+                  if (filesPathSorted[4].Count() >= 5)
+                  {
+                     newImage = contentControl.Range.InlineShapes.AddPicture(
+                        filesPathSorted[4].ElementAt(4));
 
-                  height = newImage.Height;
+                     newImage.ScaleWidth = 100;
+                     newImage.ScaleHeight = 100;
 
-                  scale = constantHeightPO18 / height * 100;
+                     height = newImage.Height;
 
-                  newImage.ScaleHeight = scale;
-                  newImage.ScaleWidth = scale;
+                     scale = constantHeightPO18 / height * 100;
+
+                     newImage.ScaleHeight = scale;
+                     newImage.ScaleWidth = scale;
+                  }
+
+                  else
+                  {
+                     contentControl.Delete();
+                  }
 
                   break;
 
                case "PlannedOutcome6":
-                  newImage = contentControl.Range.InlineShapes.AddPicture(
-                     filesPathSorted[4].ElementAt(5));
+                  
+                  if (filesPathSorted[4].Count() >= 6)
+                  {
+                     newImage = contentControl.Range.InlineShapes.AddPicture(
+                        filesPathSorted[4].ElementAt(5));
 
-                  newImage.ScaleWidth = 100;
-                  newImage.ScaleHeight = 100;
+                     newImage.ScaleWidth = 100;
+                     newImage.ScaleHeight = 100;
 
-                  height = newImage.Height;
+                     height = newImage.Height;
 
-                  scale = constantHeightPO18 / height * 100;
+                     scale = constantHeightPO18 / height * 100;
 
-                  newImage.ScaleHeight = scale;
-                  newImage.ScaleWidth = scale;
+                     newImage.ScaleHeight = scale;
+                     newImage.ScaleWidth = scale;
+                  }
+
+                  else
+                  {
+                     contentControl.Delete();
+                  }
 
                   break;
 
@@ -523,7 +585,7 @@ namespace Journalfoeringssystem.MVVM.Model
 
                case "CuttingGuide4":
                   
-                  if (filesPathSorted[5].Count() == 4)
+                  if (filesPathSorted[5].Count() >= 4)
                   {
                      newImage = contentControl.Range.InlineShapes.AddPicture(
                         filesPathSorted[5].ElementAt(3));
@@ -605,10 +667,35 @@ namespace Journalfoeringssystem.MVVM.Model
 
                case "RepositioningGuide4":
 
-                  if (filesPathSorted[6].Count() == 4)
+                  if (filesPathSorted[6].Count() >= 4)
                   {
                      newImage = contentControl.Range.InlineShapes.AddPicture(
                         filesPathSorted[6].ElementAt(3));
+
+                     newImage.ScaleWidth = 100;
+                     newImage.ScaleHeight = 100;
+
+                     height = newImage.Height;
+
+                     scale = constantHeightRG12 / height * 100;
+
+                     newImage.ScaleHeight = scale;
+                     newImage.ScaleWidth = scale;
+                  }
+
+                  else
+                  {
+                     contentControl.Delete();
+                  }
+
+                  break;
+
+               case "RepositioningGuide5":
+
+                  if (filesPathSorted[6].Count() >= 5)
+                  {
+                     newImage = contentControl.Range.InlineShapes.AddPicture(
+                        filesPathSorted[6].ElementAt(4));
 
                      newImage.ScaleWidth = 100;
                      newImage.ScaleHeight = 100;
@@ -657,6 +744,31 @@ namespace Journalfoeringssystem.MVVM.Model
 
                   newImage.ScaleHeight = scale;
                   newImage.ScaleWidth = scale;
+
+                  break;
+
+               case "Spacers3":
+
+                  if (filesPathSorted[7].Count() >= 3)
+                  {
+                     newImage = contentControl.Range.InlineShapes.AddPicture(
+                        filesPathSorted[7].ElementAt(1));
+
+                     newImage.ScaleWidth = 100;
+                     newImage.ScaleHeight = 100;
+
+                     height = newImage.Height;
+
+                     scale = constantHeightSP12 / height * 100;
+
+                     newImage.ScaleHeight = scale;
+                     newImage.ScaleWidth = scale;
+                  }
+
+                  else
+                  {
+                     contentControl.Delete();
+                  }
 
                   break;
             }

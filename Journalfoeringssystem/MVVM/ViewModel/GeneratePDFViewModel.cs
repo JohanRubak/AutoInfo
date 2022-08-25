@@ -18,17 +18,11 @@ namespace Journalfoeringssystem.MVVM.ViewModel
    {
       public RelayCommand SearchCommand { get; set; }
       public RelayCommand AddCommand { get; set; }
-
       public RelayCommand RemoveCommand { get; set; }
-
       public RelayCommand EditCommand { get; set; }
-
       public RelayCommand LoadImages { get; set; }
-
       public RelayCommand SelectedRadioButton { get; set; }
-
       public RelayCommand GeneratePDFCommand { get; set; }
-
       public Worker WorkerInput { get; set; }
       public Worker SelectedWorker { get; set; }
       public Workers WorkersInput { get; set; }
@@ -347,10 +341,8 @@ namespace Journalfoeringssystem.MVVM.ViewModel
 
                Thread thread2 = new Thread(StartGenerating);
                thread2.Start();
-
             }
          });
-
       }
 
       public void StartLoading()
@@ -369,9 +361,5 @@ namespace Journalfoeringssystem.MVVM.ViewModel
          ButtonText = "Generate PDF";
          ButtonEnabled = true;
       }
-
-      
    }
-
-   
 }
