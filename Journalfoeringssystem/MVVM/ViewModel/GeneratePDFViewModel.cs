@@ -126,19 +126,19 @@ namespace Journalfoeringssystem.MVVM.ViewModel
          }
       }
 
-      private DateTime _dateForOperation;
+      private DateTime _dateForSurgery;
 
-      public DateTime DateForOperation
+      public DateTime DateForSurgery
       {
          get
          {
-            return _dateForOperation;
+            return _dateForSurgery;
          }
 
          set
          {
-            _dateForOperation = value;
-            OnPropertyChanged(nameof(DateForOperation));
+            _dateForSurgery = value;
+            OnPropertyChanged(nameof(DateForSurgery));
          }
       }
 
@@ -317,11 +317,19 @@ namespace Journalfoeringssystem.MVVM.ViewModel
 
          SearchCommand = new RelayCommand(o =>
          {
-            string[] path = FileReader.SearchForFiles(SearchNumber, DriveForSearch);
+            if (!string.IsNullOrEmpty(SearchNumber) && !string.IsNullOrEmpty(DriveForSearch))
+            {
+               string[] path = FileReader.SearchForFiles(SearchNumber, DriveForSearch);
 
-            SearchPath = path[0];
-            PatientName = path[1];
-            CPRNumber = SearchNumber;
+               SearchPath = path[0];
+               PatientName = path[1];
+               CPRNumber = SearchNumber;
+            }
+
+            else
+            {
+               
+            }
 
          });
 
@@ -366,7 +374,7 @@ namespace Journalfoeringssystem.MVVM.ViewModel
 
       public void StartGenerating()
       {
-         PdfGenerator.GeneratePDF(SearchPath, PatientName, CPRNumber, WorkersInput, DateForPlanning, DateForOperation,
+         PdfGenerator.GeneratePDF(SearchPath, PatientName, CPRNumber, WorkersInput, DateForPlanning, DateForSurgery,
             DateForScanning, TypeOfScanning, SerieOfScanning, CuttingGuide, Remarks, Protocol);
          Loading = Visibility.Hidden;
          ButtonText = "Generate PDF";

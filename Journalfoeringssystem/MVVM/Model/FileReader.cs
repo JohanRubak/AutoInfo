@@ -10,7 +10,6 @@ namespace Journalfoeringssystem.MVVM.Model
 {
    public class FileReader
    {
-      public string RootPath { get; set; } = @"C:\Patienter";
       public string[] Information { get; set; } = new string[2];
 
       public string[] SearchForFiles(string patientCPR, string rootPath)

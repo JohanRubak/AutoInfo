@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.32106.194
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Journalfoeringssystem", "Journalfoeringssystem\Journalfoeringssystem.csproj", "{A047096A-6F8E-4B29-B57C-F3D52C5CA6F2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Journalfoeringssystem", "Journalfoeringssystem\Journalfoeringssystem.csproj", "{A047096A-6F8E-4B29-B57C-F3D52C5CA6F2}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "AutoInfoSetup", "AutoInfoSetup\AutoInfoSetup.vdproj", "{77DE0A2C-0483-4EC8-94DA-0A5B40BA2BAE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,8 @@ Global
 		{A047096A-6F8E-4B29-B57C-F3D52C5CA6F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A047096A-6F8E-4B29-B57C-F3D52C5CA6F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A047096A-6F8E-4B29-B57C-F3D52C5CA6F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77DE0A2C-0483-4EC8-94DA-0A5B40BA2BAE}.Debug|Any CPU.ActiveCfg = Debug
+		{77DE0A2C-0483-4EC8-94DA-0A5B40BA2BAE}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

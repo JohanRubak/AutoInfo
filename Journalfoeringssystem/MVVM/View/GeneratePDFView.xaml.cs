@@ -28,7 +28,7 @@ namespace Journalfoeringssystem.MVVM.View
       {
          InitializeComponent();
          DateForPlanningDP.DisplayDate = DateTime.Today;
-         DateForOperationDP.DisplayDate = DateTime.Today;
+         DateForSurgeryDP.DisplayDate = DateTime.Today;
          DateOfScanningDP.DisplayDate = DateTime.Today;
       }
 

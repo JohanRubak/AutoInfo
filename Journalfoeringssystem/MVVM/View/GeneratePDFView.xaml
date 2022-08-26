@@ -91,8 +91,8 @@
       </Border>
       <DatePicker TabIndex="1" Name="DateForPlanningDP" SelectedDate="{Binding DateForPlanning}" HorizontalAlignment="Left" Margin="145,168,0,0" VerticalAlignment="Top" Width="105"/>
       <Label Content="Date for planning:" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#ccd7ff" Margin="31,164,0,0"/>
-      <DatePicker TabIndex="2" Name="DateForOperationDP" SelectedDate="{Binding DateForOperation}" HorizontalAlignment="Left" Margin="145,203,0,0" VerticalAlignment="Top" Width="105"/>
-      <Label Content="Date for operation:" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#ccd7ff" Margin="31,199,0,0"/>
+      <DatePicker TabIndex="2" Name="DateForSurgeryDP" SelectedDate="{Binding DateForSurgery}" HorizontalAlignment="Left" Margin="145,203,0,0" VerticalAlignment="Top" Width="105"/>
+      <Label Content="Date for surgery:" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#ccd7ff" Margin="31,199,0,0"/>
 
 
       <Label Content="Name:" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#ccd7ff" Margin="31,292,0,0"/>
