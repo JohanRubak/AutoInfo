@@ -51,7 +51,7 @@ namespace Journalfoeringssystem.MVVM.Model
 
          else
          {
-            return Information;
+            return null;
          }
 
       }
