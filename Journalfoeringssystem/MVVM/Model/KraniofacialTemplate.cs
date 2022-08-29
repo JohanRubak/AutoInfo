@@ -7,7 +7,7 @@ using Microsoft.Office.Interop.Word;
 
 namespace Journalfoeringssystem.MVVM.Model
 {
-   public class KranialTemplate : IDocument
+   public class KranioFacialTemplate : IDocument
    {
       public Microsoft.Office.Interop.Word.Application app = new Microsoft.Office.Interop.Word.Application();
 
@@ -26,9 +26,11 @@ namespace Journalfoeringssystem.MVVM.Model
 
       Microsoft.Office.Interop.Word.Document doc = null;
 
-      string filePath = @"C:\Patienter\Patient information - template.docx";
+      string filePath = @"C:\Patienter\Templates\Kraniofacial\Informationstabel, Kraniofacial - template.docx";
 
-      public void GeneratePDFDocument(string patientName, string patientCPR, Workers workers, DateTime dateForPlanning, DateTime dateForOperation, DateTime dateofScanning, string typeOfScanning, string serieOfScanning, string cuttingGuide, string remarks, List<IOrderedEnumerable<string>> filesPathSorted)
+      public void GeneratePDFDocument(string patientName, string patientCPR, Workers workers, DateTime dateForPlanning,
+         DateTime dateForSurgery, DateTime dateofScanning, string typeOfScanning, string serieOfScanning,
+         string cuttingGuide, string remarks, List<IOrderedEnumerable<string>> filesPathSorted)
       {
          doc = app.Documents.Add(filePath);
          doc.Activate();
@@ -53,6 +55,7 @@ namespace Journalfoeringssystem.MVVM.Model
                   {
                      localtext += $"{VARIABLE.WorkerName}({VARIABLE.WorkerJob}),\r\n";
                   }
+
                   contentControl.Range.Text = localtext;
 
                   break;
@@ -61,8 +64,8 @@ namespace Journalfoeringssystem.MVVM.Model
                   contentControl.Range.Text = dateForPlanning.ToShortDateString();
                   break;
 
-               case "DateForOperation":
-                  contentControl.Range.Text = dateForOperation.ToShortDateString();
+               case "DateForSurgery":
+                  contentControl.Range.Text = dateForSurgery.ToShortDateString();
                   break;
 
                case "Remarks":
@@ -189,8 +192,8 @@ namespace Journalfoeringssystem.MVVM.Model
                   else
                   {
                      contentControl.Delete();
-                  } 
-                  
+                  }
+
                   break;
 
                case "DeliveredInstruments6":
@@ -198,7 +201,7 @@ namespace Journalfoeringssystem.MVVM.Model
                   if (filesPathSorted[1].Count() >= 6)
                   {
                      newImage = contentControl.Range.InlineShapes.AddPicture(
-                        filesPathSorted[1].ElementAt(4));
+                        filesPathSorted[1].ElementAt(5));
 
                      newImage.ScaleWidth = 100;
                      newImage.ScaleHeight = 100;
@@ -303,7 +306,7 @@ namespace Journalfoeringssystem.MVVM.Model
                   {
                      contentControl.Delete();
                   }
-                  
+
 
                   break;
 
@@ -502,7 +505,7 @@ namespace Journalfoeringssystem.MVVM.Model
                   break;
 
                case "PlannedOutcome6":
-                  
+
                   if (filesPathSorted[4].Count() >= 6)
                   {
                      newImage = contentControl.Range.InlineShapes.AddPicture(
@@ -559,7 +562,7 @@ namespace Journalfoeringssystem.MVVM.Model
                   break;
 
                case "CuttingGuide3":
-                  
+
                   if (filesPathSorted[5].Count() >= 3)
                   {
                      newImage = contentControl.Range.InlineShapes.AddPicture(
@@ -584,7 +587,7 @@ namespace Journalfoeringssystem.MVVM.Model
                   break;
 
                case "CuttingGuide4":
-                  
+
                   if (filesPathSorted[5].Count() >= 4)
                   {
                      newImage = contentControl.Range.InlineShapes.AddPicture(
@@ -607,6 +610,7 @@ namespace Journalfoeringssystem.MVVM.Model
                   }
 
                   break;
+
 
                case "RepositioningGuide1":
                   newImage = contentControl.Range.InlineShapes.AddPicture(
@@ -752,7 +756,7 @@ namespace Journalfoeringssystem.MVVM.Model
                   if (filesPathSorted[7].Count() >= 3)
                   {
                      newImage = contentControl.Range.InlineShapes.AddPicture(
-                        filesPathSorted[7].ElementAt(1));
+                        filesPathSorted[7].ElementAt(2));
 
                      newImage.ScaleWidth = 100;
                      newImage.ScaleHeight = 100;
@@ -774,8 +778,15 @@ namespace Journalfoeringssystem.MVVM.Model
             }
          }
 
-         var newFilePath = @"C:\Patienter\Patient information - template3.docx";
-         doc.SaveAs2(newFilePath);
+         try
+         {
+            doc.Save();
+         }
+
+         catch (Exception e)
+         {
+            Console.WriteLine(e);
+         }
       }
    }
 }

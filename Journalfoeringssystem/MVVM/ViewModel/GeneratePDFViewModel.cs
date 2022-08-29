@@ -286,9 +286,26 @@ namespace Journalfoeringssystem.MVVM.ViewModel
          }
       }
 
+      private Visibility _patientNotFound;
+
+      public Visibility PatientNotFound
+      {
+         get
+         {
+            return _patientNotFound;
+         }
+
+         set
+         {
+            _patientNotFound = value;
+            OnPropertyChanged(nameof(PatientNotFound));
+         }
+      }
+
       public GeneratePDFViewModel()
       {
          Loading = Visibility.Hidden;
+         PatientNotFound = Visibility.Hidden;
          ButtonEnabled = true;
          WorkerInput = new Worker();
          WorkersInput = new Workers();
@@ -321,9 +338,18 @@ namespace Journalfoeringssystem.MVVM.ViewModel
             {
                string[] path = FileReader.SearchForFiles(SearchNumber, DriveForSearch);
 
-               SearchPath = path[0];
-               PatientName = path[1];
-               CPRNumber = SearchNumber;
+               if (path != null)
+               {
+                  SearchPath = path[0];
+                  PatientName = path[1];
+                  CPRNumber = SearchNumber;
+                  PatientNotFound = Visibility.Hidden;
+               }
+
+               else
+               {
+                  PatientNotFound = Visibility.Visible;
+               }
             }
 
             else

@@ -14,29 +14,39 @@ namespace Journalfoeringssystem.MVVM.Model
 
       public string[] SearchForFiles(string patientCPR, string rootPath)
       {
-         if (patientCPR.Length <= 10)
+         if (patientCPR.Length <= 11)
          {
             var filePath = Directory.GetDirectories(rootPath, "*" + patientCPR + "*", SearchOption.AllDirectories);
 
-            string patientName = string.Empty;
-
-            string patient = new DirectoryInfo(filePath[0]).Name;
-
-            for (int i = 0; i < patient.Length; i++)
+            try
             {
-               if (Char.IsDigit(patient[i]))
+               string patientName = string.Empty;
+
+               string patient = new DirectoryInfo(filePath[0]).Name;
+
+               for (int i = 0; i < patient.Length; i++)
                {
-                  break;
+                  if (Char.IsDigit(patient[i]))
+                  {
+                     break;
+                  }
+
+                  patientName += patient[i];
                }
 
-               patientName += patient[i];
+
+               Information[0] = filePath[0] + @"\Billeder";
+               Information[1] = patientName;
+
+               return Information;
+
             }
 
-
-            Information[0] = filePath[0] + @"\Billeder";
-            Information[1] = patientName;
-
-            return Information;
+            catch (Exception e)
+            {
+               Console.WriteLine(e);
+               return null;
+            }
          }
 
          else

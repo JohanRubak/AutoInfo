@@ -27,14 +27,14 @@ namespace Journalfoeringssystem.MVVM.Model
 
       }
 
-      public void GeneratePDF(string searchPath, string patientName, string patientCPR, Workers workers, DateTime dateForPlanning, DateTime dateForOperation, DateTime dateofScanning, string typeOfScanning, string serieOfScanning, string cuttingGuide, string remarks, string typeOfProtocol)
+      public void GeneratePDF(string searchPath, string patientName, string patientCPR, Workers workers, DateTime dateForPlanning, DateTime dateForSurgery, DateTime dateofScanning, string typeOfScanning, string serieOfScanning, string cuttingGuide, string remarks, string typeOfProtocol)
       {
          SearchPath = searchPath;
          PatientName = patientName;
          PatientCPR = patientCPR;
          Workers = Workers;
          DateForPlanning = dateForPlanning;
-         DateForOperation = dateForOperation;
+         DateForOperation = dateForSurgery;
          DateOfScanning = dateofScanning;
          TypeOfScanning = typeOfScanning;
          SerieOfScanning = serieOfScanning;
@@ -47,8 +47,8 @@ namespace Journalfoeringssystem.MVVM.Model
          switch (TypeOfProtocol)
          {
             case "Kraniofacial":
-               PdfDocument = new KranialTemplate();
-               PdfDocument.GeneratePDFDocument(patientName, patientCPR, workers, dateForPlanning, dateForOperation, dateofScanning, typeOfScanning, serieOfScanning, cuttingGuide, remarks, FilesPathSorted);
+               PdfDocument = new KranioFacialTemplate();
+               PdfDocument.GeneratePDFDocument(patientName, patientCPR, workers, dateForPlanning, dateForSurgery, dateofScanning, typeOfScanning, serieOfScanning, cuttingGuide, remarks, FilesPathSorted);
                break;
          }
 

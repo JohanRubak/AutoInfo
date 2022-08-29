@@ -67,7 +67,7 @@
                </StackPanel>
             </Button>
 
-            <Button Style="{StaticResource menuButton}">
+            <Button Style="{StaticResource menuButton}" Command="{Binding HelpViewCommand}">
                <StackPanel Orientation="Horizontal">
                   <fa:IconImage Icon="Question" Style="{StaticResource menuButtonIcon}"/>
                   <TextBlock Text="Help" Style="{StaticResource menuButtonText}"/>

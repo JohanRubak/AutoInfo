@@ -78,6 +78,7 @@
       <Label Content="Searchpath" HorizontalAlignment="Left" Margin="398,69,0,0" VerticalAlignment="Top" Foreground="#ccd7ff"/>
       <Label x:Name="SearchpathLabel" Content="{Binding SearchPath, TargetNullValue='C:/XXXX'}" HorizontalAlignment="Left" Margin="398,95,0,0" VerticalAlignment="Top" Foreground="#FFE5EAFF" FontWeight="Bold" />
       <Label Content="CPR-number" HorizontalAlignment="Left" Margin="31,69,0,0" VerticalAlignment="Top" Foreground="#ccd7ff"/>
+      <Label Content="Patient not found..." HorizontalAlignment="Left" Margin="505,34,0,0" VerticalAlignment="Top" Foreground="Red" Visibility="{Binding PatientNotFound}"/>
       <Button Command="{Binding LoadImages}" x:Name="LoadPicturesButton" Content="Load pictures" HorizontalAlignment="Left" Margin="885,93,0,0" VerticalAlignment="Top" Style="{StaticResource personsButton}" Width="87"/>
 
       <!--Informationinputs-->

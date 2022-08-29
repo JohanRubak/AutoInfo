@@ -11,8 +11,10 @@ namespace Journalfoeringssystem.MVVM.ViewModel
    {
       public HomeViewModel HomeVM { get; set; }
       public GeneratePDFViewModel GeneratePDFVM { get; set; }
+      public HelpViewModel HelpVM { get; set; }
       public RelayCommand HomeViewCommand { get; set; }
       public RelayCommand GeneratePDFViewCommand { get; set; }
+      public RelayCommand HelpViewCommand { get; set; }
       
       private object _currentView;
 
@@ -30,6 +32,7 @@ namespace Journalfoeringssystem.MVVM.ViewModel
       {
          HomeVM = new HomeViewModel();
          GeneratePDFVM = new GeneratePDFViewModel();
+         HelpVM = new HelpViewModel();
          CurrentView = HomeVM;
 
          HomeViewCommand = new RelayCommand(o =>
@@ -40,6 +43,11 @@ namespace Journalfoeringssystem.MVVM.ViewModel
          GeneratePDFViewCommand = new RelayCommand(o =>
          {
             CurrentView = GeneratePDFVM;
+         });
+
+         HelpViewCommand = new RelayCommand(o =>
+         {
+            CurrentView = HelpVM;
          });
       }
    }
