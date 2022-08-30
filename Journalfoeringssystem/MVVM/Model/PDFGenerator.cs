@@ -2,23 +2,12 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using Journalfoeringssystem.Domain;
 
 namespace Journalfoeringssystem.MVVM.Model
 {
    public class PDFGenerator
    {
-      public string SearchPath { get; set; }
-      public string PatientName { get; set; }
-      public string PatientCPR { get; set; }
-      public Workers Workers { get; set; }
-      public DateTime DateForPlanning { get; set; }
-      public DateTime DateForOperation { get; set; }
-      public DateTime DateOfScanning { get; set; }
-      public string TypeOfScanning { get; set; }
-      public string SerieOfScanning { get; set; }
-      public string CuttingGuide { get; set; }
-      public string Remarks { get; set; }
-      public string TypeOfProtocol { get; set; }
       public IDocument PdfDocument { get; set; }
       public List<IOrderedEnumerable<string>> FilesPathSorted { get; set; }
 
@@ -27,34 +16,25 @@ namespace Journalfoeringssystem.MVVM.Model
 
       }
 
-      public void GeneratePDF(string searchPath, string patientName, string patientCPR, Workers workers, DateTime dateForPlanning, DateTime dateForSurgery, DateTime dateofScanning, string typeOfScanning, string serieOfScanning, string cuttingGuide, string remarks, string typeOfProtocol)
+      public void GeneratePDF(InformationContainer informationContainer)
       {
-         SearchPath = searchPath;
-         PatientName = patientName;
-         PatientCPR = patientCPR;
-         Workers = Workers;
-         DateForPlanning = dateForPlanning;
-         DateForOperation = dateForSurgery;
-         DateOfScanning = dateofScanning;
-         TypeOfScanning = typeOfScanning;
-         SerieOfScanning = serieOfScanning;
-         CuttingGuide = cuttingGuide;
-         Remarks = remarks;
-         TypeOfProtocol = typeOfProtocol;
-
-         FilesPathSorted = FindAndSortImages(searchPath);
-
-         switch (TypeOfProtocol)
+         switch (informationContainer.Protocol)
          {
             case "Kraniofacial":
+               FilesPathSorted = FindAndSortImagesForKraniofacial(informationContainer.SearchPath);
                PdfDocument = new KranioFacialTemplate();
-               PdfDocument.GeneratePDFDocument(patientName, patientCPR, workers, dateForPlanning, dateForSurgery, dateofScanning, typeOfScanning, serieOfScanning, cuttingGuide, remarks, FilesPathSorted);
+               PdfDocument.GeneratePDFDocument(informationContainer, FilesPathSorted);
+               break;
+
+            case "Mandibel":
+               FilesPathSorted = FindAndSortImagesForMandibel(informationContainer.SearchPath);
+               PdfDocument = new MandibelTemplate();
+               PdfDocument.GeneratePDFDocument(informationContainer, FilesPathSorted);
                break;
          }
-
       }
 
-      public List<IOrderedEnumerable<string>> FindAndSortImages(string searchPath)
+      public List<IOrderedEnumerable<string>> FindAndSortImagesForKraniofacial(string searchPath)
       {
          List<IOrderedEnumerable<string>> filesPathSorted = new List<IOrderedEnumerable<string>>();
 
@@ -75,6 +55,25 @@ namespace Journalfoeringssystem.MVVM.Model
          filesPathSorted.Add(cuttingGuideFiles);
          filesPathSorted.Add(repositioningGuideFiles);
          filesPathSorted.Add(spacersFiles);
+
+         return filesPathSorted;
+      }
+
+      public List<IOrderedEnumerable<string>> FindAndSortImagesForMandibel(string searchPath)
+      {
+         List<IOrderedEnumerable<string>> filesPathSorted = new List<IOrderedEnumerable<string>>();
+
+         var deliveredInstrumentsFiles = Directory.GetFiles(searchPath + @"\Delivered Instruments", "*.*", SearchOption.AllDirectories).OrderBy(t => new FileInfo(t).LastWriteTime);
+         var resectionOfFibulaSituationFiles = Directory.GetFiles(searchPath + @"\Resection of Fibula", "*.*", SearchOption.AllDirectories).OrderBy(t => new FileInfo(t).LastWriteTime);
+         var plannedOutcomeFiles = Directory.GetFiles(searchPath + @"\Planned Outcome", "*.*", SearchOption.AllDirectories).OrderBy(t => new FileInfo(t).LastWriteTime);
+         var cuttingGuideFiles = Directory.GetFiles(searchPath + @"\Cutting Guide", "*.*", SearchOption.AllDirectories).OrderBy(t => new FileInfo(t).LastWriteTime);
+         var gutterFiles = Directory.GetFiles(searchPath + @"\Gutter", "*.*", SearchOption.AllDirectories).OrderBy(t => new FileInfo(t).LastWriteTime);
+
+         filesPathSorted.Add(deliveredInstrumentsFiles);
+         filesPathSorted.Add(resectionOfFibulaSituationFiles);
+         filesPathSorted.Add(plannedOutcomeFiles);
+         filesPathSorted.Add(cuttingGuideFiles);
+         filesPathSorted.Add(gutterFiles);
 
          return filesPathSorted;
       }

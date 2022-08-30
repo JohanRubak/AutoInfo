@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using Journalfoeringssystem.Domain;
 using Microsoft.Office.Interop.Word;
 
 namespace Journalfoeringssystem.MVVM.Model
@@ -16,11 +17,13 @@ namespace Journalfoeringssystem.MVVM.Model
       float constantHeightDI12 = 250;
       float constantHeightDI23 = 100;
       float constantHeightPOS15 = 180;
-      float constantHeightO18 = 180;
-      float constantHeightPO18 = 180;
+      float constantHeightO14 = 180;
+      float constantHeightO46 = 270;
+      float constantHeightPO14 = 180;
+      float constantHeightPO46 = 270;
       float constantHeightCG12 = 270;
       float constantHeightRG12 = 270;
-      float constantHeightSP12 = 300;
+      float constantHeightSP12 = 270;
       float scale = 0;
       InlineShape newImage = null;
 
@@ -28,9 +31,7 @@ namespace Journalfoeringssystem.MVVM.Model
 
       string filePath = @"C:\Patienter\Templates\Kraniofacial\Informationstabel, Kraniofacial - template.docx";
 
-      public void GeneratePDFDocument(string patientName, string patientCPR, Workers workers, DateTime dateForPlanning,
-         DateTime dateForSurgery, DateTime dateofScanning, string typeOfScanning, string serieOfScanning,
-         string cuttingGuide, string remarks, List<IOrderedEnumerable<string>> filesPathSorted)
+      public void GeneratePDFDocument(InformationContainer informationContainer, List<IOrderedEnumerable<string>> filesPathSorted)
       {
          doc = app.Documents.Add(filePath);
          doc.Activate();
@@ -40,18 +41,18 @@ namespace Journalfoeringssystem.MVVM.Model
             switch (contentControl.Title)
             {
                case "PatientName":
-                  contentControl.Range.Text = patientName;
+                  contentControl.Range.Text = informationContainer.PatientName;
                   break;
 
                case "CPR":
-                  contentControl.Range.Text = patientCPR;
+                  contentControl.Range.Text = informationContainer.CPRNumber;
                   break;
 
                case "VirtualPlanning":
 
                   string localtext = "";
 
-                  foreach (var VARIABLE in workers.WorkersList)
+                  foreach (var VARIABLE in informationContainer.WorkersInput.WorkersList)
                   {
                      localtext += $"{VARIABLE.WorkerName}({VARIABLE.WorkerJob}),\r\n";
                   }
@@ -61,31 +62,31 @@ namespace Journalfoeringssystem.MVVM.Model
                   break;
 
                case "DateForPlanning":
-                  contentControl.Range.Text = dateForPlanning.ToShortDateString();
+                  contentControl.Range.Text = informationContainer.DateForPlanning.ToShortDateString();
                   break;
 
                case "DateForSurgery":
-                  contentControl.Range.Text = dateForSurgery.ToShortDateString();
+                  contentControl.Range.Text = informationContainer.DateForSurgery.ToShortDateString();
                   break;
 
                case "Remarks":
-                  contentControl.Range.Text = remarks;
+                  contentControl.Range.Text = informationContainer.Remarks;
                   break;
 
                case "CuttingGuideText":
-                  contentControl.Range.Text = cuttingGuide;
+                  contentControl.Range.Text = informationContainer.CuttingGuide;
                   break;
 
                case "Scanning":
-                  contentControl.Range.Text = typeOfScanning;
+                  contentControl.Range.Text = informationContainer.TypeOfScanning1;
                   break;
 
                case "DateOfScanning":
-                  contentControl.Range.Text = dateofScanning.ToShortDateString();
+                  contentControl.Range.Text = informationContainer.DateForScanning1.ToShortDateString();
                   break;
 
                case "Serie":
-                  contentControl.Range.Text = serieOfScanning;
+                  contentControl.Range.Text = informationContainer.SerieOfScanning1;
                   break;
 
                case "FrontImage":
@@ -319,7 +320,7 @@ namespace Journalfoeringssystem.MVVM.Model
 
                   height = newImage.Height;
 
-                  scale = constantHeightO18 / height * 100;
+                  scale = constantHeightO14 / height * 100;
 
                   newImage.ScaleHeight = scale;
                   newImage.ScaleWidth = scale;
@@ -335,7 +336,7 @@ namespace Journalfoeringssystem.MVVM.Model
 
                   height = newImage.Height;
 
-                  scale = constantHeightO18 / height * 100;
+                  scale = constantHeightO14 / height * 100;
 
                   newImage.ScaleHeight = scale;
                   newImage.ScaleWidth = scale;
@@ -351,7 +352,7 @@ namespace Journalfoeringssystem.MVVM.Model
 
                   height = newImage.Height;
 
-                  scale = constantHeightO18 / height * 100;
+                  scale = constantHeightO14 / height * 100;
 
                   newImage.ScaleHeight = scale;
                   newImage.ScaleWidth = scale;
@@ -367,7 +368,7 @@ namespace Journalfoeringssystem.MVVM.Model
 
                   height = newImage.Height;
 
-                  scale = constantHeightO18 / height * 100;
+                  scale = constantHeightO14 / height * 100;
 
                   newImage.ScaleHeight = scale;
                   newImage.ScaleWidth = scale;
@@ -383,7 +384,7 @@ namespace Journalfoeringssystem.MVVM.Model
 
                   height = newImage.Height;
 
-                  scale = constantHeightO18 / height * 100;
+                  scale = constantHeightO46 / height * 100;
 
                   newImage.ScaleHeight = scale;
                   newImage.ScaleWidth = scale;
@@ -402,7 +403,7 @@ namespace Journalfoeringssystem.MVVM.Model
 
                      height = newImage.Height;
 
-                     scale = constantHeightPOS15 / height * 100;
+                     scale = constantHeightO46 / height * 100;
 
                      newImage.ScaleHeight = scale;
                      newImage.ScaleWidth = scale;
@@ -424,7 +425,7 @@ namespace Journalfoeringssystem.MVVM.Model
 
                   height = newImage.Height;
 
-                  scale = constantHeightPO18 / height * 100;
+                  scale = constantHeightPO14 / height * 100;
 
                   newImage.ScaleHeight = scale;
                   newImage.ScaleWidth = scale;
@@ -440,7 +441,7 @@ namespace Journalfoeringssystem.MVVM.Model
 
                   height = newImage.Height;
 
-                  scale = constantHeightPO18 / height * 100;
+                  scale = constantHeightPO14 / height * 100;
 
                   newImage.ScaleHeight = scale;
                   newImage.ScaleWidth = scale;
@@ -456,7 +457,7 @@ namespace Journalfoeringssystem.MVVM.Model
 
                   height = newImage.Height;
 
-                  scale = constantHeightPO18 / height * 100;
+                  scale = constantHeightPO14 / height * 100;
 
                   newImage.ScaleHeight = scale;
                   newImage.ScaleWidth = scale;
@@ -472,7 +473,7 @@ namespace Journalfoeringssystem.MVVM.Model
 
                   height = newImage.Height;
 
-                  scale = constantHeightPO18 / height * 100;
+                  scale = constantHeightPO14 / height * 100;
 
                   newImage.ScaleHeight = scale;
                   newImage.ScaleWidth = scale;
@@ -491,7 +492,7 @@ namespace Journalfoeringssystem.MVVM.Model
 
                      height = newImage.Height;
 
-                     scale = constantHeightPO18 / height * 100;
+                     scale = constantHeightPO46 / height * 100;
 
                      newImage.ScaleHeight = scale;
                      newImage.ScaleWidth = scale;
@@ -516,7 +517,7 @@ namespace Journalfoeringssystem.MVVM.Model
 
                      height = newImage.Height;
 
-                     scale = constantHeightPO18 / height * 100;
+                     scale = constantHeightPO46 / height * 100;
 
                      newImage.ScaleHeight = scale;
                      newImage.ScaleWidth = scale;

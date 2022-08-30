@@ -60,10 +60,17 @@
                </StackPanel>
             </Button>
 
-            <Button Style="{StaticResource menuButton}" Command="{Binding GeneratePDFViewCommand}">
+            <Button Style="{StaticResource menuButton}" Command="{Binding GenerateKraniofacialViewCommand}">
                <StackPanel Orientation="Horizontal">
-                  <fa:IconImage Icon="FileSignature" Style="{StaticResource menuButtonIcon}"/>
-                  <TextBlock Text="Generate PDF" Style="{StaticResource menuButtonText}"/>
+                  <fa:IconImage Icon="Skull" Style="{StaticResource menuButtonIcon}"/>
+                  <TextBlock Text="Generate Kraniofacial PDF" Style="{StaticResource menuButtonText}"/>
+               </StackPanel>
+            </Button>
+
+            <Button Style="{StaticResource menuButton}" Command="{Binding GenerateMandibelViewCommand}">
+               <StackPanel Orientation="Horizontal">
+                  <fa:IconImage Icon="Bone" Style="{StaticResource menuButtonIcon}"/>
+                  <TextBlock Text="Generate Mandibel PDF" Style="{StaticResource menuButtonText}"/>
                </StackPanel>
             </Button>
 

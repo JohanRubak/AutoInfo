@@ -22,9 +22,9 @@ namespace Journalfoeringssystem.MVVM.View
    /// <summary>
    /// Interaction logic for GeneratePDFView.xaml
    /// </summary>
-   public partial class GeneratePDFView : UserControl
+   public partial class GenerateKraniofacialView : UserControl
    {
-      public GeneratePDFView()
+      public GenerateKraniofacialView()
       {
          InitializeComponent();
          DateForPlanningDP.DisplayDate = DateTime.Today;

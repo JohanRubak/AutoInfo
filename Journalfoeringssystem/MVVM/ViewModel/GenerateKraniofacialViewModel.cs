@@ -10,19 +10,19 @@ using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Input;
 using Journalfoeringssystem.Core;
+using Journalfoeringssystem.Domain;
 using Journalfoeringssystem.MVVM.Model;
 using Journalfoeringssystem.MVVM.View;
 
 namespace Journalfoeringssystem.MVVM.ViewModel
 {
-   public class GeneratePDFViewModel: ObservableObject
+   public class GenerateKraniofacialViewModel: ObservableObject
    {
       public RelayCommand SearchCommand { get; set; }
       public RelayCommand AddCommand { get; set; }
       public RelayCommand RemoveCommand { get; set; }
       public RelayCommand EditCommand { get; set; }
       public RelayCommand LoadImages { get; set; }
-      public RelayCommand SelectedRadioButton { get; set; }
       public RelayCommand GeneratePDFCommand { get; set; }
       public RelayCommand FindDirectory { get; set; }
       public Worker WorkerInput { get; set; }
@@ -31,6 +31,7 @@ namespace Journalfoeringssystem.MVVM.ViewModel
       public FileReader FileReader { get; set; }
       public PDFGenerator PdfGenerator { get; set; }
       public string DriveForSearch { get; set; }
+      public InformationContainer InformationContainer { get; set; }
 
       private List<FileUpload> _filesForUpload;
 
@@ -76,6 +77,7 @@ namespace Journalfoeringssystem.MVVM.ViewModel
          {
             _CPRnumber = value;
             OnPropertyChanged(nameof(CPRNumber));
+            InformationContainer.CPRNumber = CPRNumber;
          }
       }
 
@@ -91,6 +93,7 @@ namespace Journalfoeringssystem.MVVM.ViewModel
          {
             _patientName = value;
             OnPropertyChanged(nameof(PatientName));
+            InformationContainer.PatientName = PatientName;
          }
       }
 
@@ -107,6 +110,7 @@ namespace Journalfoeringssystem.MVVM.ViewModel
          {
             _searchPath = value;
             OnPropertyChanged(nameof(SearchPath));
+            InformationContainer.SearchPath = SearchPath;
          }
       }
 
@@ -123,6 +127,7 @@ namespace Journalfoeringssystem.MVVM.ViewModel
          {
             _dateForPlanning = value;
             OnPropertyChanged(nameof(DateForPlanning));
+            InformationContainer.DateForPlanning = DateForPlanning;
          }
       }
 
@@ -139,6 +144,7 @@ namespace Journalfoeringssystem.MVVM.ViewModel
          {
             _dateForSurgery = value;
             OnPropertyChanged(nameof(DateForSurgery));
+            InformationContainer.DateForSurgery = DateForSurgery;
          }
       }
 
@@ -155,6 +161,7 @@ namespace Journalfoeringssystem.MVVM.ViewModel
          {
             _dateForScanning = value;
             OnPropertyChanged(nameof(DateForScanning));
+            InformationContainer.DateForScanning1 = DateForScanning;
          }
       }
 
@@ -171,6 +178,7 @@ namespace Journalfoeringssystem.MVVM.ViewModel
          {
             _typeOfScanning = value;
             OnPropertyChanged(nameof(TypeOfScanning));
+            InformationContainer.TypeOfScanning1 = TypeOfScanning;
          }
       }
 
@@ -187,6 +195,7 @@ namespace Journalfoeringssystem.MVVM.ViewModel
          {
             _serieOfScanning = value;
             OnPropertyChanged(nameof(SerieOfScanning));
+            InformationContainer.SerieOfScanning1 = SerieOfScanning;
          }
       }
 
@@ -203,6 +212,7 @@ namespace Journalfoeringssystem.MVVM.ViewModel
          {
             _cuttingGuide = value;
             OnPropertyChanged(nameof(CuttingGuide));
+            InformationContainer.CuttingGuide = CuttingGuide;
          }
       }
 
@@ -219,22 +229,7 @@ namespace Journalfoeringssystem.MVVM.ViewModel
          {
             _remarks = value;
             OnPropertyChanged(nameof(Remarks));
-         }
-      }
-
-      private string _protocol;
-
-      public string Protocol
-      {
-         get
-         {
-            return _protocol;
-         }
-
-         set
-         {
-            _protocol = value;
-            OnPropertyChanged(nameof(Protocol));
+            InformationContainer.Remarks = Remarks;
          }
       }
 
@@ -302,8 +297,10 @@ namespace Journalfoeringssystem.MVVM.ViewModel
          }
       }
 
-      public GeneratePDFViewModel()
+      public GenerateKraniofacialViewModel()
       {
+         InformationContainer = new InformationContainer();
+         InformationContainer.Protocol = "Kraniofacial";
          Loading = Visibility.Hidden;
          PatientNotFound = Visibility.Hidden;
          ButtonEnabled = true;
@@ -319,16 +316,23 @@ namespace Journalfoeringssystem.MVVM.ViewModel
                WorkersInput.AddWorker(new Worker() { WorkerName = WorkerInput.WorkerName, WorkerJob = WorkerInput.WorkerJob });
             }
 
+            InformationContainer.WorkersInput = WorkersInput;
+
          });
 
          RemoveCommand = new RelayCommand(o =>
          {
             WorkersInput.RemoveWorker(SelectedWorker);
+
+            InformationContainer.WorkersInput = WorkersInput;
+
          });
 
          EditCommand = new RelayCommand(o =>
          {
             WorkersInput.EditWorker(SelectedWorker, new Worker() { WorkerName = WorkerInput.WorkerName, WorkerJob = WorkerInput.WorkerJob });
+
+            InformationContainer.WorkersInput = WorkersInput;
 
          });
 
@@ -364,14 +368,9 @@ namespace Journalfoeringssystem.MVVM.ViewModel
             FilesForUpload = FileReader.LoadPictures(SearchPath);
          });
 
-         SelectedRadioButton = new RelayCommand(o =>
-         {
-            Protocol = (string)o;
-         });
-
          GeneratePDFCommand = new RelayCommand(o =>
          {
-            if (Protocol != null && !string.IsNullOrEmpty(SearchPath))
+            if (!string.IsNullOrEmpty(SearchPath) && !string.IsNullOrEmpty(CPRNumber))
             {
                Thread thread1 = new Thread(StartLoading);
                thread1.Start();
@@ -400,8 +399,7 @@ namespace Journalfoeringssystem.MVVM.ViewModel
 
       public void StartGenerating()
       {
-         PdfGenerator.GeneratePDF(SearchPath, PatientName, CPRNumber, WorkersInput, DateForPlanning, DateForSurgery,
-            DateForScanning, TypeOfScanning, SerieOfScanning, CuttingGuide, Remarks, Protocol);
+         PdfGenerator.GeneratePDF(InformationContainer);
          Loading = Visibility.Hidden;
          ButtonText = "Generate PDF";
          ButtonEnabled = true;

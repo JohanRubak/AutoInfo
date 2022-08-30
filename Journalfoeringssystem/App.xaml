@@ -15,13 +15,19 @@
             <view:HomeView />
          </DataTemplate>
 
+         <DataTemplate DataType="{x:Type viewModel:GenerateKraniofacialViewModel}">
+            <view:GenerateKraniofacialView/>
+         </DataTemplate>
+
+         <DataTemplate DataType="{x:Type viewModel:GenerateMandibelViewModel}">
+            <view:GenerateMandibelView/>
+         </DataTemplate>
+
          <DataTemplate DataType="{x:Type viewModel:HelpViewModel}">
             <view:HelpView />
          </DataTemplate>
 
-         <DataTemplate DataType="{x:Type viewModel:GeneratePDFViewModel}">
-            <view:GeneratePDFView/>
-         </DataTemplate>
+
          <SolidColorBrush x:Key="ProgressBar.Progress" Color="#FF06B025"/>
          <SolidColorBrush x:Key="ProgressBar.Background" Color="#FFE6E6E6"/>
          <SolidColorBrush x:Key="ProgressBar.Border" Color="#FFBCBCBC"/>

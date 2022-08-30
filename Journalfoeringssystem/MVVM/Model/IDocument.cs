@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Journalfoeringssystem.Domain;
 
 namespace Journalfoeringssystem.MVVM.Model
 {
    public interface IDocument
    {
-      void GeneratePDFDocument(string patientName, string patientCPR, Workers workers, DateTime dateForPlanning, DateTime dateForOperation, DateTime dateofScanning, string typeOfScanning, string serieOfScanning, string cuttingGuide, string remarks, List<IOrderedEnumerable<string>> filesPathSorted);
+      void GeneratePDFDocument(InformationContainer informationContainer, List<IOrderedEnumerable<string>> filesPathSorted);
    }
 }

@@ -5,7 +5,6 @@ namespace Journalfoeringssystem.Core
 {
    public class UserDataContext
    {
-      public GeneratePDFViewModel GeneratePdfViewModel { get; set; }
-      public GeneratePDFView GeneratePdfView { get; set; }
+      public GenerateKraniofacialViewModel GenerateKraniofacialViewModel { get; set; }
    }
 }

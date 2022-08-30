@@ -10,10 +10,12 @@ namespace Journalfoeringssystem.MVVM.ViewModel
    class MainViewModel: ObservableObject
    {
       public HomeViewModel HomeVM { get; set; }
-      public GeneratePDFViewModel GeneratePDFVM { get; set; }
+      public GenerateKraniofacialViewModel GenerateKraniofacialVM { get; set; }
+      public GenerateMandibelViewModel GenerateMandibelVM { get; set; }
       public HelpViewModel HelpVM { get; set; }
       public RelayCommand HomeViewCommand { get; set; }
-      public RelayCommand GeneratePDFViewCommand { get; set; }
+      public RelayCommand GenerateKraniofacialViewCommand { get; set; }
+      public RelayCommand GenerateMandibelViewCommand { get; set; }
       public RelayCommand HelpViewCommand { get; set; }
       
       private object _currentView;
@@ -23,7 +25,7 @@ namespace Journalfoeringssystem.MVVM.ViewModel
          get { return _currentView; }
          set
          {
-            _currentView = value; 
+            _currentView = value;
             OnPropertyChanged();
          }
       }
@@ -31,7 +33,8 @@ namespace Journalfoeringssystem.MVVM.ViewModel
       public MainViewModel()
       {
          HomeVM = new HomeViewModel();
-         GeneratePDFVM = new GeneratePDFViewModel();
+         GenerateKraniofacialVM = new GenerateKraniofacialViewModel();
+         GenerateMandibelVM = new GenerateMandibelViewModel();
          HelpVM = new HelpViewModel();
          CurrentView = HomeVM;
 
@@ -40,9 +43,14 @@ namespace Journalfoeringssystem.MVVM.ViewModel
             CurrentView = HomeVM;
          });
 
-         GeneratePDFViewCommand = new RelayCommand(o =>
+         GenerateKraniofacialViewCommand = new RelayCommand(o =>
          {
-            CurrentView = GeneratePDFVM;
+            CurrentView = GenerateKraniofacialVM;
+         });
+
+         GenerateMandibelViewCommand = new RelayCommand(o =>
+         {
+            CurrentView = GenerateMandibelVM;
          });
 
          HelpViewCommand = new RelayCommand(o =>

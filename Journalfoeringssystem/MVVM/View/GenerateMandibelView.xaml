@@ -8,11 +8,11 @@
              xmlns:ViewModel="clr-namespace:Journalfoeringssystem.MVVM.ViewModel"
              xmlns:System="clr-namespace:System;assembly=System.Runtime"
              xmlns:gif="http://wpfanimatedgif.codeplex.com"
-             x:Class="Journalfoeringssystem.MVVM.View.GeneratePDFView"
+             x:Class="Journalfoeringssystem.MVVM.View.GenerateMandibelView"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="1010">
    <UserControl.DataContext>
-      <ViewModel:GeneratePDFViewModel />
+      <ViewModel:GenerateMandibelViewModel/>
    </UserControl.DataContext>
 
    <UserControl.Resources>
@@ -117,14 +117,9 @@
       <DatePicker TabIndex="3" Name="DateOfScanningDP" SelectedDate="{Binding DateForScanning}" HorizontalAlignment="Left" Margin="373,168,0,0" VerticalAlignment="Top" Width="102"/>
       <Label Content="Type of scanning:" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#ccd7ff" Margin="255,199,0,0"/>
       <Label Content="Remarks:" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#ccd7ff" Margin="253,430,0,0"/>
-      <TextBox x:Name="RemarksTextbox" TabIndex="8" HorizontalAlignment="Left" Margin="258,460,0,0" Text="{Binding Remarks, FallbackValue='XXXX', TargetNullValue='XXXX'}" TextWrapping="Wrap" VerticalAlignment="Top" Width="202" Height="142" AcceptsReturn="True" GotKeyboardFocus="RemarksTextbox_GotKeyboardFocus"/>
       <Label Content="Cuttingguide:" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#ccd7ff" Margin="31,430,0,0"/>
       <TextBox x:Name="CuttingGuideTextbox" TabIndex="7" HorizontalAlignment="Left" Margin="36,460,0,0" Text="{Binding CuttingGuide, FallbackValue='XXXX', TargetNullValue='XXXX'}" TextWrapping="Wrap" VerticalAlignment="Top" Width="204" Height="142" AcceptsReturn="True" GotKeyboardFocus="CuttingGuideTextbox_GotKeyboardFocus"/>
       <Button x:Name="GeneratePDFButton" Command="{Binding GeneratePDFCommand}" Content="{Binding ButtonText, FallbackValue='Generate PDF', TargetNullValue='Generate PDF'}" IsEnabled="{Binding ButtonEnabled}" HorizontalAlignment="Left" Margin="493,565,0,0" VerticalAlignment="Top" Style="{StaticResource standardButton}" Height="37" Width="111"/>
-      <Label Content="Type of protocol:" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#ccd7ff" Margin="482,430,0,0"/>
-      <RadioButton Content="Kraniofacial" Command="{Binding SelectedRadioButton}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}" HorizontalAlignment="Left" Margin="505,467,0,0" VerticalAlignment="Top" Foreground="#ccd7ff"/>
-      <RadioButton Content="Mandibel" Command="{Binding SelectedRadioButton}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}" HorizontalAlignment="Left" Margin="505,487,0,0" VerticalAlignment="Top" Foreground="#ccd7ff"/>
-      <RadioButton Content="..." Command="{Binding SelectedRadioButton}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}" HorizontalAlignment="Left" Margin="505,507,0,0" VerticalAlignment="Top" Foreground="#ccd7ff"/>
       <Border Margin="650,152,20,0" CornerRadius="10" VerticalAlignment="Top" Height="468">
          <Border.Background>
             <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
