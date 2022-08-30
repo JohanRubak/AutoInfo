@@ -23,6 +23,7 @@ namespace Journalfoeringssystem.MVVM.ViewModel
       public RelayCommand LoadImages { get; set; }
       public RelayCommand GeneratePDFCommand { get; set; }
       public RelayCommand FindDirectory { get; set; }
+      public RelayCommand SelectedRadioButton { get; set; }
       public Worker WorkerInput { get; set; }
       public Worker SelectedWorker { get; set; }
       public Workers WorkersInput { get; set; }
@@ -312,6 +313,312 @@ namespace Journalfoeringssystem.MVVM.ViewModel
          }
       }
 
+      private string _piece1Length;
+
+      public string Piece1Length
+      {
+         get
+         {
+            return _piece1Length;
+         }
+
+         set
+         {
+            _piece1Length = value;
+            OnPropertyChanged(nameof(Piece1Length));
+            InformationContainer.Piece1Length = Piece1Length;
+         }
+      }
+
+      private string _piece1PlacingOfFibula;
+
+      public string Piece1PlacingOfFibula
+      {
+         get
+         {
+            return _piece1PlacingOfFibula;
+         }
+
+         set
+         {
+            _piece1PlacingOfFibula = value;
+            OnPropertyChanged(nameof(Piece1PlacingOfFibula));
+            InformationContainer.Piece1PlacingOfFibula = Piece1PlacingOfFibula;
+         }
+      }
+
+      private string _piece1PlacingOfMandibel;
+
+      public string Piece1PlacingOfMandibel
+      {
+         get
+         {
+            return _piece1PlacingOfMandibel;
+         }
+
+         set
+         {
+            _piece1PlacingOfMandibel = value;
+            OnPropertyChanged(nameof(Piece1PlacingOfMandibel));
+            InformationContainer.Piece1PlacingOfMandibel = Piece1PlacingOfMandibel;
+         }
+      }
+
+      private string _piece2Length;
+
+      public string Piece2Length
+      {
+         get
+         {
+            return _piece2Length;
+         }
+
+         set
+         {
+            _piece2Length = value;
+            OnPropertyChanged(nameof(Piece2Length));
+            InformationContainer.Piece2Length = Piece2Length;
+         }
+      }
+
+      private string _piece2PlacingOfFibula;
+
+      public string Piece2PlacingOfFibula
+      {
+         get
+         {
+            return _piece2PlacingOfFibula;
+         }
+
+         set
+         {
+            _piece2PlacingOfFibula = value;
+            OnPropertyChanged(nameof(Piece2PlacingOfFibula));
+            InformationContainer.Piece2PlacingOfFibula = Piece2PlacingOfFibula;
+         }
+      }
+
+      private string _piece2PlacingOfMandibel;
+
+      public string Piece2PlacingOfMandibel
+      {
+         get
+         {
+            return _piece2PlacingOfMandibel;
+         }
+
+         set
+         {
+            _piece2PlacingOfMandibel = value;
+            OnPropertyChanged(nameof(Piece2PlacingOfMandibel));
+            InformationContainer.Piece2PlacingOfMandibel = Piece2PlacingOfMandibel;
+         }
+      }
+
+      private string _piece3Length;
+
+      public string Piece3Length
+      {
+         get
+         {
+            return _piece3Length;
+         }
+
+         set
+         {
+            _piece3Length = value;
+            OnPropertyChanged(nameof(Piece3Length));
+            InformationContainer.Piece3Length = Piece3Length;
+         }
+      }
+
+      private string _piece3PlacingOfFibula;
+
+      public string Piece3PlacingOfFibula
+      {
+         get
+         {
+            return _piece3PlacingOfFibula;
+         }
+
+         set
+         {
+            _piece3PlacingOfFibula = value;
+            OnPropertyChanged(nameof(Piece3PlacingOfFibula));
+            InformationContainer.Piece3PlacingOfFibula = Piece3PlacingOfFibula;
+         }
+      }
+
+      private string _piece3PlacingOfMandibel;
+
+      public string Piece3PlacingOfMandibel
+      {
+         get
+         {
+            return _piece3PlacingOfMandibel;
+         }
+
+         set
+         {
+            _piece3PlacingOfMandibel = value;
+            OnPropertyChanged(nameof(Piece3PlacingOfMandibel));
+            InformationContainer.Piece3PlacingOfMandibel = Piece3PlacingOfMandibel;
+         }
+      }
+
+      private string _comments;
+
+      public string Comments
+      {
+         get
+         {
+            return _comments;
+         }
+
+         set
+         {
+            _comments = value;
+            OnPropertyChanged(nameof(Comments));
+            InformationContainer.Comments = Comments;
+         }
+      }
+
+      private string _resectionFrom;
+
+      public string ResectionFrom
+      {
+         get
+         {
+            return _resectionFrom;
+         }
+
+         set
+         {
+            _resectionFrom = value;
+            OnPropertyChanged(nameof(ResectionFrom));
+            InformationContainer.ResectionFrom = ResectionFrom;
+         }
+      }
+
+      private string _resectionTo;
+
+      public string ResectionTo
+      {
+         get
+         {
+            return _resectionTo;
+         }
+
+         set
+         {
+            _resectionTo = value;
+            OnPropertyChanged(nameof(ResectionTo));
+            InformationContainer.ResectionTo = ResectionTo;
+         }
+      }
+
+      private string _distanceToMalleol;
+
+      public string DistanceToMalleol
+      {
+         get
+         {
+            return _distanceToMalleol;
+         }
+
+         set
+         {
+            _distanceToMalleol = value;
+            OnPropertyChanged(nameof(DistanceToMalleol));
+            InformationContainer.DistanceToMalleol = DistanceToMalleol;
+         }
+      }
+
+      private string _totalLength;
+
+      public string TotalLength
+      {
+         get
+         {
+            return _totalLength;
+         }
+
+         set
+         {
+            _totalLength = value;
+            OnPropertyChanged(nameof(TotalLength));
+            InformationContainer.TotalLength = TotalLength;
+         }
+      }
+
+      private string _cuttingThickness;
+
+      public string CuttingThickness
+      {
+         get
+         {
+            return _cuttingThickness;
+         }
+
+         set
+         {
+            _cuttingThickness = value;
+            OnPropertyChanged(nameof(CuttingThickness));
+            InformationContainer.CuttingThickness = CuttingThickness;
+         }
+      }
+
+      private string _screwDiameter;
+
+      public string ScrewDiameter
+      {
+         get
+         {
+            return _screwDiameter;
+         }
+
+         set
+         {
+            _screwDiameter = value;
+            OnPropertyChanged(nameof(ScrewDiameter));
+            InformationContainer.ScrewDiameter = ScrewDiameter;
+         }
+      }
+
+      private string _direction;
+
+      public string Direction
+      {
+         get
+         {
+            return _direction;
+         }
+
+         set
+         {
+            _direction = value;
+            OnPropertyChanged(nameof(Direction));
+            InformationContainer.Direction = Direction;
+         }
+      }
+
+      private string _whichFibula;
+
+      public string WhichFibula
+      {
+         get
+         {
+            return _whichFibula;
+         }
+
+         set
+         {
+            _whichFibula = value;
+            OnPropertyChanged(nameof(WhichFibula));
+            InformationContainer.WhichFibula = WhichFibula;
+         }
+      }
+
       public GenerateMandibelViewModel()
       {
          InformationContainer = new InformationContainer();
@@ -381,6 +688,11 @@ namespace Journalfoeringssystem.MVVM.ViewModel
          LoadImages = new RelayCommand(o =>
          {
             FilesForUpload = FileReader.LoadPictures(SearchPath);
+         });
+
+         SelectedRadioButton = new RelayCommand(o =>
+         {
+            WhichFibula = (string)o;
          });
 
          GeneratePDFCommand = new RelayCommand(o =>

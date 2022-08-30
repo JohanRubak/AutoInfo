@@ -184,10 +184,10 @@
       <TextBox TabIndex="5" x:Name="SerieTextbox" HorizontalAlignment="Left" Margin="596,170,0,0" Text="{Binding SerieOfScanning, FallbackValue='#X', TargetNullValue='#X'}" TextWrapping="Wrap" VerticalAlignment="Top" Width="21" Foreground="#FFC8C8C8" Background="#747999" GotKeyboardFocus="SerieTextbox_GotKeyboardFocus"/>
       <Label Content="Serie of scanning:" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#ccd7ff" Margin="484,164,0,0"/>
       <Image x:Name="LoadingGif" gif:ImageBehavior.RepeatBehavior="Forever" gif:ImageBehavior.AnimatedSource="Loading.gif" HorizontalAlignment="Left" Height="33" Margin="532,567,0,0" VerticalAlignment="Top" Width="33" Source="/MVVM/View/Loading.gif" Visibility="{Binding Loading}"/>
-      <Button HorizontalAlignment="Left" Margin="36,33,0,0" VerticalAlignment="Top" Style="{StaticResource directoryButton}" Command="{Binding FindDirectory}" Width="103" Height="28">
+      <Button HorizontalAlignment="Left" Margin="36,33,0,0" VerticalAlignment="Top" Style="{StaticResource personsButton}" Command="{Binding FindDirectory}" Width="118" Height="28">
          <StackPanel Orientation="Horizontal">
-            <fa:IconImage Icon="FolderOpen" Height="18" Width="23" Foreground="#ccd7ff" />
-            <TextBlock Text="Choose folder" Foreground="#ccd7ff" Margin="5 0 0 0"/>
+            <fa:IconImage Icon="FolderOpen" Height="18" Width="23" Foreground="White" />
+            <TextBlock Text="Choose folder" Foreground="White" Margin="5 0 0 0"/>
          </StackPanel>
       </Button>
 

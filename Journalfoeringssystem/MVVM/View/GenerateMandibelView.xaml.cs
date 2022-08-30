@@ -83,10 +83,5 @@ namespace Journalfoeringssystem.MVVM.View
       {
          SerieTextbox.SelectAll();
       }
-
-      private void CuttingGuideTextbox_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
-      {
-         CuttingGuideTextbox.SelectAll();
-      }
    }
 }
