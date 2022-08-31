@@ -615,7 +615,16 @@ namespace Journalfoeringssystem.MVVM.ViewModel
          {
             _whichFibula = value;
             OnPropertyChanged(nameof(WhichFibula));
-            InformationContainer.WhichFibula = WhichFibula;
+
+            if (WhichFibula == "Right")
+            {
+               InformationContainer.WhichFibula = "Højre";
+            }
+
+            else
+            {
+               InformationContainer.WhichFibula = "Venstre";
+            }
          }
       }
 
