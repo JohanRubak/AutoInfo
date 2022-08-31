@@ -53,7 +53,7 @@
             <Separator Height="0.8" Margin="20 30" Background="#46558a"/>
 
             <!--Menu Buttons-->
-            <Button Style="{StaticResource menuButton}" Command="{Binding HomeViewCommand}">
+            <Button Style="{StaticResource menuButton}" Command="{Binding HomeViewCommand}" >
                <StackPanel Orientation="Horizontal">
                   <fa:IconImage Icon="Home" Style="{StaticResource menuButtonIcon}"/>
                   <TextBlock Text="Home" Style="{StaticResource menuButtonText}"/>

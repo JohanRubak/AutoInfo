@@ -199,7 +199,7 @@
       <TextBox TabIndex="4" x:Name="TypeOfScanningTextbox" HorizontalAlignment="Left" Margin="282,224,0,0" Text="{Binding TypeOfScanning1, TargetNullValue='XXXX', FallbackValue='XXXX'}" TextWrapping="Wrap" VerticalAlignment="Top" Width="102" Foreground="#FFC8C8C8" Background="#747999" GotKeyboardFocus="TypeOfScanningTextbox_GotKeyboardFocus"/>
       <DatePicker TabIndex="3" Name="DateOfScanningDP" SelectedDate="{Binding DateForScanning1}" HorizontalAlignment="Left" Margin="282,192,0,0" VerticalAlignment="Top" Width="102"/>
       <Label Content="Type of scanning:" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#ccd7ff" Margin="172,218,0,0"/>
-      <TextBox TabIndex="5" x:Name="SerieTextbox" HorizontalAlignment="Left" Margin="282,254,0,0" Text="{Binding SerieOfScanning1, FallbackValue='#X', TargetNullValue='#X'}" TextWrapping="Wrap" VerticalAlignment="Top" Width="21" Foreground="#FFC8C8C8" Background="#747999" GotKeyboardFocus="SerieTextbox_GotKeyboardFocus"/>
+      <TextBox TabIndex="5" x:Name="SerieTextbox" HorizontalAlignment="Left" Margin="282,254,0,0" Text="{Binding SerieOfScanning1, FallbackValue='#X', TargetNullValue='#X'}" TextWrapping="Wrap" VerticalAlignment="Top" Width="102" Foreground="#FFC8C8C8" Background="#747999" GotKeyboardFocus="SerieTextbox_GotKeyboardFocus"/>
       <Label Content="Serie of scanning:" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#ccd7ff" Margin="172,248,0,0"/>
 
       <!--Scanning2-->
@@ -207,7 +207,7 @@
       <TextBox TabIndex="7" x:Name="TypeOfScanning2Textbox" HorizontalAlignment="Left" Margin="515,224,0,0" Text="{Binding TypeOfScanning2, FallbackValue=XXXX, TargetNullValue=XXXX}" TextWrapping="Wrap" VerticalAlignment="Top" Width="102" Foreground="#FFC8C8C8" Background="#747999" GotKeyboardFocus="TypeOfScanning2Textbox_GotKeyboardFocus"/>
       <DatePicker TabIndex="6" x:Name="DateOfScanning2DP" SelectedDate="{Binding DateForScanning2}" HorizontalAlignment="Left" Margin="515,192,0,0" VerticalAlignment="Top" Width="102"/>
       <Label Content="Type of scanning:" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#ccd7ff" Margin="405,218,0,0"/>
-      <TextBox TabIndex="8" x:Name="Serie2Textbox" HorizontalAlignment="Left" Margin="515,254,0,0" Text="{Binding SerieOfScanning2, FallbackValue=#X, TargetNullValue=#X}" TextWrapping="Wrap" VerticalAlignment="Top" Width="21" Foreground="#FFC8C8C8" Background="#747999" GotKeyboardFocus="Serie2Textbox_GotKeyboardFocus"/>
+      <TextBox TabIndex="8" x:Name="Serie2Textbox" HorizontalAlignment="Left" Margin="515,254,0,0" Text="{Binding SerieOfScanning2, FallbackValue=#X, TargetNullValue=#X}" TextWrapping="Wrap" VerticalAlignment="Top" Width="102" Foreground="#FFC8C8C8" Background="#747999" GotKeyboardFocus="Serie2Textbox_GotKeyboardFocus"/>
       <Label Content="Serie of scanning:" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#ccd7ff" Margin="405,248,0,0"/>
       <Label Content="Scanning 2:" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#ccd7ff" Margin="405,164,0,0" FontWeight="Bold"/>
 

@@ -30,7 +30,7 @@ namespace Journalfoeringssystem.MVVM.Model
                }
                catch (Exception e)
                {
-                  MessageBox.Show("Error: Wrong folderstructure for pictures!");
+                  MessageBox.Show("Error: Wrong folderstructure for pictures or not correct amount of pictures!" + "\r\n\r\nException: " + e.ToString());
                }
 
                break;
@@ -44,7 +44,7 @@ namespace Journalfoeringssystem.MVVM.Model
                }
                catch (Exception e)
                {
-                  MessageBox.Show("Error: Wrong folderstructure for pictures!");
+                  MessageBox.Show("Error: Wrong folderstructure for pictures or not correct amount of pictures!" + "\r\n\r\nException: " + e.ToString());
                }
 
                break;

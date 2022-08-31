@@ -56,7 +56,7 @@ namespace Journalfoeringssystem.MVVM.Model
                   {
                      foreach (var VARIABLE in informationContainer.WorkersInput.WorkersList)
                      {
-                        localtext += $"{VARIABLE.WorkerName}({VARIABLE.WorkerJob}),\r\n";
+                        localtext += $"{VARIABLE.WorkerName} ({VARIABLE.WorkerJob}),\r\n";
                      }
                   }
 
