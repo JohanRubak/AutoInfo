@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Windows;
 using Journalfoeringssystem.Domain;
 
 namespace Journalfoeringssystem.MVVM.Model
@@ -21,15 +22,31 @@ namespace Journalfoeringssystem.MVVM.Model
          switch (informationContainer.Protocol)
          {
             case "Kraniofacial":
-               FilesPathSorted = FindAndSortImagesForKraniofacial(informationContainer.SearchPath);
-               PdfDocument = new KranioFacialTemplate();
-               PdfDocument.GeneratePDFDocument(informationContainer, FilesPathSorted);
+               try
+               {
+                  FilesPathSorted = FindAndSortImagesForKraniofacial(informationContainer.SearchPath);
+                  PdfDocument = new KranioFacialTemplate();
+                  PdfDocument.GeneratePDFDocument(informationContainer, FilesPathSorted);
+               }
+               catch (Exception e)
+               {
+                  MessageBox.Show("Error: Wrong folderstructure for pictures!");
+               }
+
                break;
 
             case "Mandibel":
-               FilesPathSorted = FindAndSortImagesForMandibel(informationContainer.SearchPath);
-               PdfDocument = new MandibelTemplate();
-               PdfDocument.GeneratePDFDocument(informationContainer, FilesPathSorted);
+               try
+               {
+                  FilesPathSorted = FindAndSortImagesForMandibel(informationContainer.SearchPath);
+                  PdfDocument = new MandibelTemplate();
+                  PdfDocument.GeneratePDFDocument(informationContainer, FilesPathSorted);
+               }
+               catch (Exception e)
+               {
+                  MessageBox.Show("Error: Wrong folderstructure for pictures!");
+               }
+
                break;
          }
       }

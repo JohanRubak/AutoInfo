@@ -69,7 +69,7 @@
 
       <fa:IconImage Icon="Search" Foreground="#FFC8C8C8" Margin="177,41,820,0" RenderTransformOrigin="0.5,0.479" VerticalAlignment="Top"/>
       <Button Content="Search" HorizontalAlignment="Left" Margin="442,32,0,0" VerticalAlignment="Top" Style="{StaticResource standardButton}" Command="{Binding SearchCommand}"/>
-      <TextBox TabIndex="0" x:Name="SearchbarTextBox" HorizontalAlignment="Left" Margin="198,38,0,0" Text="{Binding SearchNumber, TargetNullValue='Search for patient (XXXXXXXXX)'}" TextWrapping="Wrap" VerticalAlignment="Top" Width="231" Foreground="#FFC8C8C8" Background="#747999" MouseDoubleClick="SearchbarTextBox_OnMouseDoubleClick" GotKeyboardFocus="SearchbarTextBox_GotKeyboardFocus"/>
+      <TextBox TabIndex="0" x:Name="SearchbarTextBox" HorizontalAlignment="Left" Margin="198,38,0,0" Text="{Binding SearchNumber, TargetNullValue='Search for patient (XXXXXXXXX)'}" TextWrapping="Wrap" VerticalAlignment="Top" Width="231" Foreground="#FFC8C8C8" Background="#747999" GotKeyboardFocus="SearchbarTextBox_GotKeyboardFocus" KeyDown="SearchbarTextBox_KeyDown" MouseDoubleClick="SearchbarTextBox_OnMouseDoubleClick"/>
 
       <Label Content="CPR-number" HorizontalAlignment="Left" Margin="31,69,0,0" VerticalAlignment="Top" Foreground="#ccd7ff"/>
       <Label Content="{Binding CPRNumber, TargetNullValue='#XXXXXXXX'}" HorizontalAlignment="Left" Margin="31,95,0,0" VerticalAlignment="Top" Foreground="#FFE5EAFF" FontWeight="Bold"/>

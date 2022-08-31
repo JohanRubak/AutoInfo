@@ -61,7 +61,7 @@ namespace Journalfoeringssystem.MVVM.View
 
       private void SearchbarTextBox_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
       {
-          SearchbarTextBox.SelectAll();
+         SearchbarTextBox.SelectAll();
       }
 
       private void NameWorker_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
@@ -92,6 +92,43 @@ namespace Journalfoeringssystem.MVVM.View
       private void RemarksTextbox_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
       {
          RemarksTextbox.SelectAll();
+      }
+
+      private void SearchbarTextBox_KeyDown(object sender, KeyEventArgs e)
+      {
+         if (SearchbarTextBox.Text == "Search for patient (XXXXXXXXX)")
+         {
+            SearchbarTextBox.Text = "";
+
+            if (e.Key != Key.Back)
+            {
+               string text = this.SearchbarTextBox.Text;
+
+               if (text.Replace("-", "").Length % 6 == 0 && text.Length != 0 && text.Substring(text.Length - 1) != "-")
+               {
+                  this.SearchbarTextBox.Text = this.SearchbarTextBox.Text + "-";
+
+                  this.SearchbarTextBox.Select(this.SearchbarTextBox.Text.Length, 1);
+               }
+            }
+         }
+
+         else
+         {
+            if (e.Key != Key.Back)
+            {
+               string text = this.SearchbarTextBox.Text;
+
+               if (text.Replace("-", "").Length % 6 == 0 && text.Length != 0 && text.Substring(text.Length - 1) != "-")
+               {
+                  this.SearchbarTextBox.Text = this.SearchbarTextBox.Text + "-";
+
+                  this.SearchbarTextBox.Select(this.SearchbarTextBox.Text.Length, 1);
+               }
+            }
+         }
+
+         
       }
    }
 }

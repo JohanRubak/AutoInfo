@@ -8,6 +8,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -16,6 +17,8 @@ using System.Windows.Shapes;
 using Journalfoeringssystem.MVVM.Model;
 using Journalfoeringssystem.MVVM.ViewModel;
 using Microsoft.Win32;
+using KeyEventArgs = System.Windows.Input.KeyEventArgs;
+using UserControl = System.Windows.Controls.UserControl;
 
 namespace Journalfoeringssystem.MVVM.View
 {
@@ -30,6 +33,7 @@ namespace Journalfoeringssystem.MVVM.View
          DateForPlanningDP.DisplayDate = DateTime.Today;
          DateForSurgeryDP.DisplayDate = DateTime.Today;
          DateOfScanningDP.DisplayDate = DateTime.Today;
+         DateOfScanning2DP.DisplayDate = DateTime.Today;
       }
 
       private void PersonsListView_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -82,6 +86,141 @@ namespace Journalfoeringssystem.MVVM.View
       private void SerieTextbox_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
       {
          SerieTextbox.SelectAll();
+      }
+
+      private void TypeOfScanning2Textbox_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+      {
+         TypeOfScanning2Textbox.SelectAll();
+      }
+
+      private void Serie2Textbox_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+      {
+         Serie2Textbox.SelectAll();
+      }
+
+      private void P1LTB_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+      {
+         P1LTB.SelectAll();
+      }
+
+      private void P1FTB_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+      {
+         P1FTB.SelectAll();
+      }
+
+      private void P1MTB_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+      {
+         P1MTB.SelectAll();
+      }
+
+      private void P2LTB_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+      {
+         P2LTB.SelectAll();
+      }
+
+      private void P2FTB_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+      {
+         P2FTB.SelectAll();
+      }
+
+      private void P2MTB_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+      {
+         P2MTB.SelectAll();
+      }
+
+      private void P3L_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+      {
+         P3L.SelectAll();
+      }
+
+      private void P3L_GotKeyboardFocus_1(object sender, KeyboardFocusChangedEventArgs e)
+      {
+         P3L.SelectAll();
+      }
+
+      private void P3FTB_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+      {
+         P3FTB.SelectAll();
+      }
+
+      private void P3MTB_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+      {
+         P3MTB.SelectAll();
+      }
+
+      private void CommentTB_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+      {
+         CommentTB.SelectAll();
+      }
+
+      private void FromTB_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+      {
+         FromTB.SelectAll();
+      }
+
+      private void ToTB_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+      {
+         ToTB.SelectAll();
+      }
+
+      private void DisMalTB_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+      {
+         DisMalTB.SelectAll();
+      }
+
+      private void TlTB_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+      {
+         TlTB.SelectAll();
+      }
+
+      private void CtTB_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+      {
+         CtTB.SelectAll();
+      }
+
+      private void SdTB_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+      {
+         SdTB.SelectAll();
+      }
+
+      private void DTB_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+      {
+         DTB.SelectAll();
+      }
+
+      private void SearchbarTextBox_KeyDown(object sender, KeyEventArgs e)
+      {
+         if (SearchbarTextBox.Text == "Search for patient (XXXXXXXXX)")
+         {
+            SearchbarTextBox.Text = "";
+
+            if (e.Key != Key.Back)
+            {
+               string text = this.SearchbarTextBox.Text;
+
+               if (text.Replace("-", "").Length % 6 == 0 && text.Length != 0 && text.Substring(text.Length - 1) != "-")
+               {
+                  this.SearchbarTextBox.Text = this.SearchbarTextBox.Text + "-";
+
+                  this.SearchbarTextBox.Select(this.SearchbarTextBox.Text.Length, 1);
+               }
+            }
+         }
+
+         else
+         {
+            if (e.Key != Key.Back)
+            {
+               string text = this.SearchbarTextBox.Text;
+
+               if (text.Replace("-", "").Length % 6 == 0 && text.Length != 0 && text.Substring(text.Length - 1) != "-")
+               {
+                  this.SearchbarTextBox.Text = this.SearchbarTextBox.Text + "-";
+
+                  this.SearchbarTextBox.Select(this.SearchbarTextBox.Text.Length, 1);
+               }
+            }
+         }
       }
    }
 }

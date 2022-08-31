@@ -52,9 +52,12 @@ namespace Journalfoeringssystem.MVVM.Model
 
                   string localtext = "";
 
-                  foreach (var VARIABLE in informationContainer.WorkersInput.WorkersList)
+                  if (informationContainer.WorkersInput != null)
                   {
-                     localtext += $"{VARIABLE.WorkerName}({VARIABLE.WorkerJob}),\r\n";
+                     foreach (var VARIABLE in informationContainer.WorkersInput.WorkersList)
+                     {
+                        localtext += $"{VARIABLE.WorkerName}({VARIABLE.WorkerJob}),\r\n";
+                     }
                   }
 
                   contentControl.Range.Text = localtext;
