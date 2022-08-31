@@ -18,6 +18,7 @@ namespace Journalfoeringssystem.MVVM.Model
       float constantHeightROF12 = 450;
       float constantHeightPO12 = 350;
       float constantHeightPO37 = 280;
+      float constantHeightO1 = 280;
       float constantHeightCG12 = 450;
       float constantHeightCG35 = 280;
       float constantHeightG12 = 270;
@@ -361,8 +362,23 @@ namespace Journalfoeringssystem.MVVM.Model
 
                   break;
 
-               case "CuttingGuide1":
+               case "Osteotomy1":
                   newImage = contentControl.Range.InlineShapes.AddPicture(filesPathSorted[3].ElementAt(0));
+
+                  newImage.ScaleWidth = 100;
+                  newImage.ScaleHeight = 100;
+
+                  height = newImage.Height;
+
+                  scale = constantHeightO1 / height * 100;
+
+                  newImage.ScaleHeight = scale;
+                  newImage.ScaleWidth = scale;
+
+                  break;
+
+               case "CuttingGuide1":
+                  newImage = contentControl.Range.InlineShapes.AddPicture(filesPathSorted[4].ElementAt(0));
 
                   newImage.ScaleWidth = 100;
                   newImage.ScaleHeight = 100;
@@ -377,7 +393,7 @@ namespace Journalfoeringssystem.MVVM.Model
                   break;
 
                case "CuttingGuide2":
-                  newImage = contentControl.Range.InlineShapes.AddPicture(filesPathSorted[3].ElementAt(1));
+                  newImage = contentControl.Range.InlineShapes.AddPicture(filesPathSorted[4].ElementAt(1));
 
                   newImage.ScaleWidth = 100;
                   newImage.ScaleHeight = 100;
@@ -392,7 +408,7 @@ namespace Journalfoeringssystem.MVVM.Model
                   break;
 
                case "CuttingGuide3":
-                  newImage = contentControl.Range.InlineShapes.AddPicture(filesPathSorted[3].ElementAt(2));
+                  newImage = contentControl.Range.InlineShapes.AddPicture(filesPathSorted[4].ElementAt(2));
 
                   newImage.ScaleWidth = 100;
                   newImage.ScaleHeight = 100;
@@ -407,7 +423,7 @@ namespace Journalfoeringssystem.MVVM.Model
                   break;
 
                case "CuttingGuide4":
-                  newImage = contentControl.Range.InlineShapes.AddPicture(filesPathSorted[3].ElementAt(3));
+                  newImage = contentControl.Range.InlineShapes.AddPicture(filesPathSorted[4].ElementAt(3));
 
                   newImage.ScaleWidth = 100;
                   newImage.ScaleHeight = 100;
@@ -422,7 +438,7 @@ namespace Journalfoeringssystem.MVVM.Model
                   break;
 
                case "CuttingGuide5":
-                  newImage = contentControl.Range.InlineShapes.AddPicture(filesPathSorted[3].ElementAt(4));
+                  newImage = contentControl.Range.InlineShapes.AddPicture(filesPathSorted[4].ElementAt(4));
 
                   newImage.ScaleWidth = 100;
                   newImage.ScaleHeight = 100;
@@ -437,7 +453,7 @@ namespace Journalfoeringssystem.MVVM.Model
                   break;
 
                case "Gutter1":
-                  newImage = contentControl.Range.InlineShapes.AddPicture(filesPathSorted[4].ElementAt(0));
+                  newImage = contentControl.Range.InlineShapes.AddPicture(filesPathSorted[5].ElementAt(0));
 
                   newImage.ScaleWidth = 100;
                   newImage.ScaleHeight = 100;
@@ -452,7 +468,7 @@ namespace Journalfoeringssystem.MVVM.Model
                   break;
 
                case "Gutter2":
-                  newImage = contentControl.Range.InlineShapes.AddPicture(filesPathSorted[4].ElementAt(1));
+                  newImage = contentControl.Range.InlineShapes.AddPicture(filesPathSorted[5].ElementAt(1));
 
                   newImage.ScaleWidth = 100;
                   newImage.ScaleHeight = 100;
