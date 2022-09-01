@@ -11,6 +11,7 @@ using Journalfoeringssystem.Domain;
 using Journalfoeringssystem.MVVM.Model;
 using Journalfoeringssystem.MVVM.View;
 using Microsoft.Office.Interop.Word;
+using MessageBox = System.Windows.MessageBox;
 
 namespace Journalfoeringssystem.MVVM.ViewModel
 {
@@ -696,7 +697,14 @@ namespace Journalfoeringssystem.MVVM.ViewModel
 
          LoadImages = new RelayCommand(o =>
          {
-            FilesForUpload = FileReader.LoadPictures(SearchPath);
+            try
+            {
+               FilesForUpload = FileReader.LoadPictures(SearchPath);
+            }
+            catch (Exception e)
+            {
+               MessageBox.Show("Error: No picturesfolder found...\r\n\r\nException: " + e.ToString());
+            }
          });
 
          SelectedRadioButton = new RelayCommand(o =>

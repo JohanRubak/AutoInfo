@@ -15,7 +15,7 @@
    </Window.DataContext>
 
 
-   <Grid>
+   <Grid MouseDown="Grid_MouseDown">
       <Grid.ColumnDefinitions>
          <ColumnDefinition Width="250"/>
          <ColumnDefinition Width="*"/>
@@ -102,11 +102,12 @@
 
             <!--Top Menu-->
             <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0 0 30 20">
+               <Button Content="Min" Style="{StaticResource topMenuButtonMin}" Click="Minimize_Click" Margin="0 0 0 0" />
                <Button Content="Close" Style="{StaticResource topMenuButton}" Click="Button_Click"/>
             </StackPanel>
 
             <!--Titel-->
-            <TextBlock Text="Recordkeeping System" FontSize="26" Foreground="#ccd7ff" HorizontalAlignment="Left" Margin="35 35 0 0"/>
+            <TextBlock Text="AutoInfo" FontSize="26" Foreground="#ccd7ff" HorizontalAlignment="Left" Margin="35 35 0 0"/>
 
             <ContentControl Grid.Row="1" 
                             Grid.Column="1" 

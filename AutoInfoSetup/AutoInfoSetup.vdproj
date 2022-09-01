@@ -3,7 +3,7 @@
 "VSVersion" = "3:800"
 "ProjectType" = "8:{978C614F-708E-4E1A-B201-565925725DBA}"
 "IsWebType" = "8:FALSE"
-"ProjectName" = "8:AutoInfoSetup"
+"ProjectName" = "8:AutoInfo"
 "LanguageId" = "3:1033"
 "CodePage" = "3:1252"
 "UILanguageId" = "3:1033"
@@ -43,6 +43,22 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
+            }
         }
         "Release"
         {
@@ -59,6 +75,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
     }
     "Deployable"
@@ -167,7 +191,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:AutoInfoSetup"
         "ProductCode" = "8:{23A38398-7D17-4AD5-B9A6-4F8F77237871}"
-        "PackageCode" = "8:{668429D2-7AE9-4B07-84D7-3DE2AA58C69D}"
+        "PackageCode" = "8:{2B0DD15B-59C2-478B-966A-654CC396A356}"
         "UpgradeCode" = "8:{B12F2190-C05A-48FD-BFD2-B5F5B5A8CA62}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -289,7 +313,7 @@
         {
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_EFA3E9CEC1514B8E81FC5D800653A9BB"
             {
-            "Name" = "8:AutoInfoApp"
+            "Name" = "8:AutoInfo"
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"
@@ -702,7 +726,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_A90A8CB8A0FC4F4A8FC9637A3344F5DF"
             {
-            "SourcePath" = "8:..\\Journalfoeringssystem\\obj\\Release\\net5.0-windows\\apphost.exe"
+            "SourcePath" = "8:..\\Journalfoeringssystem\\obj\\Debug\\net5.0-windows\\apphost.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_4FD59D4D4D77436DAC963F13BDD343CC"

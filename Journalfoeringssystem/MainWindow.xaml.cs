@@ -29,5 +29,18 @@ namespace Journalfoeringssystem
       {
          this.Close();
       }
+
+      private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
+      {
+         if (e.LeftButton == MouseButtonState.Pressed)
+         {
+            this.DragMove();
+         }
+      }
+
+      private void Minimize_Click(object sender, RoutedEventArgs e)
+      {
+         this.WindowState = WindowState.Minimized;
+      }
    }
 }

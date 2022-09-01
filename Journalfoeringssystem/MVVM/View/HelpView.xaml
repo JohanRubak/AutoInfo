@@ -22,10 +22,17 @@
          </Border.Background>
       </Border>
 
-      <Button HorizontalAlignment="Left" Margin="78,100,0,0" VerticalAlignment="Top" Style="{StaticResource directoryButton}" Command="{Binding HelpKranioFacialCommand}" Width="142" Height="28">
+      <Button HorizontalAlignment="Left" Margin="52,96,0,0" VerticalAlignment="Top" Style="{StaticResource personsButton}" Command="{Binding HelpKranioFacialCommand}" Width="145" Height="28">
          <StackPanel Orientation="Horizontal">
-            <fa:IconImage Icon="FileWord" Height="18" Width="23" Foreground="#ccd7ff" />
-            <TextBlock Text="Help for kraniofacial" Foreground="#ccd7ff" Margin="5 0 0 0"/>
+            <fa:IconImage Icon="FileWord" Height="18" Width="23" Foreground="#FFFFFF" />
+            <TextBlock Text="Help for kraniofacial" Foreground="#FFFFFF" Margin="5 0 5 0"/>
+         </StackPanel>
+      </Button>
+
+      <Button HorizontalAlignment="Left" Margin="52,144,0,0" VerticalAlignment="Top" Style="{StaticResource personsButton}" Command="{Binding HelpMandibelCommand}" Width="145" Height="28">
+         <StackPanel Orientation="Horizontal">
+            <fa:IconImage Icon="FileWord" Height="18" Width="23" Foreground="#FFFFFF" Margin="-15 0 0 0"/>
+            <TextBlock Text="Help for mandibel" Foreground="#FFFFFF" Margin="5 0 0 0"/>
          </StackPanel>
       </Button>
       <Label Content="Guides for filling out templates:" HorizontalAlignment="Left" Foreground="#ccd7ff" Margin="46,52,0,0" VerticalAlignment="Top" Width="270" FontSize="14" FontWeight="Bold"/>

@@ -57,7 +57,7 @@
    <Grid Margin="0,0,0,-187">
 
       <!--Searchbar-->
-      <Border Margin="20,20,20,0" CornerRadius="10" VerticalAlignment="Top" Height="113">
+      <Border Margin="20,20,20,0" CornerRadius="10" VerticalAlignment="Top" Height="116">
          <Border.Background>
             <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
                <GradientStop Color="#223266" Offset="0"/>
@@ -76,7 +76,7 @@
       <Label Content="Name of Case" HorizontalAlignment="Left" Margin="171,69,0,0" VerticalAlignment="Top" Foreground="#ccd7ff"/>
       <Label Content="{Binding PatientName, TargetNullValue='#XXXXXXXXXX'}" HorizontalAlignment="Left" Margin="171,95,0,0" VerticalAlignment="Top" Foreground="#FFE5EAFF" FontWeight="Bold"/>
       <Label Content="Searchpath" HorizontalAlignment="Left" Margin="398,69,0,0" VerticalAlignment="Top" Foreground="#ccd7ff"/>
-      <Label x:Name="SearchpathLabel" Content="{Binding SearchPath, TargetNullValue='C:/XXXX'}" HorizontalAlignment="Left" Margin="398,95,0,0" VerticalAlignment="Top" Foreground="#FFE5EAFF" FontWeight="Bold" />
+      <TextBox x:Name="SearchpathTextbox" Text="{Binding SearchPath, TargetNullValue='C:/XXXX'}" HorizontalAlignment="Left" Margin="401,98,0,0" VerticalAlignment="Top" Foreground="#FFE5EAFF" FontWeight="Bold" Width="461" Height="33" AcceptsReturn="True" TextWrapping="Wrap" Background="Transparent" BorderBrush="Transparent" BorderThickness="0" IsReadOnly="True"/>
       <Label Content="CPR-number" HorizontalAlignment="Left" Margin="31,69,0,0" VerticalAlignment="Top" Foreground="#ccd7ff"/>
       <Label Content="Patient not found..." HorizontalAlignment="Left" Margin="505,34,0,0" VerticalAlignment="Top" Foreground="Red" Visibility="{Binding PatientNotFound}"/>
       <Button Command="{Binding LoadImages}" x:Name="LoadPicturesButton" Content="Load pictures" HorizontalAlignment="Left" Margin="885,93,0,0" VerticalAlignment="Top" Style="{StaticResource personsButton}" Width="87"/>
