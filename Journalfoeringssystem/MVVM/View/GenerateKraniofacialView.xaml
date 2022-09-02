@@ -70,7 +70,7 @@
       <fa:IconImage Icon="Search" Foreground="#FFC8C8C8" Margin="177,41,820,0" RenderTransformOrigin="0.5,0.479" VerticalAlignment="Top"/>
 
       <!--Searchbutton-->
-      <Button x:Name="SearchButton" Content="{Binding SearchButtonText, FallbackValue='Search', TargetNullValue='Search'}" HorizontalAlignment="Left" Margin="442,32,0,0" VerticalAlignment="Top" Style="{StaticResource standardButton}" Command="{Binding SearchCommand}"/>
+      <Button x:Name="SearchButton" Content="{Binding SearchButtonText, FallbackValue='Search', TargetNullValue='Search'}" IsEnabled="{Binding SearchButtonEnabled}" HorizontalAlignment="Left" Margin="442,32,0,0" VerticalAlignment="Top" Style="{StaticResource standardButton}" Command="{Binding SearchCommand}"/>
       <Image x:Name="LoadingGifSearch" gif:ImageBehavior.RepeatBehavior="Forever" gif:ImageBehavior.AnimatedSource="Loading.gif" HorizontalAlignment="Left" Height="26" Margin="454,34,0,0" VerticalAlignment="Top" Width="26" Source="/MVVM/View/Loading.gif" Visibility="{Binding LoadingSearch}"/>
       <TextBox TabIndex="0" x:Name="SearchbarTextBox" HorizontalAlignment="Left" Margin="198,38,0,0" Text="{Binding SearchNumber, TargetNullValue='Search for patient (XXXXXXXXX)'}" TextWrapping="Wrap" VerticalAlignment="Top" Width="231" Foreground="#FFC8C8C8" Background="#747999" GotKeyboardFocus="SearchbarTextBox_GotKeyboardFocus" KeyDown="SearchbarTextBox_KeyDown" MouseDoubleClick="SearchbarTextBox_OnMouseDoubleClick"/>
 
@@ -82,7 +82,7 @@
       <TextBox x:Name="SearchpathTextbox" Text="{Binding SearchPath, TargetNullValue='C:/XXXX'}" HorizontalAlignment="Left" Margin="401,98,0,0" VerticalAlignment="Top" Foreground="#FFE5EAFF" FontWeight="Bold" Width="461" Height="33" AcceptsReturn="True" TextWrapping="Wrap" Background="Transparent" BorderBrush="Transparent" BorderThickness="0" IsReadOnly="True"/>
       <Label Content="CPR-number" HorizontalAlignment="Left" Margin="31,69,0,0" VerticalAlignment="Top" Foreground="#ccd7ff"/>
       <Label Content="Patient not found..." HorizontalAlignment="Left" Margin="505,34,0,0" VerticalAlignment="Top" Foreground="Red" Visibility="{Binding PatientNotFound}"/>
-      <Button Command="{Binding LoadImages}" x:Name="LoadPicturesButton" Content="Load pictures" HorizontalAlignment="Left" Margin="885,93,0,0" VerticalAlignment="Top" Style="{StaticResource personsButton}" Width="87"/>
+      <Button Command="{Binding LoadImages}" x:Name="LoadPicturesButton" Content="Load pictures" HorizontalAlignment="Left" Margin="885,101,0,0" VerticalAlignment="Top" Style="{StaticResource personsButton}" Width="87"/>
 
       <!--Informationinputs-->
       <Border Margin="20,152,373,0" CornerRadius="10" VerticalAlignment="Top" Height="468">
@@ -197,7 +197,7 @@
             <TextBlock Text="Choose folder" Foreground="White" Margin="5 0 0 0"/>
          </StackPanel>
       </Button>
-      
+
 
 
    </Grid>

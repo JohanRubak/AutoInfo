@@ -10,7 +10,7 @@ namespace Journalfoeringssystem.MVVM.Model
 {
    public class FileReader
    {
-      public string[] Information { get; set; } = new string[2];
+      public string[] Information { get; set; } = new string[3];
 
       public string[] SearchForFiles(string patientCPR, string rootPath)
       {
@@ -55,6 +55,49 @@ namespace Journalfoeringssystem.MVVM.Model
          }
 
       }
+
+      public string[] SearchForFiles(string searchPath)
+      {
+
+         var filePath = new DirectoryInfo(searchPath);
+
+         try
+         {
+            string patientName = string.Empty;
+
+            string patientCPR = string.Empty;
+
+            string patient = filePath.Name;
+
+            for (int i = 0; i < patient.Length; i++)
+            {
+               if (Char.IsLetter(patient[i]) || Char.IsWhiteSpace(patient[i]))
+               {
+                  patientName += patient[i];
+               }
+
+               else if (Char.IsDigit(patient[i]) || patient[i] == '-')
+               {
+                  patientCPR += patient[i];
+               }
+            }
+
+
+            Information[0] = filePath + @"\Billeder";
+            Information[1] = patientName;
+            Information[2] = patientCPR;
+
+            return Information;
+
+         }
+
+         catch (Exception e)
+         {
+            Console.WriteLine(e);
+            return null;
+         }
+      }
+
 
       public List<FileUpload> LoadPictures(string path)
       {

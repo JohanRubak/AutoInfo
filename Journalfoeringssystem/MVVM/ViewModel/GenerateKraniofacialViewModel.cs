@@ -355,6 +355,7 @@ namespace Journalfoeringssystem.MVVM.ViewModel
          LoadingSearch = Visibility.Hidden;
          PatientNotFound = Visibility.Hidden;
          ButtonEnabled = true;
+         SearchButtonEnabled = true;
          WorkerInput = new Worker();
          WorkersInput = new Workers();
          FileReader = new FileReader();
@@ -427,6 +428,7 @@ namespace Journalfoeringssystem.MVVM.ViewModel
             dialog.ShowDialog();
             DriveForSearch = dialog.SelectedPath;
             SearchPath = DriveForSearch;
+            StartSearchingFromFolderChoice();
          });
       }
 
@@ -481,6 +483,16 @@ namespace Journalfoeringssystem.MVVM.ViewModel
          LoadingSearch = Visibility.Hidden;
          SearchButtonText = "Search";
          SearchButtonEnabled = true;
+      }
+
+      public void StartSearchingFromFolderChoice()
+      {
+         string[] path = FileReader.SearchForFiles(DriveForSearch);
+
+         SearchPath = path[0];
+         PatientName = path[1];
+         CPRNumber = path[2];
+
       }
    }
 }

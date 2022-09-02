@@ -31,8 +31,12 @@ namespace Journalfoeringssystem.MVVM.Model
                catch (Exception e)
                {
                   MessageBox.Show("Error: Wrong folderstructure for pictures or not correct amount of pictures!" + "\r\n\r\nException: " + e.ToString());
-                  PdfDocument = new KranioFacialTemplate();
-                  PdfDocument.GeneratePDFDocument(informationContainer, FilesPathSorted);
+
+                  if (FilesPathSorted != null)
+                  {
+                     PdfDocument = new KranioFacialTemplate();
+                     PdfDocument.GeneratePDFDocument(informationContainer, FilesPathSorted);
+                  }
                }
 
                break;
@@ -47,8 +51,12 @@ namespace Journalfoeringssystem.MVVM.Model
                catch (Exception e)
                {
                   MessageBox.Show("Error: Wrong folderstructure for pictures or not correct amount of pictures!" + "\r\n\r\nException: " + e.ToString());
-                  PdfDocument = new MandibelTemplate();
-                  PdfDocument.GeneratePDFDocument(informationContainer, FilesPathSorted);
+
+                  if (FilesPathSorted != null)
+                  {
+                     PdfDocument = new MandibelTemplate();
+                     PdfDocument.GeneratePDFDocument(informationContainer, FilesPathSorted);
+                  }
                }
 
                break;

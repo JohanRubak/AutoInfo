@@ -37,835 +37,833 @@ namespace Journalfoeringssystem.MVVM.Model
          doc = app.Documents.Add(filePath);
          doc.Activate();
 
-         if (filesPathSorted != null)
+         foreach (ContentControl contentControl in doc.ContentControls)
          {
-            foreach (ContentControl contentControl in doc.ContentControls)
+            switch (contentControl.Title)
             {
-               switch (contentControl.Title)
-               {
-                  case "PatientName":
-                     contentControl.Range.Text = informationContainer.PatientName;
-                     break;
+               case "PatientName":
+                  contentControl.Range.Text = informationContainer.PatientName;
+                  break;
 
-                  case "CPR":
-                     contentControl.Range.Text = informationContainer.CPRNumber;
-                     break;
+               case "CPR":
+                  contentControl.Range.Text = informationContainer.CPRNumber;
+                  break;
 
-                  case "VirtualPlanning":
+               case "VirtualPlanning":
 
-                     string localtext = "";
+                  string localtext = "";
 
-                     if (informationContainer.WorkersInput != null)
+                  if (informationContainer.WorkersInput != null)
+                  {
+                     foreach (var VARIABLE in informationContainer.WorkersInput.WorkersList)
                      {
-                        foreach (var VARIABLE in informationContainer.WorkersInput.WorkersList)
-                        {
-                           localtext += $"{VARIABLE.WorkerName} ({VARIABLE.WorkerJob}),\r\n";
-                        }
+                        localtext += $"{VARIABLE.WorkerName} ({VARIABLE.WorkerJob}),\r\n";
                      }
+                  }
 
-                     contentControl.Range.Text = localtext;
+                  contentControl.Range.Text = localtext;
 
-                     break;
+                  break;
 
-                  case "DateForPlanning":
-                     contentControl.Range.Text = informationContainer.DateForPlanning.ToShortDateString();
-                     break;
+               case "DateForPlanning":
+                  contentControl.Range.Text = informationContainer.DateForPlanning.ToShortDateString();
+                  break;
 
-                  case "DateForSurgery":
-                     contentControl.Range.Text = informationContainer.DateForSurgery.ToShortDateString();
-                     break;
+               case "DateForSurgery":
+                  contentControl.Range.Text = informationContainer.DateForSurgery.ToShortDateString();
+                  break;
 
-                  case "Remarks":
-                     contentControl.Range.Text = informationContainer.Remarks;
-                     break;
+               case "Remarks":
+                  contentControl.Range.Text = informationContainer.Remarks;
+                  break;
 
-                  case "CuttingGuideText":
-                     contentControl.Range.Text = informationContainer.CuttingGuide;
-                     break;
+               case "CuttingGuideText":
+                  contentControl.Range.Text = informationContainer.CuttingGuide;
+                  break;
 
-                  case "Scanning":
-                     contentControl.Range.Text = informationContainer.TypeOfScanning1;
-                     break;
+               case "Scanning":
+                  contentControl.Range.Text = informationContainer.TypeOfScanning1;
+                  break;
 
-                  case "DateOfScanning":
-                     contentControl.Range.Text = informationContainer.DateForScanning1.ToShortDateString();
-                     break;
+               case "DateOfScanning":
+                  contentControl.Range.Text = informationContainer.DateForScanning1.ToShortDateString();
+                  break;
 
-                  case "Serie":
-                     contentControl.Range.Text = informationContainer.SerieOfScanning1;
-                     break;
+               case "Serie":
+                  contentControl.Range.Text = informationContainer.SerieOfScanning1;
+                  break;
 
-                  case "FrontImage":
-                     if (filesPathSorted != null && filesPathSorted[0].Any())
-                     {
-                        newImage = contentControl.Range.InlineShapes.AddPicture(filesPathSorted[0].ElementAt(0));
+               case "FrontImage":
+                  if (filesPathSorted != null && filesPathSorted[0].Any())
+                  {
+                     newImage = contentControl.Range.InlineShapes.AddPicture(filesPathSorted[0].ElementAt(0));
 
-                        newImage.ScaleWidth = 100;
-                        newImage.ScaleHeight = 100;
+                     newImage.ScaleWidth = 100;
+                     newImage.ScaleHeight = 100;
 
-                        height = newImage.Height;
+                     height = newImage.Height;
 
-                        scale = constantHeightFrontImage / height * 100;
+                     scale = constantHeightFrontImage / height * 100;
 
-                        newImage.ScaleHeight = scale;
-                        newImage.ScaleWidth = scale;
-                     }
+                     newImage.ScaleHeight = scale;
+                     newImage.ScaleWidth = scale;
+                  }
 
-                     break;
+                  break;
 
-                  case "DeliveredInstruments1":
-                     if (filesPathSorted[1].Any())
-                     {
-                        newImage = contentControl.Range.InlineShapes.AddPicture(
-                           filesPathSorted[1].ElementAt(0));
+               case "DeliveredInstruments1":
+                  if (filesPathSorted[1].Any())
+                  {
+                     newImage = contentControl.Range.InlineShapes.AddPicture(
+                        filesPathSorted[1].ElementAt(0));
 
-                        newImage.ScaleWidth = 100;
-                        newImage.ScaleHeight = 100;
+                     newImage.ScaleWidth = 100;
+                     newImage.ScaleHeight = 100;
 
-                        height = newImage.Height;
+                     height = newImage.Height;
 
-                        scale = constantHeightDI12 / height * 100;
+                     scale = constantHeightDI12 / height * 100;
 
-                        newImage.ScaleHeight = scale;
-                        newImage.ScaleWidth = scale;
+                     newImage.ScaleHeight = scale;
+                     newImage.ScaleWidth = scale;
 
-                        height = newImage.Height;
-                     }
+                     height = newImage.Height;
+                  }
 
-                     break;
+                  break;
 
-                  case "DeliveredInstruments2":
-                     if (filesPathSorted[1].Count() >= 2)
-                     {
-                        newImage = contentControl.Range.InlineShapes.AddPicture(
-                           filesPathSorted[1].ElementAt(1));
+               case "DeliveredInstruments2":
+                  if (filesPathSorted[1].Count() >= 2)
+                  {
+                     newImage = contentControl.Range.InlineShapes.AddPicture(
+                        filesPathSorted[1].ElementAt(1));
 
-                        newImage.ScaleWidth = 100;
-                        newImage.ScaleHeight = 100;
+                     newImage.ScaleWidth = 100;
+                     newImage.ScaleHeight = 100;
 
-                        height = newImage.Height;
+                     height = newImage.Height;
 
-                        scale = constantHeightDI12 / height * 100;
+                     scale = constantHeightDI12 / height * 100;
 
-                        newImage.ScaleHeight = scale;
-                        newImage.ScaleWidth = scale;
+                     newImage.ScaleHeight = scale;
+                     newImage.ScaleWidth = scale;
 
-                        height = newImage.Height;
-                     }
+                     height = newImage.Height;
+                  }
 
-                     break;
+                  break;
 
-                  case "DeliveredInstruments3":
-                     if (filesPathSorted[1].Count() >= 3)
-                     {
-                        newImage = contentControl.Range.InlineShapes.AddPicture(
-                           filesPathSorted[1].ElementAt(2));
+               case "DeliveredInstruments3":
+                  if (filesPathSorted[1].Count() >= 3)
+                  {
+                     newImage = contentControl.Range.InlineShapes.AddPicture(
+                        filesPathSorted[1].ElementAt(2));
 
-                        newImage.ScaleWidth = 100;
-                        newImage.ScaleHeight = 100;
+                     newImage.ScaleWidth = 100;
+                     newImage.ScaleHeight = 100;
 
-                        height = newImage.Height;
+                     height = newImage.Height;
 
-                        scale = constantHeightDI23 / height * 100;
+                     scale = constantHeightDI23 / height * 100;
 
-                        newImage.ScaleHeight = scale;
-                        newImage.ScaleWidth = scale;
-                     }
+                     newImage.ScaleHeight = scale;
+                     newImage.ScaleWidth = scale;
+                  }
 
-                     break;
+                  break;
 
-                  case "DeliveredInstruments4":
-                     if (filesPathSorted[1].Count() >= 4)
-                     {
-                        newImage = contentControl.Range.InlineShapes.AddPicture(
-                           filesPathSorted[1].ElementAt(3));
+               case "DeliveredInstruments4":
+                  if (filesPathSorted[1].Count() >= 4)
+                  {
+                     newImage = contentControl.Range.InlineShapes.AddPicture(
+                        filesPathSorted[1].ElementAt(3));
 
-                        newImage.ScaleWidth = 100;
-                        newImage.ScaleHeight = 100;
+                     newImage.ScaleWidth = 100;
+                     newImage.ScaleHeight = 100;
 
-                        height = newImage.Height;
+                     height = newImage.Height;
 
-                        scale = constantHeightDI23 / height * 100;
+                     scale = constantHeightDI23 / height * 100;
 
-                        newImage.ScaleHeight = scale;
-                        newImage.ScaleWidth = scale;
-                     }
+                     newImage.ScaleHeight = scale;
+                     newImage.ScaleWidth = scale;
+                  }
 
-                     break;
+                  break;
 
-                  case "DeliveredInstruments5":
+               case "DeliveredInstruments5":
 
-                     if (filesPathSorted[1].Count() >= 5)
-                     {
-                        newImage = contentControl.Range.InlineShapes.AddPicture(
-                           filesPathSorted[1].ElementAt(4));
+                  if (filesPathSorted[1].Count() >= 5)
+                  {
+                     newImage = contentControl.Range.InlineShapes.AddPicture(
+                        filesPathSorted[1].ElementAt(4));
 
-                        newImage.ScaleWidth = 100;
-                        newImage.ScaleHeight = 100;
+                     newImage.ScaleWidth = 100;
+                     newImage.ScaleHeight = 100;
 
-                        height = newImage.Height;
+                     height = newImage.Height;
 
-                        scale = constantHeightDI23 / height * 100;
+                     scale = constantHeightDI23 / height * 100;
 
-                        newImage.ScaleHeight = scale;
-                        newImage.ScaleWidth = scale;
-                     }
+                     newImage.ScaleHeight = scale;
+                     newImage.ScaleWidth = scale;
+                  }
 
-                     else
-                     {
-                        contentControl.Delete();
-                     }
+                  else
+                  {
+                     contentControl.Delete();
+                  }
 
-                     break;
+                  break;
 
-                  case "DeliveredInstruments6":
+               case "DeliveredInstruments6":
 
-                     if (filesPathSorted[1].Count() >= 6)
-                     {
-                        newImage = contentControl.Range.InlineShapes.AddPicture(
-                           filesPathSorted[1].ElementAt(5));
+                  if (filesPathSorted[1].Count() >= 6)
+                  {
+                     newImage = contentControl.Range.InlineShapes.AddPicture(
+                        filesPathSorted[1].ElementAt(5));
 
-                        newImage.ScaleWidth = 100;
-                        newImage.ScaleHeight = 100;
+                     newImage.ScaleWidth = 100;
+                     newImage.ScaleHeight = 100;
 
-                        height = newImage.Height;
+                     height = newImage.Height;
 
-                        scale = constantHeightDI23 / height * 100;
+                     scale = constantHeightDI23 / height * 100;
 
-                        newImage.ScaleHeight = scale;
-                        newImage.ScaleWidth = scale;
-                     }
+                     newImage.ScaleHeight = scale;
+                     newImage.ScaleWidth = scale;
+                  }
 
-                     else
-                     {
-                        contentControl.Delete();
-                     }
+                  else
+                  {
+                     contentControl.Delete();
+                  }
 
-                     break;
+                  break;
 
-                  case "PreOperativeSituation1":
-                     if (filesPathSorted[2].Any())
-                     {
-                        newImage = contentControl.Range.InlineShapes.AddPicture(filesPathSorted[2].ElementAt(0));
+               case "PreOperativeSituation1":
+                  if (filesPathSorted[2].Any())
+                  {
+                     newImage = contentControl.Range.InlineShapes.AddPicture(filesPathSorted[2].ElementAt(0));
 
-                        newImage.ScaleWidth = 100;
-                        newImage.ScaleHeight = 100;
+                     newImage.ScaleWidth = 100;
+                     newImage.ScaleHeight = 100;
 
-                        height = newImage.Height;
+                     height = newImage.Height;
 
-                        scale = constantHeightPOS15 / height * 100;
+                     scale = constantHeightPOS15 / height * 100;
 
-                        newImage.ScaleHeight = scale;
-                        newImage.ScaleWidth = scale;
-                     }
+                     newImage.ScaleHeight = scale;
+                     newImage.ScaleWidth = scale;
+                  }
 
-                     break;
+                  break;
 
-                  case "PreOperativeSituation2":
-                     if (filesPathSorted[2].Count() >= 2)
-                     {
-                        newImage = contentControl.Range.InlineShapes.AddPicture(
-                           filesPathSorted[2].ElementAt(1));
+               case "PreOperativeSituation2":
+                  if (filesPathSorted[2].Count() >= 2)
+                  {
+                     newImage = contentControl.Range.InlineShapes.AddPicture(
+                        filesPathSorted[2].ElementAt(1));
 
-                        newImage.ScaleWidth = 100;
-                        newImage.ScaleHeight = 100;
+                     newImage.ScaleWidth = 100;
+                     newImage.ScaleHeight = 100;
 
-                        height = newImage.Height;
+                     height = newImage.Height;
 
-                        scale = constantHeightPOS15 / height * 100;
+                     scale = constantHeightPOS15 / height * 100;
 
-                        newImage.ScaleHeight = scale;
-                        newImage.ScaleWidth = scale;
-                     }
+                     newImage.ScaleHeight = scale;
+                     newImage.ScaleWidth = scale;
+                  }
 
-                     break;
+                  break;
 
-                  case "PreOperativeSituation3":
-                     if (filesPathSorted[2].Count() >= 3)
-                     {
-                        newImage = contentControl.Range.InlineShapes.AddPicture(
-                           filesPathSorted[2].ElementAt(2));
+               case "PreOperativeSituation3":
+                  if (filesPathSorted[2].Count() >= 3)
+                  {
+                     newImage = contentControl.Range.InlineShapes.AddPicture(
+                        filesPathSorted[2].ElementAt(2));
 
-                        newImage.ScaleWidth = 100;
-                        newImage.ScaleHeight = 100;
+                     newImage.ScaleWidth = 100;
+                     newImage.ScaleHeight = 100;
 
-                        height = newImage.Height;
+                     height = newImage.Height;
 
-                        scale = constantHeightPOS15 / height * 100;
+                     scale = constantHeightPOS15 / height * 100;
 
-                        newImage.ScaleHeight = scale;
-                        newImage.ScaleWidth = scale;
-                     }
+                     newImage.ScaleHeight = scale;
+                     newImage.ScaleWidth = scale;
+                  }
 
-                     break;
+                  break;
 
-                  case "PreOperativeSituation4":
-                     if (filesPathSorted[2].Count() >= 4)
-                     {
-                        newImage = contentControl.Range.InlineShapes.AddPicture(
-                           filesPathSorted[2].ElementAt(3));
+               case "PreOperativeSituation4":
+                  if (filesPathSorted[2].Count() >= 4)
+                  {
+                     newImage = contentControl.Range.InlineShapes.AddPicture(
+                        filesPathSorted[2].ElementAt(3));
 
-                        newImage.ScaleWidth = 100;
-                        newImage.ScaleHeight = 100;
+                     newImage.ScaleWidth = 100;
+                     newImage.ScaleHeight = 100;
 
-                        height = newImage.Height;
+                     height = newImage.Height;
 
-                        scale = constantHeightPOS15 / height * 100;
+                     scale = constantHeightPOS15 / height * 100;
 
-                        newImage.ScaleHeight = scale;
-                        newImage.ScaleWidth = scale;
-                     }
+                     newImage.ScaleHeight = scale;
+                     newImage.ScaleWidth = scale;
+                  }
 
-                     break;
+                  break;
 
-                  case "PreOperativeSituation5":
+               case "PreOperativeSituation5":
 
-                     if (filesPathSorted[2].Count() >= 5)
-                     {
-                        newImage = contentControl.Range.InlineShapes.AddPicture(
-                           filesPathSorted[2].ElementAt(4));
+                  if (filesPathSorted[2].Count() >= 5)
+                  {
+                     newImage = contentControl.Range.InlineShapes.AddPicture(
+                        filesPathSorted[2].ElementAt(4));
 
-                        newImage.ScaleWidth = 100;
-                        newImage.ScaleHeight = 100;
+                     newImage.ScaleWidth = 100;
+                     newImage.ScaleHeight = 100;
 
-                        height = newImage.Height;
+                     height = newImage.Height;
 
-                        scale = constantHeightPOS15 / height * 100;
+                     scale = constantHeightPOS15 / height * 100;
 
-                        newImage.ScaleHeight = scale;
-                        newImage.ScaleWidth = scale;
-                     }
+                     newImage.ScaleHeight = scale;
+                     newImage.ScaleWidth = scale;
+                  }
 
-                     else
-                     {
-                        contentControl.Delete();
-                     }
+                  else
+                  {
+                     contentControl.Delete();
+                  }
 
 
-                     break;
+                  break;
 
-                  case "Osteotomy1":
-                     if (filesPathSorted[3].Any())
-                     {
-                        newImage = contentControl.Range.InlineShapes.AddPicture(
-                           filesPathSorted[3].ElementAt(0));
+               case "Osteotomy1":
+                  if (filesPathSorted[3].Any())
+                  {
+                     newImage = contentControl.Range.InlineShapes.AddPicture(
+                        filesPathSorted[3].ElementAt(0));
 
-                        newImage.ScaleWidth = 100;
-                        newImage.ScaleHeight = 100;
+                     newImage.ScaleWidth = 100;
+                     newImage.ScaleHeight = 100;
 
-                        height = newImage.Height;
+                     height = newImage.Height;
 
-                        scale = constantHeightO14 / height * 100;
+                     scale = constantHeightO14 / height * 100;
 
-                        newImage.ScaleHeight = scale;
-                        newImage.ScaleWidth = scale;
-                     }
+                     newImage.ScaleHeight = scale;
+                     newImage.ScaleWidth = scale;
+                  }
 
-                     break;
+                  break;
 
-                  case "Osteotomy2":
-                     if (filesPathSorted[3].Count() >= 2)
-                     {
-                        newImage = contentControl.Range.InlineShapes.AddPicture(
-                           filesPathSorted[3].ElementAt(1));
+               case "Osteotomy2":
+                  if (filesPathSorted[3].Count() >= 2)
+                  {
+                     newImage = contentControl.Range.InlineShapes.AddPicture(
+                        filesPathSorted[3].ElementAt(1));
 
-                        newImage.ScaleWidth = 100;
-                        newImage.ScaleHeight = 100;
+                     newImage.ScaleWidth = 100;
+                     newImage.ScaleHeight = 100;
 
-                        height = newImage.Height;
+                     height = newImage.Height;
 
-                        scale = constantHeightO14 / height * 100;
+                     scale = constantHeightO14 / height * 100;
 
-                        newImage.ScaleHeight = scale;
-                        newImage.ScaleWidth = scale;
-                     }
+                     newImage.ScaleHeight = scale;
+                     newImage.ScaleWidth = scale;
+                  }
 
-                     break;
+                  break;
 
-                  case "Osteotomy3":
-                     if (filesPathSorted[3].Count() >= 3)
-                     {
-                        newImage = contentControl.Range.InlineShapes.AddPicture(
-                           filesPathSorted[3].ElementAt(2));
+               case "Osteotomy3":
+                  if (filesPathSorted[3].Count() >= 3)
+                  {
+                     newImage = contentControl.Range.InlineShapes.AddPicture(
+                        filesPathSorted[3].ElementAt(2));
 
-                        newImage.ScaleWidth = 100;
-                        newImage.ScaleHeight = 100;
+                     newImage.ScaleWidth = 100;
+                     newImage.ScaleHeight = 100;
 
-                        height = newImage.Height;
+                     height = newImage.Height;
 
-                        scale = constantHeightO14 / height * 100;
+                     scale = constantHeightO14 / height * 100;
 
-                        newImage.ScaleHeight = scale;
-                        newImage.ScaleWidth = scale;
-                     }
+                     newImage.ScaleHeight = scale;
+                     newImage.ScaleWidth = scale;
+                  }
 
-                     break;
+                  break;
 
-                  case "Osteotomy4":
-                     if (filesPathSorted[3].Count() >= 4)
-                     {
-                        newImage = contentControl.Range.InlineShapes.AddPicture(
-                           filesPathSorted[3].ElementAt(3));
+               case "Osteotomy4":
+                  if (filesPathSorted[3].Count() >= 4)
+                  {
+                     newImage = contentControl.Range.InlineShapes.AddPicture(
+                        filesPathSorted[3].ElementAt(3));
 
-                        newImage.ScaleWidth = 100;
-                        newImage.ScaleHeight = 100;
+                     newImage.ScaleWidth = 100;
+                     newImage.ScaleHeight = 100;
 
-                        height = newImage.Height;
+                     height = newImage.Height;
 
-                        scale = constantHeightO14 / height * 100;
+                     scale = constantHeightO14 / height * 100;
 
-                        newImage.ScaleHeight = scale;
-                        newImage.ScaleWidth = scale;
-                     }
+                     newImage.ScaleHeight = scale;
+                     newImage.ScaleWidth = scale;
+                  }
 
-                     break;
+                  break;
 
-                  case "Osteotomy5":
-                     if (filesPathSorted[3].Count() >= 5)
-                     {
-                        newImage = contentControl.Range.InlineShapes.AddPicture(
-                           filesPathSorted[3].ElementAt(4));
+               case "Osteotomy5":
+                  if (filesPathSorted[3].Count() >= 5)
+                  {
+                     newImage = contentControl.Range.InlineShapes.AddPicture(
+                        filesPathSorted[3].ElementAt(4));
 
-                        newImage.ScaleWidth = 100;
-                        newImage.ScaleHeight = 100;
+                     newImage.ScaleWidth = 100;
+                     newImage.ScaleHeight = 100;
 
-                        height = newImage.Height;
+                     height = newImage.Height;
 
-                        scale = constantHeightO46 / height * 100;
+                     scale = constantHeightO46 / height * 100;
 
-                        newImage.ScaleHeight = scale;
-                        newImage.ScaleWidth = scale;
-                     }
+                     newImage.ScaleHeight = scale;
+                     newImage.ScaleWidth = scale;
+                  }
 
-                     break;
+                  break;
 
-                  case "Osteotomy6":
+               case "Osteotomy6":
 
-                     if (filesPathSorted[3].Count() >= 6)
-                     {
-                        newImage = contentControl.Range.InlineShapes.AddPicture(
-                           filesPathSorted[3].ElementAt(5));
+                  if (filesPathSorted[3].Count() >= 6)
+                  {
+                     newImage = contentControl.Range.InlineShapes.AddPicture(
+                        filesPathSorted[3].ElementAt(5));
 
-                        newImage.ScaleWidth = 100;
-                        newImage.ScaleHeight = 100;
+                     newImage.ScaleWidth = 100;
+                     newImage.ScaleHeight = 100;
 
-                        height = newImage.Height;
+                     height = newImage.Height;
 
-                        scale = constantHeightO46 / height * 100;
+                     scale = constantHeightO46 / height * 100;
 
-                        newImage.ScaleHeight = scale;
-                        newImage.ScaleWidth = scale;
-                     }
+                     newImage.ScaleHeight = scale;
+                     newImage.ScaleWidth = scale;
+                  }
 
-                     else
-                     {
-                        contentControl.Delete();
-                     }
+                  else
+                  {
+                     contentControl.Delete();
+                  }
 
-                     break;
+                  break;
 
-                  case "PlannedOutcome1":
-                     if (filesPathSorted[4].Any())
-                     {
-                        newImage = contentControl.Range.InlineShapes.AddPicture(
-                           filesPathSorted[4].ElementAt(0));
+               case "PlannedOutcome1":
+                  if (filesPathSorted[4].Any())
+                  {
+                     newImage = contentControl.Range.InlineShapes.AddPicture(
+                        filesPathSorted[4].ElementAt(0));
 
-                        newImage.ScaleWidth = 100;
-                        newImage.ScaleHeight = 100;
+                     newImage.ScaleWidth = 100;
+                     newImage.ScaleHeight = 100;
 
-                        height = newImage.Height;
+                     height = newImage.Height;
 
-                        scale = constantHeightPO14 / height * 100;
+                     scale = constantHeightPO14 / height * 100;
 
-                        newImage.ScaleHeight = scale;
-                        newImage.ScaleWidth = scale;
-                     }
+                     newImage.ScaleHeight = scale;
+                     newImage.ScaleWidth = scale;
+                  }
 
-                     break;
+                  break;
 
-                  case "PlannedOutcome2":
-                     if (filesPathSorted[4].Count() >= 2)
-                     {
-                        newImage = contentControl.Range.InlineShapes.AddPicture(
-                           filesPathSorted[4].ElementAt(1));
+               case "PlannedOutcome2":
+                  if (filesPathSorted[4].Count() >= 2)
+                  {
+                     newImage = contentControl.Range.InlineShapes.AddPicture(
+                        filesPathSorted[4].ElementAt(1));
 
-                        newImage.ScaleWidth = 100;
-                        newImage.ScaleHeight = 100;
+                     newImage.ScaleWidth = 100;
+                     newImage.ScaleHeight = 100;
 
-                        height = newImage.Height;
+                     height = newImage.Height;
 
-                        scale = constantHeightPO14 / height * 100;
+                     scale = constantHeightPO14 / height * 100;
 
-                        newImage.ScaleHeight = scale;
-                        newImage.ScaleWidth = scale;
-                     }
+                     newImage.ScaleHeight = scale;
+                     newImage.ScaleWidth = scale;
+                  }
 
-                     break;
+                  break;
 
-                  case "PlannedOutcome3":
-                     if (filesPathSorted[4].Count() >= 3)
-                     {
-                        newImage = contentControl.Range.InlineShapes.AddPicture(
-                           filesPathSorted[4].ElementAt(2));
+               case "PlannedOutcome3":
+                  if (filesPathSorted[4].Count() >= 3)
+                  {
+                     newImage = contentControl.Range.InlineShapes.AddPicture(
+                        filesPathSorted[4].ElementAt(2));
 
-                        newImage.ScaleWidth = 100;
-                        newImage.ScaleHeight = 100;
+                     newImage.ScaleWidth = 100;
+                     newImage.ScaleHeight = 100;
 
-                        height = newImage.Height;
+                     height = newImage.Height;
 
-                        scale = constantHeightPO14 / height * 100;
+                     scale = constantHeightPO14 / height * 100;
 
-                        newImage.ScaleHeight = scale;
-                        newImage.ScaleWidth = scale;
-                     }
+                     newImage.ScaleHeight = scale;
+                     newImage.ScaleWidth = scale;
+                  }
 
-                     break;
+                  break;
 
-                  case "PlannedOutcome4":
-                     if (filesPathSorted[4].Count() >= 4)
-                     {
-                        newImage = contentControl.Range.InlineShapes.AddPicture(
-                           filesPathSorted[4].ElementAt(3));
+               case "PlannedOutcome4":
+                  if (filesPathSorted[4].Count() >= 4)
+                  {
+                     newImage = contentControl.Range.InlineShapes.AddPicture(
+                        filesPathSorted[4].ElementAt(3));
 
-                        newImage.ScaleWidth = 100;
-                        newImage.ScaleHeight = 100;
+                     newImage.ScaleWidth = 100;
+                     newImage.ScaleHeight = 100;
 
-                        height = newImage.Height;
+                     height = newImage.Height;
 
-                        scale = constantHeightPO14 / height * 100;
+                     scale = constantHeightPO14 / height * 100;
 
-                        newImage.ScaleHeight = scale;
-                        newImage.ScaleWidth = scale;
-                     }
+                     newImage.ScaleHeight = scale;
+                     newImage.ScaleWidth = scale;
+                  }
 
-                     break;
+                  break;
 
-                  case "PlannedOutcome5":
+               case "PlannedOutcome5":
 
-                     if (filesPathSorted[4].Count() >= 5)
-                     {
-                        newImage = contentControl.Range.InlineShapes.AddPicture(
-                           filesPathSorted[4].ElementAt(4));
+                  if (filesPathSorted[4].Count() >= 5)
+                  {
+                     newImage = contentControl.Range.InlineShapes.AddPicture(
+                        filesPathSorted[4].ElementAt(4));
 
-                        newImage.ScaleWidth = 100;
-                        newImage.ScaleHeight = 100;
+                     newImage.ScaleWidth = 100;
+                     newImage.ScaleHeight = 100;
 
-                        height = newImage.Height;
+                     height = newImage.Height;
 
-                        scale = constantHeightPO46 / height * 100;
+                     scale = constantHeightPO46 / height * 100;
 
-                        newImage.ScaleHeight = scale;
-                        newImage.ScaleWidth = scale;
-                     }
+                     newImage.ScaleHeight = scale;
+                     newImage.ScaleWidth = scale;
+                  }
 
-                     else
-                     {
-                        contentControl.Delete();
-                     }
+                  else
+                  {
+                     contentControl.Delete();
+                  }
 
-                     break;
+                  break;
 
-                  case "PlannedOutcome6":
+               case "PlannedOutcome6":
 
-                     if (filesPathSorted[4].Count() >= 6)
-                     {
-                        newImage = contentControl.Range.InlineShapes.AddPicture(
-                           filesPathSorted[4].ElementAt(5));
+                  if (filesPathSorted[4].Count() >= 6)
+                  {
+                     newImage = contentControl.Range.InlineShapes.AddPicture(
+                        filesPathSorted[4].ElementAt(5));
 
-                        newImage.ScaleWidth = 100;
-                        newImage.ScaleHeight = 100;
+                     newImage.ScaleWidth = 100;
+                     newImage.ScaleHeight = 100;
 
-                        height = newImage.Height;
+                     height = newImage.Height;
 
-                        scale = constantHeightPO46 / height * 100;
+                     scale = constantHeightPO46 / height * 100;
 
-                        newImage.ScaleHeight = scale;
-                        newImage.ScaleWidth = scale;
-                     }
+                     newImage.ScaleHeight = scale;
+                     newImage.ScaleWidth = scale;
+                  }
 
-                     else
-                     {
-                        contentControl.Delete();
-                     }
+                  else
+                  {
+                     contentControl.Delete();
+                  }
 
-                     break;
+                  break;
 
-                  case "CuttingGuide1":
-                     if (filesPathSorted[5].Any())
-                     {
-                        newImage = contentControl.Range.InlineShapes.AddPicture(
-                           filesPathSorted[5].ElementAt(0));
+               case "CuttingGuide1":
+                  if (filesPathSorted[5].Any())
+                  {
+                     newImage = contentControl.Range.InlineShapes.AddPicture(
+                        filesPathSorted[5].ElementAt(0));
 
-                        newImage.ScaleWidth = 100;
-                        newImage.ScaleHeight = 100;
+                     newImage.ScaleWidth = 100;
+                     newImage.ScaleHeight = 100;
 
-                        height = newImage.Height;
+                     height = newImage.Height;
 
-                        scale = constantHeightCG12 / height * 100;
+                     scale = constantHeightCG12 / height * 100;
 
-                        newImage.ScaleHeight = scale;
-                        newImage.ScaleWidth = scale;
-                     }
+                     newImage.ScaleHeight = scale;
+                     newImage.ScaleWidth = scale;
+                  }
 
-                     break;
+                  break;
 
-                  case "CuttingGuide2":
-                     if (filesPathSorted[5].Count() >= 2)
-                     {
-                        newImage = contentControl.Range.InlineShapes.AddPicture(
-                           filesPathSorted[5].ElementAt(1));
+               case "CuttingGuide2":
+                  if (filesPathSorted[5].Count() >= 2)
+                  {
+                     newImage = contentControl.Range.InlineShapes.AddPicture(
+                        filesPathSorted[5].ElementAt(1));
 
-                        newImage.ScaleWidth = 100;
-                        newImage.ScaleHeight = 100;
+                     newImage.ScaleWidth = 100;
+                     newImage.ScaleHeight = 100;
 
-                        height = newImage.Height;
+                     height = newImage.Height;
 
-                        scale = constantHeightCG12 / height * 100;
+                     scale = constantHeightCG12 / height * 100;
 
-                        newImage.ScaleHeight = scale;
-                        newImage.ScaleWidth = scale;
-                     }
+                     newImage.ScaleHeight = scale;
+                     newImage.ScaleWidth = scale;
+                  }
 
-                     break;
+                  break;
 
-                  case "CuttingGuide3":
+               case "CuttingGuide3":
 
-                     if (filesPathSorted[5].Count() >= 3)
-                     {
-                        newImage = contentControl.Range.InlineShapes.AddPicture(
-                           filesPathSorted[5].ElementAt(2));
+                  if (filesPathSorted[5].Count() >= 3)
+                  {
+                     newImage = contentControl.Range.InlineShapes.AddPicture(
+                        filesPathSorted[5].ElementAt(2));
 
-                        newImage.ScaleWidth = 100;
-                        newImage.ScaleHeight = 100;
+                     newImage.ScaleWidth = 100;
+                     newImage.ScaleHeight = 100;
 
-                        height = newImage.Height;
+                     height = newImage.Height;
 
-                        scale = constantHeightCG12 / height * 100;
+                     scale = constantHeightCG12 / height * 100;
 
-                        newImage.ScaleHeight = scale;
-                        newImage.ScaleWidth = scale;
-                     }
+                     newImage.ScaleHeight = scale;
+                     newImage.ScaleWidth = scale;
+                  }
 
-                     else
-                     {
-                        contentControl.Delete();
-                     }
+                  else
+                  {
+                     contentControl.Delete();
+                  }
 
-                     break;
+                  break;
 
-                  case "CuttingGuide4":
+               case "CuttingGuide4":
 
-                     if (filesPathSorted[5].Count() >= 4)
-                     {
-                        newImage = contentControl.Range.InlineShapes.AddPicture(
-                           filesPathSorted[5].ElementAt(3));
+                  if (filesPathSorted[5].Count() >= 4)
+                  {
+                     newImage = contentControl.Range.InlineShapes.AddPicture(
+                        filesPathSorted[5].ElementAt(3));
 
-                        newImage.ScaleWidth = 100;
-                        newImage.ScaleHeight = 100;
+                     newImage.ScaleWidth = 100;
+                     newImage.ScaleHeight = 100;
 
-                        height = newImage.Height;
+                     height = newImage.Height;
 
-                        scale = constantHeightCG12 / height * 100;
+                     scale = constantHeightCG12 / height * 100;
 
-                        newImage.ScaleHeight = scale;
-                        newImage.ScaleWidth = scale;
-                     }
+                     newImage.ScaleHeight = scale;
+                     newImage.ScaleWidth = scale;
+                  }
 
-                     else
-                     {
-                        contentControl.Delete();
-                     }
+                  else
+                  {
+                     contentControl.Delete();
+                  }
 
-                     break;
+                  break;
 
 
-                  case "RepositioningGuide1":
-                     if (filesPathSorted[6].Any())
-                     {
-                        newImage = contentControl.Range.InlineShapes.AddPicture(
-                           filesPathSorted[6].ElementAt(0));
+               case "RepositioningGuide1":
+                  if (filesPathSorted[6].Any())
+                  {
+                     newImage = contentControl.Range.InlineShapes.AddPicture(
+                        filesPathSorted[6].ElementAt(0));
 
-                        newImage.ScaleWidth = 100;
-                        newImage.ScaleHeight = 100;
+                     newImage.ScaleWidth = 100;
+                     newImage.ScaleHeight = 100;
 
-                        height = newImage.Height;
+                     height = newImage.Height;
 
-                        scale = constantHeightRG12 / height * 100;
+                     scale = constantHeightRG12 / height * 100;
 
-                        newImage.ScaleHeight = scale;
-                        newImage.ScaleWidth = scale;
-                     }
+                     newImage.ScaleHeight = scale;
+                     newImage.ScaleWidth = scale;
+                  }
 
-                     break;
+                  break;
 
-                  case "RepositioningGuide2":
-                     if (filesPathSorted[6].Count() >= 2)
-                     {
-                        newImage = contentControl.Range.InlineShapes.AddPicture(
-                           filesPathSorted[6].ElementAt(1));
+               case "RepositioningGuide2":
+                  if (filesPathSorted[6].Count() >= 2)
+                  {
+                     newImage = contentControl.Range.InlineShapes.AddPicture(
+                        filesPathSorted[6].ElementAt(1));
 
-                        newImage.ScaleWidth = 100;
-                        newImage.ScaleHeight = 100;
+                     newImage.ScaleWidth = 100;
+                     newImage.ScaleHeight = 100;
 
-                        height = newImage.Height;
+                     height = newImage.Height;
 
-                        scale = constantHeightRG12 / height * 100;
+                     scale = constantHeightRG12 / height * 100;
 
-                        newImage.ScaleHeight = scale;
-                        newImage.ScaleWidth = scale;
-                     }
+                     newImage.ScaleHeight = scale;
+                     newImage.ScaleWidth = scale;
+                  }
 
-                     break;
+                  break;
 
-                  case "RepositioningGuide3":
+               case "RepositioningGuide3":
 
-                     if (filesPathSorted[6].Count() >= 3)
-                     {
-                        newImage = contentControl.Range.InlineShapes.AddPicture(
-                           filesPathSorted[6].ElementAt(2));
+                  if (filesPathSorted[6].Count() >= 3)
+                  {
+                     newImage = contentControl.Range.InlineShapes.AddPicture(
+                        filesPathSorted[6].ElementAt(2));
 
-                        newImage.ScaleWidth = 100;
-                        newImage.ScaleHeight = 100;
+                     newImage.ScaleWidth = 100;
+                     newImage.ScaleHeight = 100;
 
-                        height = newImage.Height;
+                     height = newImage.Height;
 
-                        scale = constantHeightRG12 / height * 100;
+                     scale = constantHeightRG12 / height * 100;
 
-                        newImage.ScaleHeight = scale;
-                        newImage.ScaleWidth = scale;
-                     }
+                     newImage.ScaleHeight = scale;
+                     newImage.ScaleWidth = scale;
+                  }
 
-                     else
-                     {
-                        contentControl.Delete();
-                     }
+                  else
+                  {
+                     contentControl.Delete();
+                  }
 
-                     break;
+                  break;
 
-                  case "RepositioningGuide4":
+               case "RepositioningGuide4":
 
-                     if (filesPathSorted[6].Count() >= 4)
-                     {
-                        newImage = contentControl.Range.InlineShapes.AddPicture(
-                           filesPathSorted[6].ElementAt(3));
+                  if (filesPathSorted[6].Count() >= 4)
+                  {
+                     newImage = contentControl.Range.InlineShapes.AddPicture(
+                        filesPathSorted[6].ElementAt(3));
 
-                        newImage.ScaleWidth = 100;
-                        newImage.ScaleHeight = 100;
+                     newImage.ScaleWidth = 100;
+                     newImage.ScaleHeight = 100;
 
-                        height = newImage.Height;
+                     height = newImage.Height;
 
-                        scale = constantHeightRG12 / height * 100;
+                     scale = constantHeightRG12 / height * 100;
 
-                        newImage.ScaleHeight = scale;
-                        newImage.ScaleWidth = scale;
-                     }
+                     newImage.ScaleHeight = scale;
+                     newImage.ScaleWidth = scale;
+                  }
 
-                     else
-                     {
-                        contentControl.Delete();
-                     }
+                  else
+                  {
+                     contentControl.Delete();
+                  }
 
-                     break;
+                  break;
 
-                  case "RepositioningGuide5":
+               case "RepositioningGuide5":
 
-                     if (filesPathSorted[6].Count() >= 5)
-                     {
-                        newImage = contentControl.Range.InlineShapes.AddPicture(
-                           filesPathSorted[6].ElementAt(4));
+                  if (filesPathSorted[6].Count() >= 5)
+                  {
+                     newImage = contentControl.Range.InlineShapes.AddPicture(
+                        filesPathSorted[6].ElementAt(4));
 
-                        newImage.ScaleWidth = 100;
-                        newImage.ScaleHeight = 100;
+                     newImage.ScaleWidth = 100;
+                     newImage.ScaleHeight = 100;
 
-                        height = newImage.Height;
+                     height = newImage.Height;
 
-                        scale = constantHeightRG12 / height * 100;
+                     scale = constantHeightRG12 / height * 100;
 
-                        newImage.ScaleHeight = scale;
-                        newImage.ScaleWidth = scale;
-                     }
+                     newImage.ScaleHeight = scale;
+                     newImage.ScaleWidth = scale;
+                  }
 
-                     else
-                     {
-                        contentControl.Delete();
-                     }
+                  else
+                  {
+                     contentControl.Delete();
+                  }
 
-                     break;
+                  break;
 
-                  case "Spacers1":
-                     if (filesPathSorted[7].Any())
-                     {
-                        newImage = contentControl.Range.InlineShapes.AddPicture(
-                           filesPathSorted[7].ElementAt(0));
+               case "Spacers1":
+                  if (filesPathSorted[7].Any())
+                  {
+                     newImage = contentControl.Range.InlineShapes.AddPicture(
+                        filesPathSorted[7].ElementAt(0));
 
-                        newImage.ScaleWidth = 100;
-                        newImage.ScaleHeight = 100;
+                     newImage.ScaleWidth = 100;
+                     newImage.ScaleHeight = 100;
 
-                        height = newImage.Height;
+                     height = newImage.Height;
 
-                        scale = constantHeightSP12 / height * 100;
+                     scale = constantHeightSP12 / height * 100;
 
-                        newImage.ScaleHeight = scale;
-                        newImage.ScaleWidth = scale;
-                     }
+                     newImage.ScaleHeight = scale;
+                     newImage.ScaleWidth = scale;
+                  }
 
-                     break;
+                  break;
 
-                  case "Spacers2":
-                     if (filesPathSorted[7].Count() >= 2)
-                     {
-                        newImage = contentControl.Range.InlineShapes.AddPicture(
-                           filesPathSorted[7].ElementAt(1));
+               case "Spacers2":
+                  if (filesPathSorted[7].Count() >= 2)
+                  {
+                     newImage = contentControl.Range.InlineShapes.AddPicture(
+                        filesPathSorted[7].ElementAt(1));
 
-                        newImage.ScaleWidth = 100;
-                        newImage.ScaleHeight = 100;
+                     newImage.ScaleWidth = 100;
+                     newImage.ScaleHeight = 100;
 
-                        height = newImage.Height;
+                     height = newImage.Height;
 
-                        scale = constantHeightSP12 / height * 100;
+                     scale = constantHeightSP12 / height * 100;
 
-                        newImage.ScaleHeight = scale;
-                        newImage.ScaleWidth = scale;
-                     }
+                     newImage.ScaleHeight = scale;
+                     newImage.ScaleWidth = scale;
+                  }
 
-                     break;
+                  break;
 
-                  case "Spacers3":
+               case "Spacers3":
 
-                     if (filesPathSorted[7].Count() >= 3)
-                     {
-                        newImage = contentControl.Range.InlineShapes.AddPicture(
-                           filesPathSorted[7].ElementAt(2));
+                  if (filesPathSorted[7].Count() >= 3)
+                  {
+                     newImage = contentControl.Range.InlineShapes.AddPicture(
+                        filesPathSorted[7].ElementAt(2));
 
-                        newImage.ScaleWidth = 100;
-                        newImage.ScaleHeight = 100;
+                     newImage.ScaleWidth = 100;
+                     newImage.ScaleHeight = 100;
 
-                        height = newImage.Height;
+                     height = newImage.Height;
 
-                        scale = constantHeightSP12 / height * 100;
+                     scale = constantHeightSP12 / height * 100;
 
-                        newImage.ScaleHeight = scale;
-                        newImage.ScaleWidth = scale;
-                     }
+                     newImage.ScaleHeight = scale;
+                     newImage.ScaleWidth = scale;
+                  }
 
-                     else
-                     {
-                        contentControl.Delete();
-                     }
+                  else
+                  {
+                     contentControl.Delete();
+                  }
 
-                     break;
-               }
+                  break;
             }
+         }
 
-            try
-            {
-               doc.Save();
-            }
+         try
+         {
+            doc.Save();
+         }
 
-            catch (Exception e)
-            {
-               Console.WriteLine(e);
-            }
+         catch (Exception e)
+         {
+            Console.WriteLine(e);
+
          }
       }
    }
