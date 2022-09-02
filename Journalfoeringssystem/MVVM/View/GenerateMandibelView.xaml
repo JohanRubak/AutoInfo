@@ -57,7 +57,7 @@
    <Grid Margin="0,0,0,-187">
 
       <!--Searchbar-->
-      <Border Margin="20,20,20,0" CornerRadius="10" VerticalAlignment="Top" Height="113">
+      <Border Margin="20,20,20,0" CornerRadius="10" VerticalAlignment="Top" Height="120">
          <Border.Background>
             <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
                <GradientStop Color="#223266" Offset="0"/>
@@ -68,7 +68,8 @@
       <Border Visibility="Collapsed" BorderThickness="2" BorderBrush="#ccd7ff" CornerRadius="10" HorizontalAlignment="Center" Width="970" VerticalAlignment="Top" Height="603" Margin="0,20,0,0"/>
 
       <fa:IconImage Icon="Search" Foreground="#FFC8C8C8" Margin="177,41,820,0" RenderTransformOrigin="0.5,0.479" VerticalAlignment="Top"/>
-      <Button Content="Search" HorizontalAlignment="Left" Margin="442,32,0,0" VerticalAlignment="Top" Style="{StaticResource standardButton}" Command="{Binding SearchCommand}"/>
+      <Button Content="{Binding SearchButtonText, FallbackValue='Search', TargetNullValue='Search'}" HorizontalAlignment="Left" Margin="442,32,0,0" VerticalAlignment="Top" Style="{StaticResource standardButton}" Command="{Binding SearchCommand}"/>
+      <Image x:Name="LoadingGifSearch" gif:ImageBehavior.RepeatBehavior="Forever" gif:ImageBehavior.AnimatedSource="Loading.gif" HorizontalAlignment="Left" Height="26" Margin="454,34,0,0" VerticalAlignment="Top" Width="26" Source="/MVVM/View/Loading.gif" Visibility="{Binding LoadingSearch}"/>
       <TextBox TabIndex="0" x:Name="SearchbarTextBox" HorizontalAlignment="Left" Margin="198,38,0,0" Text="{Binding SearchNumber, TargetNullValue='Search for patient (XXXXXXXXX)'}" TextWrapping="Wrap" VerticalAlignment="Top" Width="231" Foreground="#FFC8C8C8" Background="#747999" MouseDoubleClick="SearchbarTextBox_OnMouseDoubleClick" GotKeyboardFocus="SearchbarTextBox_GotKeyboardFocus" KeyDown="SearchbarTextBox_KeyDown"/>
 
       <Label Content="CPR-number" HorizontalAlignment="Left" Margin="31,69,0,0" VerticalAlignment="Top" Foreground="#ccd7ff"/>
@@ -82,7 +83,7 @@
       <Button Command="{Binding LoadImages}" x:Name="LoadPicturesButton" Content="Load pictures" HorizontalAlignment="Left" Margin="885,93,0,0" VerticalAlignment="Top" Style="{StaticResource personsButton}" Width="87"/>
 
       <!--Informationinputs-->
-      <Border Margin="20,152,378,0" CornerRadius="10" VerticalAlignment="Top" Height="468">
+      <Border Margin="20,152,372,0" CornerRadius="10" VerticalAlignment="Top" Height="468">
          <Border.Background>
             <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
                <GradientStop Color="#223266" Offset="0"/>

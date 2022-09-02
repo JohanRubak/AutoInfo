@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Input;
+using Journalfoeringssystem.Annotations;
 using Journalfoeringssystem.Core;
 using Journalfoeringssystem.Domain;
 using Journalfoeringssystem.MVVM.Model;
@@ -298,11 +299,60 @@ namespace Journalfoeringssystem.MVVM.ViewModel
          }
       }
 
+      private Visibility _loadingSearch;
+
+      public Visibility LoadingSearch
+      {
+         get
+         {
+            return _loadingSearch;
+         }
+
+         set
+         {
+            _loadingSearch = value;
+            OnPropertyChanged(nameof(LoadingSearch));
+         }
+      }
+
+      private bool _searchButtonEnabled;
+
+      public bool SearchButtonEnabled
+      {
+         get
+         {
+            return _searchButtonEnabled;
+         }
+
+         set
+         {
+            _searchButtonEnabled = value;
+            OnPropertyChanged(nameof(SearchButtonEnabled));
+         }
+      }
+
+      private string _searchButtonText;
+
+      public string SearchButtonText
+      {
+         get
+         {
+            return _searchButtonText;
+         }
+
+         set
+         {
+            _searchButtonText = value;
+            OnPropertyChanged(nameof(SearchButtonText));
+         }
+      }
+
       public GenerateKraniofacialViewModel()
       {
          InformationContainer = new InformationContainer();
          InformationContainer.Protocol = "Kraniofacial";
          Loading = Visibility.Hidden;
+         LoadingSearch = Visibility.Hidden;
          PatientNotFound = Visibility.Hidden;
          ButtonEnabled = true;
          WorkerInput = new Worker();
@@ -339,28 +389,11 @@ namespace Journalfoeringssystem.MVVM.ViewModel
 
          SearchCommand = new RelayCommand(o =>
          {
-            if (!string.IsNullOrEmpty(SearchNumber) && !string.IsNullOrEmpty(DriveForSearch))
-            {
-               string[] path = FileReader.SearchForFiles(SearchNumber, DriveForSearch);
+            Thread thread1 = new Thread(StartSearchLoading);
+            thread1.Start();
 
-               if (path != null)
-               {
-                  SearchPath = path[0];
-                  PatientName = path[1];
-                  CPRNumber = SearchNumber;
-                  PatientNotFound = Visibility.Hidden;
-               }
-
-               else
-               {
-                  PatientNotFound = Visibility.Visible;
-               }
-            }
-
-            else
-            {
-               
-            }
+            Thread thread2 = new Thread(StartSearching);
+            thread2.Start();
 
          });
 
@@ -411,6 +444,43 @@ namespace Journalfoeringssystem.MVVM.ViewModel
          Loading = Visibility.Hidden;
          ButtonText = "Generate PDF";
          ButtonEnabled = true;
+      }
+
+      public void StartSearchLoading()
+      {
+         LoadingSearch = Visibility.Visible;
+         SearchButtonText = "";
+         SearchButtonEnabled = false;
+      }
+
+      public void StartSearching()
+      {
+         if (!string.IsNullOrEmpty(SearchNumber) && !string.IsNullOrEmpty(DriveForSearch))
+         {
+            string[] path = FileReader.SearchForFiles(SearchNumber, DriveForSearch);
+
+            if (path != null)
+            {
+               SearchPath = path[0];
+               PatientName = path[1];
+               CPRNumber = SearchNumber;
+               PatientNotFound = Visibility.Hidden;
+            }
+
+            else
+            {
+               PatientNotFound = Visibility.Visible;
+            }
+         }
+
+         else
+         {
+
+         }
+
+         LoadingSearch = Visibility.Hidden;
+         SearchButtonText = "Search";
+         SearchButtonEnabled = true;
       }
    }
 }
