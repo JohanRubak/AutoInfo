@@ -20,13 +20,14 @@ namespace Journalfoeringssystem.MVVM.ViewModel
       {
          HelpKranioFacialCommand = new RelayCommand(o =>
          {
-            Application ap = new Application();
-
             try
             {
+               Application ap = new Application();
                var path = Path.Combine(Directory.GetCurrentDirectory() + @"\TemplateFiles\AutoInfo\AutoInfo - Kraniofacial.docx");
-
-               Document document = ap.Documents.Open(path);
+               for (int i = 0; i < 2; i++)
+               {
+                  Document document = ap.Documents.Open(path);
+               }
             }
             catch (Exception e)
             {
@@ -36,13 +37,15 @@ namespace Journalfoeringssystem.MVVM.ViewModel
 
          HelpMandibelCommand = new RelayCommand(o =>
          {
-            Application ap = new Application();
 
             try
             {
-               var path = Path.Combine(Directory.GetCurrentDirectory() + @"\TemplateFiles\AutoInfo\AutoInfo - Mandibel.docx");
-               
-               Document document = ap.Documents.Open(path);
+               Application ap = new Application();
+               var path = Path.Combine(Directory.GetCurrentDirectory() + @"\TemplateFiles\AutoInfo\AutoInfo - Kraniofacial.docx");
+               for (int i = 0; i < 2; i++)
+               {
+                  Document document = ap.Documents.Open(path);
+               }
             }
             catch (Exception e)
             {

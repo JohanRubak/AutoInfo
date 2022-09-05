@@ -858,6 +858,7 @@ namespace Journalfoeringssystem.MVVM.Model
          try
          {
             doc.Save();
+            
          }
 
          catch (Exception e)
