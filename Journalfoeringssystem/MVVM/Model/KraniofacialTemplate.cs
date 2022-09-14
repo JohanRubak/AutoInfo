@@ -17,10 +17,13 @@ namespace Journalfoeringssystem.MVVM.Model
       float constantHeightFrontImage = 250;
       float constantHeightDI12 = 250;
       float constantHeightDI23 = 100;
-      float constantHeightPOS15 = 180;
-      float constantHeightO14 = 180;
+      float constantHeightPOS13 = 200;
+      float constantHeightPOS45 = 180;
+      float constantHeightO12 = 200;
+      float constantHeightO34 = 180;
       float constantHeightO46 = 270;
-      float constantHeightPO14 = 180;
+      float constantHeightPO12 = 200;
+      float constantHeightPO34 = 180;
       float constantHeightPO46 = 270;
       float constantHeightCG12 = 270;
       float constantHeightRG12 = 270;
@@ -251,7 +254,7 @@ namespace Journalfoeringssystem.MVVM.Model
 
                      height = newImage.Height;
 
-                     scale = constantHeightPOS15 / height * 100;
+                     scale = constantHeightPOS13 / height * 100;
 
                      newImage.ScaleHeight = scale;
                      newImage.ScaleWidth = scale;
@@ -270,7 +273,7 @@ namespace Journalfoeringssystem.MVVM.Model
 
                      height = newImage.Height;
 
-                     scale = constantHeightPOS15 / height * 100;
+                     scale = constantHeightPOS13 / height * 100;
 
                      newImage.ScaleHeight = scale;
                      newImage.ScaleWidth = scale;
@@ -289,7 +292,7 @@ namespace Journalfoeringssystem.MVVM.Model
 
                      height = newImage.Height;
 
-                     scale = constantHeightPOS15 / height * 100;
+                     scale = constantHeightPOS13 / height * 100;
 
                      newImage.ScaleHeight = scale;
                      newImage.ScaleWidth = scale;
@@ -308,7 +311,7 @@ namespace Journalfoeringssystem.MVVM.Model
 
                      height = newImage.Height;
 
-                     scale = constantHeightPOS15 / height * 100;
+                     scale = constantHeightPOS45 / height * 100;
 
                      newImage.ScaleHeight = scale;
                      newImage.ScaleWidth = scale;
@@ -328,7 +331,7 @@ namespace Journalfoeringssystem.MVVM.Model
 
                      height = newImage.Height;
 
-                     scale = constantHeightPOS15 / height * 100;
+                     scale = constantHeightPOS45 / height * 100;
 
                      newImage.ScaleHeight = scale;
                      newImage.ScaleWidth = scale;
@@ -353,7 +356,7 @@ namespace Journalfoeringssystem.MVVM.Model
 
                      height = newImage.Height;
 
-                     scale = constantHeightO14 / height * 100;
+                     scale = constantHeightO12 / height * 100;
 
                      newImage.ScaleHeight = scale;
                      newImage.ScaleWidth = scale;
@@ -372,7 +375,7 @@ namespace Journalfoeringssystem.MVVM.Model
 
                      height = newImage.Height;
 
-                     scale = constantHeightO14 / height * 100;
+                     scale = constantHeightO12 / height * 100;
 
                      newImage.ScaleHeight = scale;
                      newImage.ScaleWidth = scale;
@@ -391,7 +394,7 @@ namespace Journalfoeringssystem.MVVM.Model
 
                      height = newImage.Height;
 
-                     scale = constantHeightO14 / height * 100;
+                     scale = constantHeightO34 / height * 100;
 
                      newImage.ScaleHeight = scale;
                      newImage.ScaleWidth = scale;
@@ -410,7 +413,7 @@ namespace Journalfoeringssystem.MVVM.Model
 
                      height = newImage.Height;
 
-                     scale = constantHeightO14 / height * 100;
+                     scale = constantHeightO34 / height * 100;
 
                      newImage.ScaleHeight = scale;
                      newImage.ScaleWidth = scale;
@@ -473,7 +476,7 @@ namespace Journalfoeringssystem.MVVM.Model
 
                      height = newImage.Height;
 
-                     scale = constantHeightPO14 / height * 100;
+                     scale = constantHeightPO12 / height * 100;
 
                      newImage.ScaleHeight = scale;
                      newImage.ScaleWidth = scale;
@@ -492,7 +495,7 @@ namespace Journalfoeringssystem.MVVM.Model
 
                      height = newImage.Height;
 
-                     scale = constantHeightPO14 / height * 100;
+                     scale = constantHeightPO12 / height * 100;
 
                      newImage.ScaleHeight = scale;
                      newImage.ScaleWidth = scale;
@@ -511,7 +514,7 @@ namespace Journalfoeringssystem.MVVM.Model
 
                      height = newImage.Height;
 
-                     scale = constantHeightPO14 / height * 100;
+                     scale = constantHeightPO34 / height * 100;
 
                      newImage.ScaleHeight = scale;
                      newImage.ScaleWidth = scale;
@@ -530,7 +533,7 @@ namespace Journalfoeringssystem.MVVM.Model
 
                      height = newImage.Height;
 
-                     scale = constantHeightPO14 / height * 100;
+                     scale = constantHeightPO34 / height * 100;
 
                      newImage.ScaleHeight = scale;
                      newImage.ScaleWidth = scale;
