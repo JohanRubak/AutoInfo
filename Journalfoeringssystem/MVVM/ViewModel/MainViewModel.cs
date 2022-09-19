@@ -18,6 +18,8 @@ namespace Journalfoeringssystem.MVVM.ViewModel
       public RelayCommand GenerateMandibelViewCommand { get; set; }
       public RelayCommand HelpViewCommand { get; set; }
       
+
+      //Her ændres det der vises ved at ændre propertien, som sker i constructoren
       private object _currentView;
 
       public object CurrentView

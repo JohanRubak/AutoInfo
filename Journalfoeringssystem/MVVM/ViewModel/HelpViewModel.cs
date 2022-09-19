@@ -18,6 +18,7 @@ namespace Journalfoeringssystem.MVVM.ViewModel
 
       public HelpViewModel()
       {
+         //Åbner workdokument med information omkring udfyldelse af template for Kraniofacial med korrekte billeder
          HelpKranioFacialCommand = new RelayCommand(o =>
          {
             try
@@ -35,6 +36,7 @@ namespace Journalfoeringssystem.MVVM.ViewModel
             }
          });
 
+         //Åbner workdokument med information omkring udfyldelse af template for Mandibel med korrekte billeder
          HelpMandibelCommand = new RelayCommand(o =>
          {
 

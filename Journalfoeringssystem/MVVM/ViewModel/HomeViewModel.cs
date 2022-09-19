@@ -10,6 +10,7 @@ namespace Journalfoeringssystem.MVVM.ViewModel
 {
    class HomeViewModel: ObservableObject
    {
+      //Dette virker ikke, var for sjov eksperiment, for stor patientdatamængde til at det giver mening
       private int _numberOfDepartments;
 
       public int NumberOfDepartments
