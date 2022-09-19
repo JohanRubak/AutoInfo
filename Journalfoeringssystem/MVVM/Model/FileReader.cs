@@ -4,13 +4,15 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.ComTypes;
 using System.Windows.Documents;
+using System.Windows.Forms.Design;
+using Journalfoeringssystem.Domain;
 using Journalfoeringssystem.MVVM.View;
 
 namespace Journalfoeringssystem.MVVM.Model
 {
    public class FileReader
    {
-      public string[] Information { get; set; } = new string[3];
+      public string[] Information { get; set; } = new string[4];
 
       public string[] SearchForFiles(string patientCPR, string rootPath)
       {
@@ -37,6 +39,7 @@ namespace Journalfoeringssystem.MVVM.Model
 
                Information[0] = filePath[0] + @"\Billeder";
                Information[1] = patientName;
+               Information[3] = filePath[0];
 
                return Information;
 
@@ -95,6 +98,50 @@ namespace Journalfoeringssystem.MVVM.Model
          {
             Console.WriteLine(e);
             return null;
+         }
+      }
+
+      public List<ScanningInformationContainer> SearchForScanning(string searchPath)
+      {
+         List<ScanningInformationContainer> scanningList = new List<ScanningInformationContainer>();
+
+         try
+         {
+            var filePath = Directory.GetDirectories(searchPath, "*" + "Scan" + "*", SearchOption.AllDirectories);
+
+            for (int i = 0; i < filePath.Length; i++)
+            {
+               string scanFolder = new DirectoryInfo(filePath[i]).Name;
+
+               string[] scanInfo = scanFolder.Split('_');
+
+               ScanningInformationContainer ScanningInfo = new ScanningInformationContainer();
+
+               ScanningInfo.TypeOfScanning += scanInfo[1] + ", ";
+
+               for (int j = 0; j < scanInfo[2].Length; j++)
+               {
+                  if (Char.IsLetter(scanInfo[2][j]))
+                  {
+                  
+                  }
+
+                  else
+                  {
+                     ScanningInfo.SerieOfScanning += scanInfo[2][j];
+                  }
+               }
+
+               scanningList.Add(ScanningInfo);
+            }
+
+            return scanningList;
+         }
+
+         catch (Exception e)
+         {
+            Console.WriteLine(e);
+            return scanningList;
          }
       }
 

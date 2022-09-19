@@ -801,6 +801,12 @@ namespace Journalfoeringssystem.MVVM.ViewModel
                SearchPath = path[0];
                PatientName = path[1];
                CPRNumber = SearchNumber;
+               List<ScanningInformationContainer> scannings = FileReader.SearchForScanning(path[3]);
+               TypeOfScanning1 = scannings[0].TypeOfScanning;
+               SerieOfScanning1 = scannings[0].SerieOfScanning;
+               TypeOfScanning2 = scannings[1].TypeOfScanning;
+               SerieOfScanning2 = scannings[1].SerieOfScanning;
+
                PatientNotFound = Visibility.Hidden;
             }
 
@@ -823,10 +829,15 @@ namespace Journalfoeringssystem.MVVM.ViewModel
       public void StartSearchingFromFolderChoice()
       {
          string[] path = FileReader.SearchForFiles(DriveForSearch);
+         List<ScanningInformationContainer> scannings = FileReader.SearchForScanning(DriveForSearch);
 
          SearchPath = path[0];
          PatientName = path[1];
          CPRNumber = path[2];
+         TypeOfScanning1 = scannings[0].TypeOfScanning;
+         SerieOfScanning1 = scannings[0].SerieOfScanning;
+         TypeOfScanning2 = scannings[1].TypeOfScanning;
+         SerieOfScanning2 = scannings[1].SerieOfScanning;
 
       }
    }
