@@ -11,6 +11,7 @@
             <ResourceDictionary Source="Theme/Styles.xaml"/>
          </ResourceDictionary.MergedDictionaries>
 
+         <!--Forskellige views-->
          <DataTemplate DataType="{x:Type viewModel:HomeViewModel}">
             <view:HomeView />
          </DataTemplate>

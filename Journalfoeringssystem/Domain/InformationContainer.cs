@@ -7,6 +7,7 @@ using Journalfoeringssystem.MVVM.Model;
 
 namespace Journalfoeringssystem.Domain
 {
+   //DTO-klasse, der indeholder alle informationer, der skal bruges til at udfylde template
    public class InformationContainer
    {
       //Kraniofacial

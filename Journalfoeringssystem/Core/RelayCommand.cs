@@ -7,6 +7,7 @@ using System.Windows.Input;
 
 namespace Journalfoeringssystem.Core
 {
+   //Opsætning af klasse, for oprettelse af commandoer, og hvad der sker idet, de kaldes
    public class RelayCommand: ICommand
    {
       private Action<object> _execute;

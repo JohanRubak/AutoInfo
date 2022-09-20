@@ -30,6 +30,8 @@ namespace Journalfoeringssystem.MVVM.View
       public GenerateMandibelView()
       {
          InitializeComponent();
+
+         //Indstiller dato til dagsdato
          DateForPlanningDP.DisplayDate = DateTime.Today;
          DateForSurgeryDP.DisplayDate = DateTime.Today;
          DateOfScanningDP.DisplayDate = DateTime.Today;
@@ -38,6 +40,7 @@ namespace Journalfoeringssystem.MVVM.View
 
       private void PersonsListView_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
       {
+         //Indlæser valgte person i redigerbare felter
          Worker workerInput = new Worker();
          workerInput = (Worker)PersonsListView.SelectedItem;
 
@@ -188,6 +191,7 @@ namespace Journalfoeringssystem.MVVM.View
          DTB.SelectAll();
       }
 
+      //Sørger for, at der kun kan indtastes CPR-nummer, og at det automatisk sepereres med -
       private void SearchbarTextBox_KeyDown(object sender, KeyEventArgs e)
       {
          if (SearchbarTextBox.Text == "Search for patient (XXXXXXXXX)")

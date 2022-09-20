@@ -12,8 +12,10 @@ namespace Journalfoeringssystem.MVVM.Model
 {
    public class FileReader
    {
+      //Array, der indeholder den information, der skal fremsøges
       public string[] Information { get; set; } = new string[4];
 
+      //Søger efter patient, dermed CPR og navn ud fra indtastet søgeCPR og valgte drev for fremsøgning
       public string[] SearchForFiles(string patientCPR, string rootPath)
       {
          if (patientCPR.Length <= 11)
@@ -59,6 +61,7 @@ namespace Journalfoeringssystem.MVVM.Model
 
       }
 
+      //Anden søgemetode, der fremsøger patientnavn, CPR og søgestreng vha. valg af mappe
       public string[] SearchForFiles(string searchPath)
       {
 
@@ -101,6 +104,7 @@ namespace Journalfoeringssystem.MVVM.Model
          }
       }
 
+      //Fremsøger scanninger, der ligger i den valgte patientmappe og returnerer type af scanning og serie for scanning i en liste
       public List<ScanningInformationContainer> SearchForScanning(string searchPath)
       {
          List<ScanningInformationContainer> scanningList = new List<ScanningInformationContainer>();
@@ -145,7 +149,7 @@ namespace Journalfoeringssystem.MVVM.Model
          }
       }
 
-
+      //Loader billeder til liste, der indsættes i GUI
       public List<FileUpload> LoadPictures(string path)
       {
          List<FileUpload> filesForUpload = new List<FileUpload>();
@@ -176,30 +180,31 @@ namespace Journalfoeringssystem.MVVM.Model
          }
       }
 
-      public int[] LoadNumbers(string rootPath)
-      {
-         int[] Numbers = new int[2];
+      //Forsøg på at lave noget optælling af patienter, men der er alt for mange :))
+      //public int[] LoadNumbers(string rootPath)
+      //{
+      //   int[] Numbers = new int[2];
 
-         string departmentpath = @"C:\Patienter\";
+      //   string departmentpath = @"C:\Patienter\";
 
-         int numberOfDepartment = 0;
+      //   int numberOfDepartment = 0;
 
-         int numberOfPatients = 0;
+      //   int numberOfPatients = 0;
 
-         numberOfDepartment = Directory.GetDirectories(rootPath, "*", SearchOption.TopDirectoryOnly).Length;
+      //   numberOfDepartment = Directory.GetDirectories(rootPath, "*", SearchOption.TopDirectoryOnly).Length;
 
-         //var searchForPatients = Directory.GetDirectories(departmentpath, "*", SearchOption.TopDirectoryOnly);
+      //   //var searchForPatients = Directory.GetDirectories(departmentpath, "*", SearchOption.TopDirectoryOnly);
 
-         //for (int i = 0; i < searchForPatients.Length; i++)
-         //{
-         //   numberOfPatients += Directory.GetDirectories(searchForPatients[i] + @"\2021", "*", SearchOption.TopDirectoryOnly).Length;
-         //   numberOfPatients += Directory.GetDirectories(searchForPatients[i] + @"\2022", "*", SearchOption.TopDirectoryOnly).Length;
-         //}
+      //   //for (int i = 0; i < searchForPatients.Length; i++)
+      //   //{
+      //   //   numberOfPatients += Directory.GetDirectories(searchForPatients[i] + @"\2021", "*", SearchOption.TopDirectoryOnly).Length;
+      //   //   numberOfPatients += Directory.GetDirectories(searchForPatients[i] + @"\2022", "*", SearchOption.TopDirectoryOnly).Length;
+      //   //}
 
-         Numbers[0] = numberOfDepartment;
-         Numbers[1] = numberOfPatients;
+      //   Numbers[0] = numberOfDepartment;
+      //   Numbers[1] = numberOfPatients;
 
-         return Numbers;
-      }
+      //   return Numbers;
+      //}
    }
 }

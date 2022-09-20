@@ -11,9 +11,12 @@ namespace Journalfoeringssystem.MVVM.Model
 {
    public class MandibelTemplate : IDocument
    {
+      //Starer word
       public Microsoft.Office.Interop.Word.Application app = new Microsoft.Office.Interop.Word.Application();
 
       float height = 0;
+
+      //Højder for billeder i wordfil
       float constantHeightDI12 = 300;
       float constantHeightDI23 = 170;
       float constantHeightROF12 = 450;
@@ -23,19 +26,24 @@ namespace Journalfoeringssystem.MVVM.Model
       float constantHeightCG12 = 450;
       float constantHeightCG35 = 280;
       float constantHeightG12 = 270;
+
       float scale = 0;
       InlineShape newImage = null;
 
+      //Starter dokument
       Microsoft.Office.Interop.Word.Document doc = null;
 
+      //Finder template
       string filePath = Path.Combine(Directory.GetCurrentDirectory() + @"\TemplateFiles\Templates\Mandibel\Informationstabel, Mandibel - template.docx");
 
       public void GeneratePDFDocument(InformationContainer informationContainer,
          List<IOrderedEnumerable<string>> filesPathSorted)
       {
+         //Tilføjer template til dokument
          doc = app.Documents.Add(filePath);
          doc.Activate();
 
+         //Kæmpe foreach der løber alle områder, der kan ændres i igennem og indsætter korrekt information
          foreach (ContentControl contentControl in doc.ContentControls)
          {
             switch (contentControl.Title)
@@ -550,6 +558,7 @@ namespace Journalfoeringssystem.MVVM.Model
 
          try
          {
+            //Gemmer
             doc.Save();
          }
 

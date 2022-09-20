@@ -9,6 +9,7 @@ using Journalfoeringssystem.Annotations;
 
 namespace Journalfoeringssystem.Core
 {
+   //Klasse, der anvendes til at opdatere properties ved indtastning af informationer, og tryk på knapper
    public class ObservableObject: INotifyPropertyChanged
    {
       public event PropertyChangedEventHandler PropertyChanged;

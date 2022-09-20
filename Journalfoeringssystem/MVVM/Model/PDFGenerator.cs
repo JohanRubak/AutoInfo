@@ -19,6 +19,7 @@ namespace Journalfoeringssystem.MVVM.Model
 
       public void GeneratePDF(InformationContainer informationContainer)
       {
+         //Genererer wordfil ud fra valgte protocol
          switch (informationContainer.Protocol)
          {
             case "Kraniofacial":
@@ -63,6 +64,7 @@ namespace Journalfoeringssystem.MVVM.Model
          }
       }
 
+      //Finder korrekte billeder i relevante mapper og sortere efter oprettelsesdato og returnerer liste med alle fundne stier for filer - Kraniofacial
       public List<IOrderedEnumerable<string>> FindAndSortImagesForKraniofacial(string searchPath)
       {
          List<IOrderedEnumerable<string>> filesPathSorted = new List<IOrderedEnumerable<string>>();
@@ -88,6 +90,7 @@ namespace Journalfoeringssystem.MVVM.Model
          return filesPathSorted;
       }
 
+      //Finder korrekte billeder i relevante mapper og sortere efter oprettelsesdato og returnerer liste med alle fundne stier for filer - Mandibel
       public List<IOrderedEnumerable<string>> FindAndSortImagesForMandibel(string searchPath)
       {
          List<IOrderedEnumerable<string>> filesPathSorted = new List<IOrderedEnumerable<string>>();

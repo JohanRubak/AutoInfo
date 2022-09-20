@@ -20,6 +20,7 @@ namespace Journalfoeringssystem.MVVM.ViewModel
 {
    public class GenerateKraniofacialViewModel: ObservableObject
    {
+      //Commands, der anvendes ved tryk på knapper i GUI
       public RelayCommand SearchCommand { get; set; }
       public RelayCommand AddCommand { get; set; }
       public RelayCommand RemoveCommand { get; set; }
@@ -27,14 +28,25 @@ namespace Journalfoeringssystem.MVVM.ViewModel
       public RelayCommand LoadImages { get; set; }
       public RelayCommand GeneratePDFCommand { get; set; }
       public RelayCommand FindDirectory { get; set; }
+
+      //Klasser der anvendes til at holde styr på ansatte, der har arbejdet på case
       public Worker WorkerInput { get; set; }
       public Worker SelectedWorker { get; set; }
       public Workers WorkersInput { get; set; }
+
+      //Anvendes til at indlæse korrekte informationer omkring stier og filer
       public FileReader FileReader { get; set; }
+
+      //Anvendes til at generere wordfil ud fra template med korrekte informationer
       public PDFGenerator PdfGenerator { get; set; }
+
+      //Det valgte drev, der søges på
       public string DriveForSearch { get; set; }
+
+      //DTO, der indeholder alle nødvendige informationer for at kunne udfylde template
       public InformationContainer InformationContainer { get; set; }
 
+      //Liste med filer for billeder, der indlæses
       private List<FileUpload> _filesForUpload;
 
       public List<FileUpload> FilesForUpload
@@ -51,6 +63,7 @@ namespace Journalfoeringssystem.MVVM.ViewModel
          }
       }
 
+      //Søgte CPR-nummer
       private string _searchNumber;
 
       public string SearchNumber
@@ -66,7 +79,7 @@ namespace Journalfoeringssystem.MVVM.ViewModel
          }
       }
 
-
+      //Valgte CPR-nummer
       private string _CPRnumber;
 
       public string CPRNumber
@@ -83,6 +96,7 @@ namespace Journalfoeringssystem.MVVM.ViewModel
          }
       }
 
+      //Patient navn
       private string _patientName;
 
       public string PatientName
@@ -99,6 +113,7 @@ namespace Journalfoeringssystem.MVVM.ViewModel
          }
       }
 
+      //Søgestreng
       private string _searchPath;
 
       public string SearchPath
@@ -116,6 +131,7 @@ namespace Journalfoeringssystem.MVVM.ViewModel
          }
       }
 
+      //Dato for planlægning
       private DateTime _dateForPlanning;
 
       public DateTime DateForPlanning
@@ -133,6 +149,7 @@ namespace Journalfoeringssystem.MVVM.ViewModel
          }
       }
 
+      //Dato for operation
       private DateTime _dateForSurgery;
 
       public DateTime DateForSurgery
@@ -150,6 +167,7 @@ namespace Journalfoeringssystem.MVVM.ViewModel
          }
       }
 
+      //Dato for scanning
       private DateTime _dateForScanning;
 
       public DateTime DateForScanning
@@ -167,6 +185,7 @@ namespace Journalfoeringssystem.MVVM.ViewModel
          }
       }
 
+      //Type af scanning
       private string _typeOfScanning;
 
       public string TypeOfScanning
@@ -184,6 +203,7 @@ namespace Journalfoeringssystem.MVVM.ViewModel
          }
       }
 
+      //Serie af scanning
       private string _serieOfScanning;
 
       public string SerieOfScanning
@@ -201,6 +221,7 @@ namespace Journalfoeringssystem.MVVM.ViewModel
          }
       }
 
+      //Beskrivelse for skæreguide
       private string _cuttingGuide;
 
       public string CuttingGuide
@@ -218,6 +239,7 @@ namespace Journalfoeringssystem.MVVM.ViewModel
          }
       }
 
+      //Kommentarer
       private string _remarks;
 
       public string Remarks
@@ -235,6 +257,7 @@ namespace Journalfoeringssystem.MVVM.ViewModel
          }
       }
 
+      //Bruges til at styre tekst inde i knap
       private string _buttonText;
 
       public string ButtonText
@@ -251,6 +274,7 @@ namespace Journalfoeringssystem.MVVM.ViewModel
          }
       }
 
+      //Bruges til at styre synlighed af loading ikon i GUI
       private Visibility _loading;
 
       public Visibility Loading
@@ -267,6 +291,7 @@ namespace Journalfoeringssystem.MVVM.ViewModel
          }
       }
 
+      //Bruges til at styre om knap kan trykkes på
       private bool _buttonEnabled;
 
       public bool ButtonEnabled
@@ -283,6 +308,7 @@ namespace Journalfoeringssystem.MVVM.ViewModel
          }
       }
 
+      //Bruges til at illustrere om patienten ikke kunne fremsøges
       private Visibility _patientNotFound;
 
       public Visibility PatientNotFound
@@ -299,6 +325,7 @@ namespace Journalfoeringssystem.MVVM.ViewModel
          }
       }
 
+      //Styre synlighed af loading ved søgning
       private Visibility _loadingSearch;
 
       public Visibility LoadingSearch
@@ -315,6 +342,7 @@ namespace Journalfoeringssystem.MVVM.ViewModel
          }
       }
 
+      //Styre om knappen kan trykkes på ved søgning
       private bool _searchButtonEnabled;
 
       public bool SearchButtonEnabled
@@ -331,6 +359,7 @@ namespace Journalfoeringssystem.MVVM.ViewModel
          }
       }
 
+      //Søgeknap tekst
       private string _searchButtonText;
 
       public string SearchButtonText
@@ -361,6 +390,7 @@ namespace Journalfoeringssystem.MVVM.ViewModel
          FileReader = new FileReader();
          PdfGenerator = new PDFGenerator();
 
+         //Tilføjelse af personer på case
          AddCommand = new RelayCommand(o =>
          {
             if (WorkerInput.WorkerName != null && WorkerInput.WorkerJob != null && WorkerInput.WorkerName != "" && WorkerInput.WorkerJob != "")
@@ -372,6 +402,7 @@ namespace Journalfoeringssystem.MVVM.ViewModel
 
          });
 
+         //Fjerne personer på case
          RemoveCommand = new RelayCommand(o =>
          {
             WorkersInput.RemoveWorker(SelectedWorker);
@@ -380,6 +411,7 @@ namespace Journalfoeringssystem.MVVM.ViewModel
 
          });
 
+         //Ændre personer på case
          EditCommand = new RelayCommand(o =>
          {
             WorkersInput.EditWorker(SelectedWorker, new Worker() { WorkerName = WorkerInput.WorkerName, WorkerJob = WorkerInput.WorkerJob });
@@ -388,16 +420,20 @@ namespace Journalfoeringssystem.MVVM.ViewModel
 
          });
 
+         //Søge
          SearchCommand = new RelayCommand(o =>
          {
+            //Visuel loading
             Thread thread1 = new Thread(StartSearchLoading);
             thread1.Start();
 
+            //Faktiske søgning
             Thread thread2 = new Thread(StartSearching);
             thread2.Start();
 
          });
 
+         //Loading af billeder
          LoadImages = new RelayCommand(o =>
          {
             try
@@ -410,6 +446,7 @@ namespace Journalfoeringssystem.MVVM.ViewModel
             }
          });
 
+         //Genererign af wordfil
          GeneratePDFCommand = new RelayCommand(o =>
          {
             if (!string.IsNullOrEmpty(SearchPath) && !string.IsNullOrEmpty(CPRNumber))
@@ -422,6 +459,7 @@ namespace Journalfoeringssystem.MVVM.ViewModel
             }
          });
 
+         //Fremsøgning af drev, der skal søges i eller den faktiske patient
          FindDirectory = new RelayCommand(o =>
          {
             var dialog = new FolderBrowserDialog();
@@ -455,6 +493,7 @@ namespace Journalfoeringssystem.MVVM.ViewModel
          SearchButtonEnabled = false;
       }
 
+      //Søgefunktion ud fra indskrevet CPR-nummer
       public void StartSearching()
       {
          if (!string.IsNullOrEmpty(SearchNumber) && !string.IsNullOrEmpty(DriveForSearch))
@@ -467,8 +506,16 @@ namespace Journalfoeringssystem.MVVM.ViewModel
                PatientName = path[1];
                CPRNumber = SearchNumber;
                List<ScanningInformationContainer> scannings = FileReader.SearchForScanning(path[3]);
-               TypeOfScanning = scannings[0].TypeOfScanning;
-               SerieOfScanning = scannings[0].SerieOfScanning;
+               
+               try
+               {
+                  TypeOfScanning = scannings[0].TypeOfScanning;
+                  SerieOfScanning = scannings[0].SerieOfScanning;
+               }
+               catch (Exception e)
+               {
+                  MessageBox.Show("No scannings were found\r\n" + e);
+               }
 
                PatientNotFound = Visibility.Hidden;
             }
@@ -489,6 +536,7 @@ namespace Journalfoeringssystem.MVVM.ViewModel
          SearchButtonEnabled = true;
       }
 
+      //Søgefunktion ud fra valg af patientmappe
       public void StartSearchingFromFolderChoice()
       {
          string[] path = FileReader.SearchForFiles(DriveForSearch);
@@ -497,8 +545,16 @@ namespace Journalfoeringssystem.MVVM.ViewModel
          SearchPath = path[0];
          PatientName = path[1];
          CPRNumber = path[2];
-         TypeOfScanning = scannings[0].TypeOfScanning;
-         SerieOfScanning = scannings[0].SerieOfScanning;
+         
+         try
+         {
+            TypeOfScanning = scannings[0].TypeOfScanning;
+            SerieOfScanning = scannings[0].SerieOfScanning;
+         }
+         catch (Exception e)
+         {
+            MessageBox.Show("No scannings were found\r\n" + e);
+         }
 
       }
    }
