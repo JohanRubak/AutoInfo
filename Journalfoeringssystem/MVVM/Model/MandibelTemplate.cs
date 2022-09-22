@@ -22,10 +22,10 @@ namespace Journalfoeringssystem.MVVM.Model
       float constantHeightROF12 = 450;
       float constantHeightPO12 = 350;
       float constantHeightPO37 = 280;
-      float constantHeightO1 = 280;
+      float constantHeightR14 = 280;
       float constantHeightCG12 = 450;
-      float constantHeightCG35 = 280;
-      float constantHeightG12 = 270;
+      float constantHeightCG36 = 280;
+      float constantHeightG14 = 270;
 
       float scale = 0;
       InlineShape newImage = null;
@@ -410,7 +410,7 @@ namespace Journalfoeringssystem.MVVM.Model
 
                   break;
 
-               case "Osteotomy1":
+               case "Resection1":
                   if (filesPathSorted[3].Any())
                   {
                      newImage = contentControl.Range.InlineShapes.AddPicture(filesPathSorted[3].ElementAt(0));
@@ -420,7 +420,61 @@ namespace Journalfoeringssystem.MVVM.Model
 
                      height = newImage.Height;
 
-                     scale = constantHeightO1 / height * 100;
+                     scale = constantHeightR14 / height * 100;
+
+                     newImage.ScaleHeight = scale;
+                     newImage.ScaleWidth = scale;
+                  }
+
+                  break;
+
+               case "Resection2":
+                  if (filesPathSorted[3].Count() >= 2)
+                  {
+                     newImage = contentControl.Range.InlineShapes.AddPicture(filesPathSorted[3].ElementAt(1));
+
+                     newImage.ScaleWidth = 100;
+                     newImage.ScaleHeight = 100;
+
+                     height = newImage.Height;
+
+                     scale = constantHeightR14 / height * 100;
+
+                     newImage.ScaleHeight = scale;
+                     newImage.ScaleWidth = scale;
+                  }
+
+                  break;
+
+               case "Resection3":
+                  if (filesPathSorted[3].Count() >= 3)
+                  {
+                     newImage = contentControl.Range.InlineShapes.AddPicture(filesPathSorted[3].ElementAt(2));
+
+                     newImage.ScaleWidth = 100;
+                     newImage.ScaleHeight = 100;
+
+                     height = newImage.Height;
+
+                     scale = constantHeightR14 / height * 100;
+
+                     newImage.ScaleHeight = scale;
+                     newImage.ScaleWidth = scale;
+                  }
+
+                  break;
+
+               case "Resection4":
+                  if (filesPathSorted[3].Count() >= 4)
+                  {
+                     newImage = contentControl.Range.InlineShapes.AddPicture(filesPathSorted[3].ElementAt(3));
+
+                     newImage.ScaleWidth = 100;
+                     newImage.ScaleHeight = 100;
+
+                     height = newImage.Height;
+
+                     scale = constantHeightR14 / height * 100;
 
                      newImage.ScaleHeight = scale;
                      newImage.ScaleWidth = scale;
@@ -474,7 +528,7 @@ namespace Journalfoeringssystem.MVVM.Model
 
                      height = newImage.Height;
 
-                     scale = constantHeightCG35 / height * 100;
+                     scale = constantHeightCG36 / height * 100;
 
                      newImage.ScaleHeight = scale;
                      newImage.ScaleWidth = scale;
@@ -492,7 +546,7 @@ namespace Journalfoeringssystem.MVVM.Model
 
                      height = newImage.Height;
 
-                     scale = constantHeightCG35 / height * 100;
+                     scale = constantHeightCG36 / height * 100;
 
                      newImage.ScaleHeight = scale;
                      newImage.ScaleWidth = scale;
@@ -510,7 +564,25 @@ namespace Journalfoeringssystem.MVVM.Model
 
                      height = newImage.Height;
 
-                     scale = constantHeightCG35 / height * 100;
+                     scale = constantHeightCG36 / height * 100;
+
+                     newImage.ScaleHeight = scale;
+                     newImage.ScaleWidth = scale;
+                  }
+
+                  break;
+
+               case "CuttingGuide6":
+                  if (filesPathSorted[4].Count() >= 6)
+                  {
+                     newImage = contentControl.Range.InlineShapes.AddPicture(filesPathSorted[4].ElementAt(5));
+
+                     newImage.ScaleWidth = 100;
+                     newImage.ScaleHeight = 100;
+
+                     height = newImage.Height;
+
+                     scale = constantHeightCG36 / height * 100;
 
                      newImage.ScaleHeight = scale;
                      newImage.ScaleWidth = scale;
@@ -528,7 +600,7 @@ namespace Journalfoeringssystem.MVVM.Model
 
                      height = newImage.Height;
 
-                     scale = constantHeightG12 / height * 100;
+                     scale = constantHeightG14 / height * 100;
 
                      newImage.ScaleHeight = scale;
                      newImage.ScaleWidth = scale;
@@ -546,7 +618,43 @@ namespace Journalfoeringssystem.MVVM.Model
 
                      height = newImage.Height;
 
-                     scale = constantHeightG12 / height * 100;
+                     scale = constantHeightG14 / height * 100;
+
+                     newImage.ScaleHeight = scale;
+                     newImage.ScaleWidth = scale;
+                  }
+
+                  break;
+
+               case "Gutter3":
+                  if (filesPathSorted[5].Count() >= 3)
+                  {
+                     newImage = contentControl.Range.InlineShapes.AddPicture(filesPathSorted[5].ElementAt(2));
+
+                     newImage.ScaleWidth = 100;
+                     newImage.ScaleHeight = 100;
+
+                     height = newImage.Height;
+
+                     scale = constantHeightG14 / height * 100;
+
+                     newImage.ScaleHeight = scale;
+                     newImage.ScaleWidth = scale;
+                  }
+
+                  break;
+
+               case "Gutter4":
+                  if (filesPathSorted[5].Count() >= 4)
+                  {
+                     newImage = contentControl.Range.InlineShapes.AddPicture(filesPathSorted[5].ElementAt(3));
+
+                     newImage.ScaleWidth = 100;
+                     newImage.ScaleHeight = 100;
+
+                     height = newImage.Height;
+
+                     scale = constantHeightG14 / height * 100;
 
                      newImage.ScaleHeight = scale;
                      newImage.ScaleWidth = scale;

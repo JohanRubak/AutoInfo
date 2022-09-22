@@ -856,7 +856,6 @@ namespace Journalfoeringssystem.MVVM.ViewModel
                catch (Exception e)
                {
                   MessageBox.Show("No scannings were found\r\n" + e);
-                  throw;
                }
 
                PatientNotFound = Visibility.Hidden;
@@ -898,7 +897,6 @@ namespace Journalfoeringssystem.MVVM.ViewModel
          catch (Exception e)
          {
             MessageBox.Show("No scannings were found\r\n" + e);
-            throw;
          }
 
       }

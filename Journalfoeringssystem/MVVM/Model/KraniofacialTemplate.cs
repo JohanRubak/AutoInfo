@@ -219,11 +219,6 @@ namespace Journalfoeringssystem.MVVM.Model
                      newImage.ScaleWidth = scale;
                   }
 
-                  else
-                  {
-                     contentControl.Delete();
-                  }
-
                   break;
 
                case "DeliveredInstruments6":
@@ -242,11 +237,6 @@ namespace Journalfoeringssystem.MVVM.Model
 
                      newImage.ScaleHeight = scale;
                      newImage.ScaleWidth = scale;
-                  }
-
-                  else
-                  {
-                     contentControl.Delete();
                   }
 
                   break;
@@ -343,12 +333,6 @@ namespace Journalfoeringssystem.MVVM.Model
                      newImage.ScaleHeight = scale;
                      newImage.ScaleWidth = scale;
                   }
-
-                  else
-                  {
-                     contentControl.Delete();
-                  }
-
 
                   break;
 
@@ -465,11 +449,6 @@ namespace Journalfoeringssystem.MVVM.Model
                      newImage.ScaleWidth = scale;
                   }
 
-                  else
-                  {
-                     contentControl.Delete();
-                  }
-
                   break;
 
                case "PlannedOutcome1":
@@ -566,11 +545,6 @@ namespace Journalfoeringssystem.MVVM.Model
                      newImage.ScaleWidth = scale;
                   }
 
-                  else
-                  {
-                     contentControl.Delete();
-                  }
-
                   break;
 
                case "PlannedOutcome6":
@@ -589,11 +563,6 @@ namespace Journalfoeringssystem.MVVM.Model
 
                      newImage.ScaleHeight = scale;
                      newImage.ScaleWidth = scale;
-                  }
-
-                  else
-                  {
-                     contentControl.Delete();
                   }
 
                   break;
@@ -654,11 +623,6 @@ namespace Journalfoeringssystem.MVVM.Model
                      newImage.ScaleWidth = scale;
                   }
 
-                  else
-                  {
-                     contentControl.Delete();
-                  }
-
                   break;
 
                case "CuttingGuide4":
@@ -677,11 +641,6 @@ namespace Journalfoeringssystem.MVVM.Model
 
                      newImage.ScaleHeight = scale;
                      newImage.ScaleWidth = scale;
-                  }
-
-                  else
-                  {
-                     contentControl.Delete();
                   }
 
                   break;
@@ -743,11 +702,6 @@ namespace Journalfoeringssystem.MVVM.Model
                      newImage.ScaleWidth = scale;
                   }
 
-                  else
-                  {
-                     contentControl.Delete();
-                  }
-
                   break;
 
                case "RepositioningGuide4":
@@ -768,11 +722,6 @@ namespace Journalfoeringssystem.MVVM.Model
                      newImage.ScaleWidth = scale;
                   }
 
-                  else
-                  {
-                     contentControl.Delete();
-                  }
-
                   break;
 
                case "RepositioningGuide5":
@@ -791,11 +740,6 @@ namespace Journalfoeringssystem.MVVM.Model
 
                      newImage.ScaleHeight = scale;
                      newImage.ScaleWidth = scale;
-                  }
-
-                  else
-                  {
-                     contentControl.Delete();
                   }
 
                   break;
@@ -854,11 +798,6 @@ namespace Journalfoeringssystem.MVVM.Model
 
                      newImage.ScaleHeight = scale;
                      newImage.ScaleWidth = scale;
-                  }
-
-                  else
-                  {
-                     contentControl.Delete();
                   }
 
                   break;

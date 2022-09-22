@@ -98,14 +98,14 @@ namespace Journalfoeringssystem.MVVM.Model
          var deliveredInstrumentsFiles = Directory.GetFiles(searchPath + @"\Delivered Instruments", "*.*", SearchOption.AllDirectories).OrderBy(t => new FileInfo(t).LastWriteTime);
          var resectionOfFibulaSituationFiles = Directory.GetFiles(searchPath + @"\Resection of Fibula", "*.*", SearchOption.AllDirectories).OrderBy(t => new FileInfo(t).LastWriteTime);
          var plannedOutcomeFiles = Directory.GetFiles(searchPath + @"\Planned Outcome", "*.*", SearchOption.AllDirectories).OrderBy(t => new FileInfo(t).LastWriteTime);
-         var osteotomyFiles = Directory.GetFiles(searchPath + @"\Osteotomy", "*.*", SearchOption.AllDirectories).OrderBy(t => new FileInfo(t).LastWriteTime);
+         var resectionFiles = Directory.GetFiles(searchPath + @"\Resection", "*.*", SearchOption.AllDirectories).OrderBy(t => new FileInfo(t).LastWriteTime);
          var cuttingGuideFiles = Directory.GetFiles(searchPath + @"\Cutting Guide", "*.*", SearchOption.AllDirectories).OrderBy(t => new FileInfo(t).LastWriteTime);
          var gutterFiles = Directory.GetFiles(searchPath + @"\Gutter", "*.*", SearchOption.AllDirectories).OrderBy(t => new FileInfo(t).LastWriteTime);
 
          filesPathSorted.Add(deliveredInstrumentsFiles);
          filesPathSorted.Add(resectionOfFibulaSituationFiles);
          filesPathSorted.Add(plannedOutcomeFiles);
-         filesPathSorted.Add(osteotomyFiles);
+         filesPathSorted.Add(resectionFiles);
          filesPathSorted.Add(cuttingGuideFiles);
          filesPathSorted.Add(gutterFiles);
 
