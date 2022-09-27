@@ -81,5 +81,30 @@ namespace Journalfoeringssystem.MVVM.View
             }
          }
       }
+
+      private void Operator_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+      {
+         Operator.SelectAll();
+      }
+
+      private void IntersectionPoint_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+      {
+         IntersectionPoint.SelectAll();
+      }
+
+      private void HospitalRoom_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+      {
+         HospitalRoom.SelectAll();
+      }
+
+      private void NumberOfPieces_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+      {
+         NumberOfPieces.SelectAll();
+      }
+
+      private void OPCoordinator_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+      {
+         OPCoordinator.SelectAll();
+      }
    }
 }
