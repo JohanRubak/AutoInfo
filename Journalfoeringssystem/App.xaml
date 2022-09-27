@@ -24,6 +24,14 @@
             <view:GenerateMandibelView/>
          </DataTemplate>
 
+         <DataTemplate DataType="{x:Type viewModel:GenerateGenericViewModel}">
+            <view:GenerateGenericView />
+         </DataTemplate>
+
+         <DataTemplate DataType="{x:Type viewModel:GenerateSterilnoteViewModel}">
+            <view:GenerateSterilnoteView />
+         </DataTemplate>
+
          <DataTemplate DataType="{x:Type viewModel:HelpViewModel}">
             <view:HelpView />
          </DataTemplate>

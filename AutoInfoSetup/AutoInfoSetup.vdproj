@@ -21,7 +21,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_A90A8CB8A0FC4F4A8FC9637A3344F5DF"
+        "MsmKey" = "8:_7EC3A667E80C48BCA48B8FAE88CCDF30"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -199,7 +199,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:AutoInfoSetup"
         "ProductCode" = "8:{23A38398-7D17-4AD5-B9A6-4F8F77237871}"
-        "PackageCode" = "8:{806E7F95-B6AB-4162-805B-7A0DAA026542}"
+        "PackageCode" = "8:{63F99135-9093-4EC9-9E4D-6EBEBE92F8DD}"
         "UpgradeCode" = "8:{B12F2190-C05A-48FD-BFD2-B5F5B5A8CA62}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -327,7 +327,7 @@
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_A90A8CB8A0FC4F4A8FC9637A3344F5DF"
+            "Target" = "8:"
             "Folder" = "8:_9B6536D509E647CF884CCC62247349F7"
             "WorkingFolder" = "8:_4FD59D4D4D77436DAC963F13BDD343CC"
             "Icon" = "8:_7E35B6A8128A400FA392B9D6CD788488"
@@ -732,7 +732,7 @@
         }
         "ProjectOutput"
         {
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_A90A8CB8A0FC4F4A8FC9637A3344F5DF"
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_7EC3A667E80C48BCA48B8FAE88CCDF30"
             {
             "SourcePath" = "8:..\\Journalfoeringssystem\\obj\\Debug\\net5.0-windows\\apphost.exe"
             "TargetName" = "8:"

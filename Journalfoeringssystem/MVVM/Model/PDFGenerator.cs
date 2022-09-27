@@ -61,6 +61,26 @@ namespace Journalfoeringssystem.MVVM.Model
                }
 
                break;
+
+            case "Sterilnote":
+               try
+               {
+                  FilesPathSorted = FindAndSortImagesForSterilnote(informationContainer.SearchPath);
+                  PdfDocument = new SterilnoteTemplate();
+                  PdfDocument.GeneratePDFDocument(informationContainer, FilesPathSorted);
+               }
+               catch (Exception e)
+               {
+                  MessageBox.Show("Error: Wrong folderstructure for pictures or not correct amount of pictures!" + "\r\n\r\nException: " + e.ToString());
+
+                  if (FilesPathSorted != null)
+                  {
+                     PdfDocument = new SterilnoteTemplate();
+                     PdfDocument.GeneratePDFDocument(informationContainer, FilesPathSorted);
+                  }
+               }
+
+               break;
          }
       }
 
@@ -108,6 +128,18 @@ namespace Journalfoeringssystem.MVVM.Model
          filesPathSorted.Add(resectionFiles);
          filesPathSorted.Add(cuttingGuideFiles);
          filesPathSorted.Add(gutterFiles);
+
+         return filesPathSorted;
+      }
+
+      //Finder korrekte billeder i relevant mappe og sortere efter oprettelsesdato og returnerer liste med alle fundne stier for filer - Sterilnote
+      public List<IOrderedEnumerable<string>> FindAndSortImagesForSterilnote(string searchPath)
+      {
+         List<IOrderedEnumerable<string>> filesPathSorted = new List<IOrderedEnumerable<string>>();
+
+         var deliveredInstrumentsFiles = Directory.GetFiles(searchPath + @"\Delivered Instruments", "*.*", SearchOption.AllDirectories).OrderBy(t => new FileInfo(t).LastWriteTime);
+         
+         filesPathSorted.Add(deliveredInstrumentsFiles);
 
          return filesPathSorted;
       }

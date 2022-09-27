@@ -74,6 +74,20 @@
                </StackPanel>
             </Button>
 
+            <Button Style="{StaticResource menuButton}" Command="{Binding GenerateGenericViewCommand}">
+               <StackPanel Orientation="Horizontal">
+                  <fa:IconImage Icon="Genderless" Style="{StaticResource menuButtonIcon}"/>
+                  <TextBlock Text="Generate Generic PDF" Style="{StaticResource menuButtonText}"/>
+               </StackPanel>
+            </Button>
+
+            <Button Style="{StaticResource menuButton}" Command="{Binding GenerateSterilnoteViewCommand}">
+               <StackPanel Orientation="Horizontal">
+                  <fa:IconImage Icon="StickyNote" Style="{StaticResource menuButtonIcon}"/>
+                  <TextBlock Text="Generate Sterilnote PDF" Style="{StaticResource menuButtonText}"/>
+               </StackPanel>
+            </Button>
+
             <Button Style="{StaticResource menuButton}" Command="{Binding HelpViewCommand}">
                <StackPanel Orientation="Horizontal">
                   <fa:IconImage Icon="Question" Style="{StaticResource menuButtonIcon}"/>

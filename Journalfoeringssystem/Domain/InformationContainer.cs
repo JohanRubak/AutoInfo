@@ -47,6 +47,13 @@ namespace Journalfoeringssystem.Domain
       public string Direction { get; set; }
       public string Comments { get; set; }
 
+      //Sterilnote
+      public string Operator { get; set; }
+      public string IntersectionPoint { get; set; }
+      public string HospitalRoom { get; set; }
+      public string NumberOfPieces { get; set; }
+      public string OPCoordinator { get; set; }
+
       public InformationContainer()
       {
 

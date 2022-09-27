@@ -180,6 +180,36 @@ namespace Journalfoeringssystem.MVVM.Model
          }
       }
 
+      public List<FileUpload> LoadDeliveredInstrumentsPictures(string path)
+      {
+         List<FileUpload> filesForUpload = new List<FileUpload>();
+
+         if (!string.IsNullOrEmpty(path))
+         {
+            var files = Directory.GetFiles(path + @"\Delivered Instruments", "*.*", SearchOption.AllDirectories);
+
+            for (int i = 0; i < files.Length; i++)
+            {
+               string filename = Path.GetFileName(files[i]);
+               FileInfo fileInfo = new FileInfo(files[i]);
+               filesForUpload.Add(new FileUpload()
+               {
+                  FileName = filename,
+
+                  FileSize = string.Format("{0} {1}", (fileInfo.Length / 1.049e+6).ToString("0.0"), "Mb"),
+                  UploadProgress = 100
+               });
+            }
+
+            return filesForUpload;
+         }
+
+         else
+         {
+            return filesForUpload;
+         }
+      }
+
       //Forsøg på at lave noget optælling af patienter, men der er alt for mange :))
       //public int[] LoadNumbers(string rootPath)
       //{

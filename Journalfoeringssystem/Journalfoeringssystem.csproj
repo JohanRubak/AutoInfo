@@ -54,6 +54,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="MVVM\View\GenerateGenericView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="MVVM\View\GenerateSterilnoteView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="MVVM\View\GenerateMandibelView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -84,9 +90,20 @@
     <None Update="TemplateFiles\Templates\Mandibel\Informationstabel, Mandibel - template.docx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="TemplateFiles\Templates\Sterilnote\Informationstabel, Sterilnote - template.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
+    <Page Update="MVVM\View\GenerateGenericView.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MVVM\View\GenerateSterilnoteView.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="MVVM\View\GenerateMandibelView.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
