@@ -81,116 +81,6 @@ namespace Journalfoeringssystem.MVVM.View
          WorkerTitel.SelectAll();
       }
 
-      private void TypeOfScanningTextbox_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
-      {
-         TypeOfScanningTextbox.SelectAll();
-      }
-
-      private void SerieTextbox_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
-      {
-         SerieTextbox.SelectAll();
-      }
-
-      private void TypeOfScanning2Textbox_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
-      {
-         TypeOfScanning2Textbox.SelectAll();
-      }
-
-      private void Serie2Textbox_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
-      {
-         Serie2Textbox.SelectAll();
-      }
-
-      private void P1LTB_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
-      {
-         P1LTB.SelectAll();
-      }
-
-      private void P1FTB_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
-      {
-         P1FTB.SelectAll();
-      }
-
-      private void P1MTB_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
-      {
-         P1MTB.SelectAll();
-      }
-
-      private void P2LTB_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
-      {
-         P2LTB.SelectAll();
-      }
-
-      private void P2FTB_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
-      {
-         P2FTB.SelectAll();
-      }
-
-      private void P2MTB_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
-      {
-         P2MTB.SelectAll();
-      }
-
-      private void P3L_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
-      {
-         P3L.SelectAll();
-      }
-
-      private void P3L_GotKeyboardFocus_1(object sender, KeyboardFocusChangedEventArgs e)
-      {
-         P3L.SelectAll();
-      }
-
-      private void P3FTB_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
-      {
-         P3FTB.SelectAll();
-      }
-
-      private void P3MTB_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
-      {
-         P3MTB.SelectAll();
-      }
-
-      private void CommentTB_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
-      {
-         CommentTB.SelectAll();
-      }
-
-      private void FromTB_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
-      {
-         FromTB.SelectAll();
-      }
-
-      private void ToTB_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
-      {
-         ToTB.SelectAll();
-      }
-
-      private void DisMalTB_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
-      {
-         DisMalTB.SelectAll();
-      }
-
-      private void TlTB_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
-      {
-         TlTB.SelectAll();
-      }
-
-      private void CtTB_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
-      {
-         CtTB.SelectAll();
-      }
-
-      private void SdTB_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
-      {
-         SdTB.SelectAll();
-      }
-
-      private void DTB_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
-      {
-         DTB.SelectAll();
-      }
-
       //Sørger for, at der kun kan indtastes CPR-nummer, og at det automatisk sepereres med -
       private void SearchbarTextBox_KeyDown(object sender, KeyEventArgs e)
       {
@@ -225,6 +115,41 @@ namespace Journalfoeringssystem.MVVM.View
                }
             }
          }
+      }
+
+      private void HeadlineTB_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+      {
+         HeadlineTB.SelectAll();
+      }
+
+      private void TypeOfScanningTextbox_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+      {
+         TypeOfScanningTextbox.SelectAll();
+      }
+
+      private void SerieTextbox_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+      {
+         SerieTextbox.SelectAll();
+      }
+
+      private void TypeOfScanning2Textbox_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+      {
+         TypeOfScanning2Textbox.SelectAll();
+      }
+
+      private void Serie2Textbox_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+      {
+         Serie2Textbox.SelectAll();
+      }
+
+      private void GuideTB_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+      {
+         GuideTB.SelectAll();
+      }
+
+      private void CommentTB_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+      {
+         CommentTB.SelectAll();
       }
    }
 }

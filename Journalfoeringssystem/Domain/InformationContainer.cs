@@ -54,6 +54,10 @@ namespace Journalfoeringssystem.Domain
       public string NumberOfPieces { get; set; }
       public string OPCoordinator { get; set; }
 
+      //Generic
+      public string Headline { get; set; }
+      public string Guide { get; set; }
+
       public InformationContainer()
       {
 

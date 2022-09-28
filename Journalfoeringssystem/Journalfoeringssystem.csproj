@@ -84,6 +84,12 @@
     <None Update="TemplateFiles\AutoInfo\AutoInfo - Mandibel.docx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="TemplateFiles\Templates\Generic\Informationstabel, Generic_Liggende - template.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="TemplateFiles\Templates\Generic\Informationstabel, Generic_Stående - template.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="TemplateFiles\Templates\Kraniofacial\Informationstabel, Kraniofacial - template.docx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
