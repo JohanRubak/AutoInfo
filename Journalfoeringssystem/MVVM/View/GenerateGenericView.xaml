@@ -103,12 +103,12 @@
       <!--VirtualPlanning-->
       <Label Content="Name:" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#ccd7ff" Margin="32,384,0,0"/>
       <Label Content="Jobtitle:" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#ccd7ff" Margin="32,413,0,0"/>
-      <TextBox TabIndex="11" x:Name="NameWorker" HorizontalAlignment="Left" Margin="97,388,0,0" Text="{Binding WorkerInput.WorkerName, TargetNullValue='XXXX'}" TextWrapping="Wrap" VerticalAlignment="Top" Width="99" Foreground="#FFC8C8C8" Background="#747999" MouseDoubleClick="NameWorker_MouseDoubleClick" GotKeyboardFocus="NameWorker_GotKeyboardFocus"/>
-      <TextBox TabIndex="12" x:Name="WorkerTitel" HorizontalAlignment="Left" Margin="97,417,0,0" Text="{Binding WorkerInput.WorkerJob, TargetNullValue='XXXX'}" TextWrapping="Wrap" VerticalAlignment="Top" Width="99" Foreground="#FFC8C8C8" Background="#747999" MouseDoubleClick="WorkerTitel_MouseDoubleClick" GotKeyboardFocus="WorkerTitel_GotKeyboardFocus"/>
+      <ComboBox x:Name="NameWorker" HorizontalAlignment="Left" Margin="96,386,0,0" VerticalAlignment="Top" Width="100" Height="22" IsEditable="True" Text="{Binding WorkerInput.WorkerName, TargetNullValue='XXXX'}" ItemsSource="{Binding WorkersInput.ConfiguratedWorkerNames}" />
+      <ComboBox x:Name="WorkerTitel" HorizontalAlignment="Left" Margin="96,417,0,0" VerticalAlignment="Top" Width="100" Height="22" IsEditable="True" Text="{Binding WorkerInput.WorkerJob, TargetNullValue=XXXX}" ItemsSource="{Binding WorkersInput.ConfiguratedWorkerJobs}" />
       <Button Command="{Binding AddCommand}" x:Name="AddButton" Content="Add" HorizontalAlignment="Left" Margin="37,452,0,0" VerticalAlignment="Top" Style="{StaticResource personsButton}"/>
       <Button Command="{Binding EditCommand}" x:Name="EditButton" Content="Edit" HorizontalAlignment="Left" Margin="96,452,0,0" VerticalAlignment="Top" Style="{StaticResource personsButton}"/>
       <Button Command="{Binding RemoveCommand}"  x:Name="DeleteButton" Content="Delete" HorizontalAlignment="Left" Margin="156,452,0,0" VerticalAlignment="Top" Style="{StaticResource personsButton}"/>
-      <ListView x:Name="PersonsListView" Margin="218,363,590,0" Height="109" VerticalAlignment="Top" ItemsSource="{Binding WorkersInput.WorkersList}" SelectedItem="{Binding Path=SelectedWorker}" SelectionChanged="PersonsListView_OnSelectionChanged">
+      <ListView x:Name="PersonsListView" Margin="219,363,589,0" Height="109" VerticalAlignment="Top" ItemsSource="{Binding WorkersInput.WorkersList}" SelectedItem="{Binding Path=SelectedWorker}" SelectionChanged="PersonsListView_OnSelectionChanged">
          <ListView.View>
             <GridView >
                <GridViewColumn Header="Name" Width="130" DisplayMemberBinding="{Binding Path=WorkerName}"/>
@@ -220,6 +220,7 @@
       <TextBox x:Name="CommentTB" TabIndex="14" HorizontalAlignment="Left" Margin="36,570,0,0" Text="{Binding Remarks, FallbackValue='XXXX', TargetNullValue='XXXX'}" TextWrapping="Wrap" VerticalAlignment="Top" Width="456" Height="31" AcceptsReturn="True" GotKeyboardFocus="CommentTB_GotKeyboardFocus"/>
       <Label Content="Guide:" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#ccd7ff" Margin="32,487,0,0"/>
       <TextBox x:Name="GuideTB" TabIndex="13" HorizontalAlignment="Left" Margin="37,513,0,0" Text="{Binding Guide, FallbackValue=XXXX, TargetNullValue=XXXX}" TextWrapping="Wrap" VerticalAlignment="Top" Width="456" Height="31" AcceptsReturn="True" GotKeyboardFocus="GuideTB_GotKeyboardFocus"/>
+
 
    </Grid>
 

@@ -29,14 +29,12 @@ namespace Journalfoeringssystem.MVVM.Model
       float constantHeightPO34 = 180;
       float constantHeightPO46 = 270;
       float constantHeightCG12 = 270;
-      float constantHeightRG12 = 270;
-      float constantHeightSP12 = 270;
       float scale = 0;
       InlineShape newImage = null;
 
       //Starter dokument
       Microsoft.Office.Interop.Word.Document doc = null;
-
+      
       //Finder template
       string filePath = Path.Combine(Directory.GetCurrentDirectory() + @"\TemplateFiles\Templates\Generic\Informationstabel, Generic_Stående - template.docx");
 
@@ -647,6 +645,7 @@ namespace Journalfoeringssystem.MVVM.Model
          try
          {
             //Gemmer
+            doc.ReadOnlyRecommended = false;
             doc.Save();
             
          }

@@ -850,8 +850,10 @@ namespace Journalfoeringssystem.MVVM.ViewModel
                {
                   TypeOfScanning1 = scannings[0].TypeOfScanning;
                   SerieOfScanning1 = scannings[0].SerieOfScanning;
+                  DateForScanning1 = scannings[0].DateOfScanning;
                   TypeOfScanning2 = scannings[1].TypeOfScanning;
                   SerieOfScanning2 = scannings[1].SerieOfScanning;
+                  DateForScanning2 = scannings[1].DateOfScanning;
                }
                catch (Exception e)
                {
@@ -891,8 +893,10 @@ namespace Journalfoeringssystem.MVVM.ViewModel
          {
             TypeOfScanning1 = scannings[0].TypeOfScanning;
             SerieOfScanning1 = scannings[0].SerieOfScanning;
+            DateForScanning1 = scannings[0].DateOfScanning;
             TypeOfScanning2 = scannings[1].TypeOfScanning;
             SerieOfScanning2 = scannings[1].SerieOfScanning;
+            DateForScanning2 = scannings[1].DateOfScanning;
          }
          catch (Exception e)
          {

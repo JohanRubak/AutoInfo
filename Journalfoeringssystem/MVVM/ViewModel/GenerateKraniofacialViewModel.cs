@@ -550,6 +550,7 @@ namespace Journalfoeringssystem.MVVM.ViewModel
          {
             TypeOfScanning = scannings[0].TypeOfScanning;
             SerieOfScanning = scannings[0].SerieOfScanning;
+            DateForScanning = scannings[0].DateOfScanning;
          }
          catch (Exception e)
          {

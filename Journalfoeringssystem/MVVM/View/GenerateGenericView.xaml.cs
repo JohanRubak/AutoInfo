@@ -56,29 +56,9 @@ namespace Journalfoeringssystem.MVVM.View
          SearchbarTextBox.SelectAll();
       }
 
-      private void NameWorker_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-      {
-         NameWorker.SelectAll();
-      }
-
-      private void WorkerTitel_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-      {
-         WorkerTitel.SelectAll();
-      }
-
       private void SearchbarTextBox_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
       {
           SearchbarTextBox.SelectAll();
-      }
-
-      private void NameWorker_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
-      {
-         NameWorker.SelectAll();
-      }
-
-      private void WorkerTitel_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
-      {
-         WorkerTitel.SelectAll();
       }
 
       //Sørger for, at der kun kan indtastes CPR-nummer, og at det automatisk sepereres med -

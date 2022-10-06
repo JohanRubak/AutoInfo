@@ -29,8 +29,6 @@ namespace Journalfoeringssystem.MVVM.Model
       float constantHeightPO34 = 180;
       float constantHeightPO46 = 270;
       float constantHeightCG12 = 270;
-      float constantHeightRG12 = 270;
-      float constantHeightSP12 = 270;
       float scale = 0;
       InlineShape newImage = null;
 
@@ -647,6 +645,7 @@ namespace Journalfoeringssystem.MVVM.Model
          try
          {
             //Gemmer
+            doc.ReadOnlyRecommended = false;
             doc.Save();
             
          }

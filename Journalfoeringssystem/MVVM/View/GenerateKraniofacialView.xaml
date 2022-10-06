@@ -101,8 +101,10 @@
 
       <Label Content="Name:" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#ccd7ff" Margin="31,292,0,0"/>
       <Label Content="Jobtitle:" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#ccd7ff" Margin="31,321,0,0"/>
-      <TextBox TabIndex="6" x:Name="NameWorker" HorizontalAlignment="Left" Margin="96,296,0,0" Text="{Binding WorkerInput.WorkerName, TargetNullValue='XXXX'}" TextWrapping="Wrap" VerticalAlignment="Top" Width="144" Foreground="#FFC8C8C8" Background="#747999" MouseDoubleClick="NameWorker_MouseDoubleClick" GotKeyboardFocus="NameWorker_GotKeyboardFocus"/>
-      <TextBox TabIndex="7" x:Name="WorkerTitel" HorizontalAlignment="Left" Margin="96,325,0,0" Text="{Binding WorkerInput.WorkerJob, TargetNullValue='XXXX'}" TextWrapping="Wrap" VerticalAlignment="Top" Width="144" Foreground="#FFC8C8C8" Background="#747999" MouseDoubleClick="WorkerTitel_MouseDoubleClick" GotKeyboardFocus="WorkerTitel_GotKeyboardFocus"/>
+      <ComboBox x:Name="NameWorker" HorizontalAlignment="Left" Margin="98,294,0,0" VerticalAlignment="Top" Width="142" Height="22" IsEditable="True" Text="{Binding WorkerInput.WorkerName, TargetNullValue=XXXX}" ItemsSource="{Binding WorkersInput.ConfiguratedWorkerNames}" />
+      <ComboBox x:Name="WorkerTitel" HorizontalAlignment="Left" Margin="98,325,0,0" VerticalAlignment="Top" Width="142" Height="22" IsEditable="True" Text="{Binding WorkerInput.WorkerJob, TargetNullValue=XXXX}" ItemsSource="{Binding WorkersInput.ConfiguratedWorkerJobs}" />
+
+
       <Button Command="{Binding AddCommand}" x:Name="AddButton" Content="Add" HorizontalAlignment="Left" Margin="96,366,0,0" VerticalAlignment="Top" Style="{StaticResource personsButton}"/>
       <Button Command="{Binding EditCommand}" x:Name="EditButton" Content="Edit" HorizontalAlignment="Left" Margin="148,366,0,0" VerticalAlignment="Top" Style="{StaticResource personsButton}"/>
       <Button Command="{Binding RemoveCommand}"  x:Name="DeleteButton" Content="Delete" HorizontalAlignment="Left" Margin="199,366,0,0" VerticalAlignment="Top" Style="{StaticResource personsButton}"/>
@@ -197,7 +199,7 @@
             <TextBlock Text="Choose folder" Foreground="White" Margin="5 0 0 0"/>
          </StackPanel>
       </Button>
-
+      
 
 
    </Grid>

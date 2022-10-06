@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.ComTypes;
@@ -104,7 +105,7 @@ namespace Journalfoeringssystem.MVVM.Model
          }
       }
 
-      //Fremsøger scanninger, der ligger i den valgte patientmappe og returnerer type af scanning og serie for scanning i en liste
+      //Fremsøger scanninger, der ligger i den valgte patientmappe og returnerer type af scanning, serie for scanning og dato for scanning i en liste
       public List<ScanningInformationContainer> SearchForScanning(string searchPath)
       {
          List<ScanningInformationContainer> scanningList = new List<ScanningInformationContainer>();
@@ -135,6 +136,12 @@ namespace Journalfoeringssystem.MVVM.Model
                      ScanningInfo.SerieOfScanning += scanInfo[2][j];
                   }
                }
+
+               CultureInfo provider = CultureInfo.InvariantCulture;
+               string dt = scanInfo[3];
+               
+
+               ScanningInfo.DateOfScanning = DateTime.ParseExact(dt, "ddMMyy", CultureInfo.InvariantCulture);
 
                scanningList.Add(ScanningInfo);
             }

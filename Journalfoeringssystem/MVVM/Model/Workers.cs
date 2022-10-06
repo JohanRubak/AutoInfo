@@ -1,10 +1,20 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace Journalfoeringssystem.MVVM.Model
 {
    public class Workers
    {
       public ObservableCollection<Worker> WorkersList { get; set; } = new ObservableCollection<Worker>();
+      public List<string> ConfiguratedWorkerNames { get; set; }
+      public List<string> ConfiguratedWorkerJobs { get; set; }
+
+      public Workers()
+      {
+         ConfiguratedWorkerNames = new List<string>(){ "Joakim Lundtoft Lindhardt" , "Karen Eich Hammer", "Anders Mølgaard Jakobseb", "Mads Emil Nielsen", "Johan Andreas Balle Rubak", "Johan Blomlöf", "Sven Erik Nørholt", "Otto Thorsson ", "Emir Hasanbegovic", "Christian Bang", "Birgitte Jul Kiil"};
+         ConfiguratedWorkerJobs = new List<string>() { "Ingeniør", "Kirurg", "Læge", "Sygeplejerske" };
+      }
 
       //Tilføjelse af worker til liste
       public void AddWorker(Worker worker)

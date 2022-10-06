@@ -178,6 +178,7 @@ namespace Journalfoeringssystem.MVVM.Model
          try
          {
             //Gemmer
+            doc.ReadOnlyRecommended = false;
             doc.Save();
          }
 
