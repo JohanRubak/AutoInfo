@@ -171,14 +171,23 @@
       <!--INFO-->
       <Label Content="Intersection point:" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#ccd7ff" Margin="162,196,0,0"/>
       <Label Content="Hospital room:" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#ccd7ff" Margin="162,227,0,0" Width="122"/>
-      <TextBox TabIndex="22" x:Name="IntersectionPoint" HorizontalAlignment="Left" Margin="286,201,0,0" Text="{Binding IntersectionPoint, FallbackValue=XXXX, TargetNullValue='XXXX'}" TextWrapping="Wrap" VerticalAlignment="Top" Width="83" Foreground="#FFC8C8C8" Background="#747999" GotKeyboardFocus="IntersectionPoint_GotKeyboardFocus"/>
-      <TextBox TabIndex="23" x:Name="HospitalRoom" HorizontalAlignment="Left" Margin="286,231,0,0" Text="{Binding HospitalRoom, FallbackValue=XXXX, TargetNullValue='XXXX'}" TextWrapping="Wrap" VerticalAlignment="Top" Width="83" Foreground="#FFC8C8C8" Background="#747999" GotKeyboardFocus="HospitalRoom_GotKeyboardFocus"/>
+      <TextBox TabIndex="22" x:Name="IntersectionPoint" HorizontalAlignment="Left" Margin="277,201,0,0" Text="{Binding IntersectionPoint, FallbackValue=XXXX, TargetNullValue='XXXX'}" TextWrapping="Wrap" VerticalAlignment="Top" Width="122" Foreground="#FFC8C8C8" Background="#747999" GotKeyboardFocus="IntersectionPoint_GotKeyboardFocus"/>
+      <TextBox TabIndex="23" x:Name="HospitalRoom" HorizontalAlignment="Left" Margin="277,231,0,0" Text="{Binding HospitalRoom, FallbackValue=XXXX, TargetNullValue='XXXX'}" TextWrapping="Wrap" VerticalAlignment="Top" Width="122" Foreground="#FFC8C8C8" Background="#747999" GotKeyboardFocus="HospitalRoom_GotKeyboardFocus"/>
       <Label Content="Operator:" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#ccd7ff" Margin="162,166,0,0" Height="26" Width="74"/>
-      <TextBox TabIndex="21" x:Name="Operator" HorizontalAlignment="Left" Margin="286,170,0,0" Text="{Binding Operator, FallbackValue=XXXX, TargetNullValue='XXXX'}" TextWrapping="Wrap" VerticalAlignment="Top" Width="82" Foreground="#FFC8C8C8" Background="#747999" GotKeyboardFocus="Operator_GotKeyboardFocus"/>
+      <TextBox TabIndex="21" x:Name="Operator" HorizontalAlignment="Left" Margin="277,170,0,0" Text="{Binding Operator, FallbackValue=XXXX, TargetNullValue='XXXX'}"  TextWrapping="Wrap" VerticalAlignment="Top" Width="122" Foreground="#FFC8C8C8" Background="#747999" GotKeyboardFocus="Operator_GotKeyboardFocus" RenderTransformOrigin="0.5,0.5">
+         <TextBox.RenderTransform>
+            <TransformGroup>
+               <ScaleTransform/>
+               <SkewTransform/>
+               <RotateTransform Angle="-0.612"/>
+               <TranslateTransform/>
+            </TransformGroup>
+         </TextBox.RenderTransform>
+      </TextBox>
       <Label Content="OP-Coordinator:" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#ccd7ff" Margin="408,197,0,0"/>
       <Label Content="Number of pieces:" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#ccd7ff" Margin="408,166,0,0" Height="26" Width="106"/>
       <TextBox TabIndex="25" x:Name="OPCoordinator" HorizontalAlignment="Left" Margin="529,201,0,0" Text="{Binding OPCoordinator, FallbackValue=XXXX, TargetNullValue='XXXX'}" TextWrapping="Wrap" VerticalAlignment="Top" Width="84" Foreground="#FFC8C8C8" Background="#747999" GotKeyboardFocus="OPCoordinator_GotKeyboardFocus"/>
-      <TextBox TabIndex="24" x:Name="NumberOfPieces" HorizontalAlignment="Left" Margin="530,170,0,0" Text="{Binding NumberOfPieces, FallbackValue=XXXX, TargetNullValue='XXXX'}" TextWrapping="Wrap" VerticalAlignment="Top" Width="83" Foreground="#FFC8C8C8" Background="#747999" GotKeyboardFocus="NumberOfPieces_GotKeyboardFocus" />
+      <TextBox TabIndex="24" x:Name="NumberOfPieces" HorizontalAlignment="Left" Margin="529,170,0,0" Text="{Binding NumberOfPieces, FallbackValue=XXXX, TargetNullValue='XXXX'}" TextWrapping="Wrap" VerticalAlignment="Top" Width="84" Foreground="#FFC8C8C8" Background="#747999" GotKeyboardFocus="NumberOfPieces_GotKeyboardFocus" />
 
    </Grid>
 

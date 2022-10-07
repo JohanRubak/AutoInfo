@@ -669,6 +669,8 @@ namespace Journalfoeringssystem.MVVM.Model
             //Gemmer
             doc.ReadOnlyRecommended = false;
             doc.Save();
+            doc.Close();
+            app.Quit();
          }
 
          catch (Exception e)
