@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.32106.194
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Journalfoeringssystem", "Journalfoeringssystem\Journalfoeringssystem.csproj", "{A047096A-6F8E-4B29-B57C-F3D52C5CA6F2}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "AutoInfoSetup", "AutoInfoSetup\AutoInfoSetup.vdproj", "{77DE0A2C-0483-4EC8-94DA-0A5B40BA2BAE}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "AutoInfo", "AutoInfoSetup\AutoInfoSetup.vdproj", "{77DE0A2C-0483-4EC8-94DA-0A5B40BA2BAE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

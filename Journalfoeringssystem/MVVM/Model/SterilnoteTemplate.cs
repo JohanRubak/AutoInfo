@@ -41,6 +41,14 @@ namespace Journalfoeringssystem.MVVM.Model
          {
             switch (contentControl.Title)
             {
+               case "DateForDelivery":
+                  contentControl.Range.Text = informationContainer.DateForDelivery.ToShortDateString();
+                  break;
+
+               case "DateForOPDelivery":
+                  contentControl.Range.Text = informationContainer.DateForOPDelivery.ToShortDateString();
+                  break;
+
                case "DateForSurgery":
                   contentControl.Range.Text = informationContainer.DateForSurgery.ToShortDateString();
                   break;
@@ -63,6 +71,10 @@ namespace Journalfoeringssystem.MVVM.Model
 
                case "OPCoordinator":
                   contentControl.Range.Text = informationContainer.OPCoordinator;
+                  break;
+
+               case "NumberOfPages":
+                  contentControl.Range.Text = informationContainer.NumberOfPages;
                   break;
 
                case "Piece1":

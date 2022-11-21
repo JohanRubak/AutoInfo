@@ -65,11 +65,10 @@ namespace Journalfoeringssystem.MVVM.Model
       //Anden søgemetode, der fremsøger patientnavn, CPR og søgestreng vha. valg af mappe
       public string[] SearchForFiles(string searchPath)
       {
-
-         var filePath = new DirectoryInfo(searchPath);
-
          try
          {
+            var filePath = new DirectoryInfo(searchPath);
+
             string patientName = string.Empty;
 
             string patientCPR = string.Empty;

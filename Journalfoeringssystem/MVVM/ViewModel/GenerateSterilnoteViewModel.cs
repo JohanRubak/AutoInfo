@@ -138,6 +138,42 @@ namespace Journalfoeringssystem.MVVM.ViewModel
          }
       }
 
+      //Dato for delivery to department of sterilization
+      private DateTime _dateForDelivery;
+
+      public DateTime DateForDelivery
+      {
+         get
+         {
+            return _dateForDelivery;
+         }
+
+         set
+         {
+            _dateForDelivery = value;
+            OnPropertyChanged(nameof(DateForDelivery));
+            InformationContainer.DateForDelivery = DateForDelivery;
+         }
+      }
+
+      //Dato for delivery to OP
+      private DateTime _dateForOPDelivery;
+
+      public DateTime DateForOPDelivery
+      {
+         get
+         {
+            return _dateForOPDelivery;
+         }
+
+         set
+         {
+            _dateForOPDelivery = value;
+            OnPropertyChanged(nameof(DateForOPDelivery));
+            InformationContainer.DateForOPDelivery = DateForOPDelivery;
+         }
+      }
+
       //Bruges til at ændre udseende for knap, når der trykkes på
       private string _buttonText;
 
@@ -240,6 +276,8 @@ namespace Journalfoeringssystem.MVVM.ViewModel
          }
       }
 
+      public List<string> ConfiguratedIntersectionPoints { get; set; }
+
       private string _hospitalRoom;
 
       public string HospitalRoom
@@ -270,7 +308,7 @@ namespace Journalfoeringssystem.MVVM.ViewModel
          {
             _numberOfPieces = value;
             OnPropertyChanged(nameof(NumberOfPieces));
-            InformationContainer.NumberOfPieces = NumberOfPieces;
+            InformationContainer.NumberOfPieces = NumberOfPieces; 
          }
       }
 
@@ -287,7 +325,24 @@ namespace Journalfoeringssystem.MVVM.ViewModel
          {
             _OPCoordinator = value;
             OnPropertyChanged(nameof(OPCoordinator));
-            InformationContainer.OPCoordinator = OPCoordinator;
+            InformationContainer.OPCoordinator = OPCoordinator; 
+         }
+      }
+
+      private string _numberOfPages;
+
+      public string NumberOfPages
+      {
+         get
+         {
+            return _numberOfPages;
+         }
+
+         set
+         {
+            _numberOfPages = value;
+            OnPropertyChanged(nameof(NumberOfPages));
+            InformationContainer.NumberOfPages = NumberOfPages;
          }
       }
 
@@ -345,6 +400,7 @@ namespace Journalfoeringssystem.MVVM.ViewModel
       {
          InformationContainer = new InformationContainer();
          InformationContainer.Protocol = "Sterilnote";
+         ConfiguratedIntersectionPoints = new List<string>() { "OP-Nord 1 J309", "OP-Nord 1 J305", "OP-Øst 3 H309"};
          Loading = Visibility.Hidden;
          LoadingSearch = Visibility.Hidden;
          PatientNotFound = Visibility.Hidden;

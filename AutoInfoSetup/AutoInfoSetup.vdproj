@@ -21,7 +21,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_9F489843018C40BC8B4316DF53178001"
+        "MsmKey" = "8:_7E48E78DB8AF4DFDA5B4CDB35DDCFA2B"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -319,7 +319,7 @@
         }
         "Shortcut"
         {
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_D4241984091842EE856CC0F85DD08E6F"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_4E8BFAE011E6496CA87CB15BD18BEF1E"
             {
             "Name" = "8:AutoInfo"
             "Arguments" = "8:"
@@ -327,10 +327,10 @@
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_9F489843018C40BC8B4316DF53178001"
+            "Target" = "8:_7E48E78DB8AF4DFDA5B4CDB35DDCFA2B"
             "Folder" = "8:_9B6536D509E647CF884CCC62247349F7"
             "WorkingFolder" = "8:_4FD59D4D4D77436DAC963F13BDD343CC"
-            "Icon" = "8:_7E35B6A8128A400FA392B9D6CD788488"
+            "Icon" = "8:"
             "Feature" = "8:"
             }
         }
@@ -732,7 +732,7 @@
         }
         "ProjectOutput"
         {
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_9F489843018C40BC8B4316DF53178001"
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_7E48E78DB8AF4DFDA5B4CDB35DDCFA2B"
             {
             "SourcePath" = "8:..\\Journalfoeringssystem\\obj\\Debug\\net5.0-windows\\apphost.exe"
             "TargetName" = "8:"

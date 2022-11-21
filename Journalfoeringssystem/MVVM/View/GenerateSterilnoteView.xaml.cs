@@ -33,6 +33,8 @@ namespace Journalfoeringssystem.MVVM.View
 
          //Indstiller dato til dagsdato
          DateForSurgeryDP.DisplayDate = DateTime.Today;
+         DateForDelivery.DisplayDate = DateTime.Today;
+         DateForOPDelivery.DisplayDate = DateTime.Today;
       }
 
 
@@ -85,11 +87,6 @@ namespace Journalfoeringssystem.MVVM.View
       private void Operator_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
       {
          Operator.SelectAll();
-      }
-
-      private void IntersectionPoint_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
-      {
-         IntersectionPoint.SelectAll();
       }
 
       private void HospitalRoom_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)

@@ -53,10 +53,14 @@ namespace Journalfoeringssystem.Domain
       public string HospitalRoom { get; set; }
       public string NumberOfPieces { get; set; }
       public string OPCoordinator { get; set; }
+      public string NumberOfPages { get; set; }
+      public DateTime DateForDelivery { get; set; }
+      public DateTime DateForOPDelivery { get; set; }
 
       //Generic
       public string Headline { get; set; }
       public string Guide { get; set; }
+
 
       public InformationContainer()
       {
